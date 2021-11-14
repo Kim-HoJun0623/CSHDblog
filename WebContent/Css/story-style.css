@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
+*{ margin: 0px;padding: 0px;list-style: none;text-decoration: none;color: black;}
+
+
+/* header */
+.header {height: 194px;text-align: center;box-sizing: border-box;}
+.header_top{font: 15px bold;float: right;font-family: 'NotoSansKR';}
+.header_top a{margin-right:30px;margin-left: 25px;color: #999;}
+.header_logo{display: block;margin: 0 auto;width: 174px;height: 125px;}
+.header_logo h1{font: bold 60px 'NotoSansKR';padding-top: 40px;letter-spacing: 2px;line-height: 95%;}
+.header_logo p {font: bold 20px 'NotoSansKR';letter-spacing: 2px;margin-top: -1px;}
+.header_gnb ul{margin-top: 40px;float: left;}
+.header_gnb ul li{display: inline-block;}
+.header_gnb ul li a{display: block;font: bold 20px 'NotoSansKR';margin: 0px 16px;letter-spacing: 1px;transition: 1.5s;padding: 3px 15px 1px 15px;}
+.header_gnb ul li:last-child a{background-color: black;color: white;}
+.header_gnb ul li a:hover{background-color: black;color: white;}
+.header_gnb{height: 100px;}
+
+
+/* tit */
+.tit{ margin: 50px 0 0 20px;}
+.tit h2{font-size: 50px;font-family: 'NotoSansKR';font-weight: bold;color: black;display: inline-block;margin-left: 30px;}
+.tit button{float: right;width: 100px;height: 50px;margin-right: 50px;
+    background-color: skyblue;border: none;border-radius: 5px;}
+.tit button a{font-size: 15px;font-family: 'NotoSansKR';font-weight: bold;}
+
+
+/* cont */
+.cont{width: 1900px;height: 1000px;margin-top: 50px;overflow: hidden;}
+.part{width: 1700px;height: 500px;margin: auto;}
+.box{display: inline-block;width: calc(50% - 50px);height: 400px;float: left;background-color: #999;margin-left: 50px;}
+.img-box{background-color:#ccc; width: 100%;height: 340px;text-align: center;}
+.box p{font-size: 20px;font-weight: bold;font-family: 'NotoSansKR';}
+.box img{height: 100%;}
+.text-box{width: 100%;height: calc(100% - 350px); overflow: hidden; text-overflow: ellipsis;}

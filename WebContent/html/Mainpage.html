@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Main Page Layout</title>
+<link rel="stylesheet" href="../Css/reset.css">
+<link rel="stylesheet" href="../Css/font.css">
+<link rel="stylesheet" href="../Css/main-style.css">
+<link rel="stylesheet" href="../Css/jd-slider.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css"
+          integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css"
+          integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+<script src="../js/jquery.js"></script> 
+<script src="../js/jquery.jdSlider-latest.min.js"></script> 
+
+<!-- Fancy Box -->
+<link rel="stylesheet" type="text/css" href="../Css/jquery.fancybox.min.css">
+<script type="text/javascript" src="../js/jquery.fancybox.min.js"></script>
+</head>
+
+<body>
+<div id="wrap">
+  <header class="header">
+    <div class="header_top">
+        <a href="../html/Login.html">LOGIN</a>
+        <a href="../html/Sign.html">SIGN</a>
+    </div>
+    <div class="header_logo">
+        <a href="../html/Mainpage.html">
+            <h1>CSHD</h1>
+            <p>blog</p>
+        </a>
+    </div>
+    <div class="header_gnb">
+        <ul>
+            <li><a href="../html/Gallery.html">GALLERY</a></li>
+            <li><a href="../html/Story.html">STORY</a></li>
+        </ul>
+    </div>
+</header>
+  <div class="content main"> 
+    
+    <section class="jd-slider main-slider main-visual">
+      <div class="slide-inner">
+          <ul class="slide-area">
+              <li>
+                  <a href="#"><img src="../Img/om-big1.PNG" alt="image01"></a>
+              </li>
+              <li>
+                <a href="#"><img src="../Img/dogbig.PNG" alt="image02"></a>
+              </li>
+              <li>
+                <a href="#"><img src="../IMG/catbig.PNG" alt="image03"></a>
+              </li>
+          </ul>
+          <a class="prev" href="#">
+              <i class="fas fa-angle-left fa-2x"></i>
+          </a>
+          <a class="next" href="#">
+              <i class="fas fa-angle-right fa-2x"></i>
+          </a>
+      </div>
+      <div class="controller">
+          <a class="auto" href="#">
+              <i class="fas fa-play fa-xs"></i>
+              <i class="fas fa-pause fa-xs"></i>
+          </a>
+          <div class="indicate-area"></div>
+      </div>
+  </section>
+
+  <!-- best tap -->
+    <section class="sec-cont">
+      <div class="best-tap">
+        <div class="best-tit">
+          <a href="../html/Gallery.html">
+            <h3 class="tit">BEST GALLERY</h3>
+          </a>
+        </div>
+        <ul>
+            <li>
+              <div class="best-img">image</div>
+            </li>
+            <li>
+              <div class="best-img">image</div>
+            </li>
+            <li>
+              <div class="best-img">image</div>
+            </li>
+            <li>
+              <div class="best-img">image</div>
+            </li>
+        </ul>
+      </div>
+    </section>
+
+
+  <!-- story tap -->
+	<section class="story-tap">
+    <div class="story-tit">
+      <a href="../html/Story.html">
+      <h3 class="tit">STORY</h3>
+    </div>
+    
+  </a>
+    <ul>
+      <li>
+        <div class="story-box">
+          <div class="story-img"><img src="../Img/mouse-1.PNG" alt=""></div>
+          <p>멧밭쥐는 한반도에서 흔한 들쥐류로 한국 전역에 서식한다.<br>
+            이들은 논이나 풀밭에서 둥지를 만들고 새끼를 5~6마리를 낳는다.</p>
+        </div> 
+      </li>
+      <li>
+        <div class="story-box">
+          <div class="story-img"><img src="../Img/om-3.PNG" alt=""></div>
+          <p>옴팡이는 애소 작가가 그린 카카오톡 이모티콘이며 너무너무 귀엽다<br>
+          머머리 중 최강 귀요미일듯 하다.... !!!</p>
+        </div>
+      </li>
+      <li>
+        <div class="story-box">
+          <div class="story-img"><img src="../Img/bird-5.PNG" alt=""></div>
+          <p>뱁새는 평균적으로 몸길이가 14cm, 꼬리길이가 8cm이며 <br>
+          그 작은 몸으로 날개짓하는게 너무 귀여워서 나 죽엉 >_<</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+</div>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-cont">
+      <div class="footer-logo"><h2>C.S.H.D</h2></div>
+      <div class="team">
+        <span><p>Team Member</p>
+          <p>Cute HYUK</p>
+          <p>Sexy KYU / Hansume JUNE</p>
+        </span>
+      </div>
+      
+    </div>
+  </footer>
+</div>
+	
+<!-- Slider Script -->
+<script>
+        window.onload = function () {
+          $('.main-slider').jdSlider({
+                wrap: '.slide-inner',
+                isAuto: true,
+                isLoop: true
+            });
+            $('.slider').jdSlider({
+                wrap: '.slide-inner',
+                slideShow: 4,
+                slideToScroll: 1,
+                isLoop: true,
+                responsive: [{
+                    viewSize: 768,
+                    settings: {
+                        slideShow: 1
+                    }
+                }]
+            });
+        };
+    </script>
+</body>
+</html>

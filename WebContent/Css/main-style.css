@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
+*{margin: 0px;padding: 0px;list-style: none;text-decoration: none;color: black;}
+
+/* header */
+.header {height: 200px;text-align: center;box-sizing: border-box;border-bottom: 1px solid #999;}
+.header_top{font: 15px bold;float: right;font-family: 'NotoSansKR';}
+.header_top a{margin-right:30px;margin-left: 25px;color: #999;}
+.header_logo{display: block;margin: 0 auto;width: 174px;height: 125px;}
+.header_logo h1{font: bold 60px 'NotoSansKR';padding-top: 40px;letter-spacing: 2px;line-height: 95%;}
+.header_logo p {font: bold 20px 'NotoSansKR';letter-spacing: 2px;margin-top: -1px;}
+.header_gnb ul{margin-top: 40px;float: left;}
+.header_gnb ul li{display: inline-block;}
+.header_gnb ul li a{display: block;font: bold 20px 'NotoSansKR';margin: 0px 16px;letter-spacing: 1px;transition: 1.5s;padding: 3px 15px 1px 15px;}
+.header_gnb ul li a:hover{background-color: black;color: white;}
+
+/* main */
+.content{background:#fff;overflow:hidden;width: 1900px;}
+.main-visual dl{position:absolute;right:20%;top:50%;transform:translateY(-50%);color:#fff}
+.main-visual dt{text-align:center;font-size:46px}
+.main-visual dt{font-size: 40px;}
+.main-visual li{position:relative;}
+
+
+/* best */
+.sec-cont h3 ,.story-tap h3{text-align:center;font-size:35px;padding:80px 0 60px;position: relative;}
+.best-tit{display: block;width: 250px;height: 195px;margin: auto;}
+.tit{font-size:30px;font-weight:700;font-family:'Roboto', sans-serif}
+.best-img{height: 300px;margin-bottom:20px;text-indent:-999999px;font-size:0;color:transparent;background:#999 no-repeat center / cover;border-radius: 50px;}
+.best-tap ul li:nth-child(1) .best-img{background-image: url(../Img/bird-1.PNG);}
+.best-tap ul li:nth-child(2) .best-img{background-image: url(../Img/mouse-2.PNG);}
+.best-tap ul li:nth-child(3) .best-img{background-image: url(../Img/om-1.PNG);}
+.best-tap ul li:nth-child(4) .best-img{background-image: url(../Img/bird-4.PNG);}
+.best-tap ul {overflow: hidden;width: 1400px;margin: auto;}
+.best-tap ul li {width:calc(25% - 25px);float:left;margin-left: 20px;}
+.best-tap h3::before{content: '';display: inline-block;width: 230px;height: 2px;background-color: rgb(95, 95, 95);position: absolute;bottom: 50px;}
+
+/* story */
+.story-box{height: 300px;margin-bottom: 20px;background:#ccc no-repeat center / cover;border-radius: 10px 10px 0 0;}
+.story-tit{display: block;width: 130px;height: 195px;margin: auto;}
+.story-tap ul{overflow: hidden;width: 1400px;margin: auto;}
+.story-tap ul li{width: calc(33% - 20px);float: left;margin-left: 20px;}
+.story-tap h3::before{content: '';display: inline-block;width: 110px;height: 2px;background-color: rgb(95, 95, 95);position: absolute;bottom: 57px;}
+.story-box .story-img{background-color: #999;width: 100%;height: calc(100% - 50px);text-align: center;border-radius: 10px 10px 0 0;}
+.story-img img{height: 100%;}
+.story-box p{overflow: hidden;font-size: 15px;font-family: 'NotoSansKR';font-weight: bold;}
+.sec-cont, .story-tap{width: 100%;height: 550px; margin-bottom: 50px;}
+
+/* Footer - footer의 width는 1200px을 기준으로 한다 */
+footer{height:150px;background:#eee;text-align:left}
+footer>div{width:1200px;margin:0 auto}
+.footer-logo{position: absolute;display: inline-block;width: 200px;height: 100px;left: 30px;}
+.footer-logo h2{color: #999;font-size: 50px;margin-top: 40px;}
+.team{position: absolute;width: 200px;height: 150px;display: inline-block;right: 10px;}
+.footer-cont span p:nth-child(1){font: 25px bold;font-family: 'NotoSansKR';font-weight: 900;line-height: 300%;margin-top: 10px;}
+.footer-cont span p:nth-child(2){font: 15px bold;font-family: 'NotoSansKR';}
+.footer-cont span p:nth-child(3){font: 15px bold;font-family: 'NotoSansKR';}
+
+@media only screen and (max-width:1280px) { 
+
+}
+
+@media only screen and (min-width:769px) and (max-width:1280px){ 
+
+}
+
+@media only screen and (max-width:768px){ 
+
+}
+
+@media only screen and (max-width:320px){ 
+
+}
+
+
+
+
+
+
+
+
+
