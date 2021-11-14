@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,17 +26,17 @@
             <h2>STORY</h2>
              <form action="#" accept-charset="utf-8" name="story" method="get">
                 <div class="title">
-                    <input type="text" name="title" class="tit-box" maxlength="30" placeholder="제목">
+                    <input type="text" name="title" class="tit-box" maxlength="30" placeholder="ì ëª©">
                 </div>
                 <div class="cont">
-                    <textarea name="cont" id="cont" class="cont-box" cols="30" rows="10" placeholder="내용 &#10;100자 이내로 작성해주세요!! XD"></textarea>
+                    <textarea name="cont" id="cont" class="cont-box" cols="30" rows="10" placeholder="ë´ì© &#10;100ì ì´ë´ë¡ ìì±í´ì£¼ì¸ì!! XD"></textarea>
                 </div>
                 <div class="sub">
                     <div class="cho">
                         <input type="file" name="file">
                     </div>
                     <div class="div-box">
-                        <div>분류</div>
+                        <div>ë¶ë¥</div>
                         <select name="three">
                             <option value="cute">CUTE</option>
                             <option value="sexy">SEXY</option>
@@ -42,7 +44,7 @@
                         </select>
                     </div>
                     <button class="btn">
-                        <a href="../html/Story.html">작성</a>
+                        <a href="../html/Story.html">ìì±</a>
                     </button>
                 </div>
              </form>
