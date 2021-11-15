@@ -10,25 +10,25 @@
 <body>
     <header class="header">
         <div class="header_top">
-            <a href="../html/Login.html">LOGIN</a>
-            <a href="../html/Sign.html">SIGN</a>
+            <a href="../html/Login.jsp">LOGIN</a>
+            <a href="../html/Sign.jsp">SIGN</a>
         </div>
         <div class="header_logo">
-            <a href="../html/Mainpage.html">
+            <a href="../html/Mainpage.jsp">
                 <h1>CSHD</h1>
                 <p>blog</p>
             </a>
         </div>
         <div class="header_gnb">
             <ul>
-                <li><a href="../html/Gallery.html">GALLERY</a></li>
-                <li><a href="../html/Story.html">STORY</a></li>
+                <li><a href="../html/Gallery.jsp">GALLERY</a></li>
+                <li><a href="../html/Story.jsp">STORY</a></li>
             </ul>
         </div>
     </header>
     <div class="tit">
         <h2>STORE</h2>
-        <button> <a href="../html/Write.html">ê¸ì°ê¸°</a></button>
+        <button> <a href="../html/Write.jsp">ê¸ì°ê¸°</a></button>
     </div>
 
     <section class="cont">
