@@ -7,6 +7,14 @@ public class BoardVO {
 	private String bDate;
 	private String bContent;
 	private int bAvailable;
+	private String bimage;
+
+	public String getbimage(){
+		return bimage;
+	}
+	public void setbimage(String bimage) {
+		this.bimage = bimage;
+	}
 	public int getbId() {
 		return bId;
 	}

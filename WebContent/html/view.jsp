@@ -72,6 +72,14 @@
 									</td>
 								</tr>
 								<tr>
+									<td>이미지</td>
+									<td colspan="2" style="height: 200px; text-align:left">
+								      	<img src="../upload/<%=bo.getbimage() %>">
+								      	
+									</td>
+								</tr>
+							
+								<tr>
 									<td>내용</td>
 									<td colspan="2" style="height: 200px; text-align:left">
 										<%=bo.getbContent().replaceAll("","&nbsp;").replaceAll("<","&lt").replaceAll(">", "&gt").replaceAll("\n","<br>") %>
@@ -79,15 +87,15 @@
 								</tr>
 							</tbody>
 					</table>
-					<a href="board.jsp" class="btn btn-primary">Story</a>
+					<a href="Story.jsp" class=btn >목록</a>
 					<!-- 해당 글의 작성자가 본인이라면 수정과 삭제가 가능하도록 코드추가 -->
 				<%-- 	<%
 						if(userID != null && userID.equals(bo.getLoginid())){
 						
 					%> --%>
 					
-						<a href="update.jsp?bId=<%= bId %>">수정</a>
-						<a href="deleteAction.jsp?bId=<%= bId %>" >삭제</a>
+						<a class=btn href="update.jsp?bId=<%= bId %>">수정</a>
+						<a class=btn href="deleteAction.jsp?bId=<%= bId %>" >삭제</a>
 						
 					
 					<%-- <%

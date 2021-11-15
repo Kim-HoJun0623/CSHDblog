@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <% request.setCharacterEncoding("utf-8");
-     response.setContentType("text/html;charset=utf-8"); %>
+<%@ page import="Board.BoardDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>STORY-write</title>
     <link rel="stylesheet" href="../Css/write-style.css">
 </head>
 <body>
+
+
 <%-- 	<%
 		// 메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
 		String userID = null;
@@ -33,7 +34,7 @@
     <section class="story">
         <div>
             <h2>STORY</h2>
-             <form action="WriteAction.jsp" accept-charset="utf-8" name="story" method="get">
+             <form action="WriteAction.jsp" method="post" enctype="multipart/form-data"  >
                 <div class="title">
                     <input type="text" name="bTitle" class="tit-box" maxlength="80" placeholder="제목">
                 </div>
@@ -42,7 +43,7 @@
                 </div>
                 <div class="sub">
                     <div class="cho">
-                        <input type="file" name="file">
+                        <input type="file" name="image">
                     </div>
                     <div class="div-box">
                         <div>분류</div>
@@ -55,6 +56,7 @@
                  <input type="submit" class="btn" value="글쓰기">
                 </div>
              </form>
+
         </div>
     </section>
     

@@ -63,7 +63,7 @@
        
             <div class="box">
             <a href="view.jsp?bId=<%=list.get(i).getbId()%>">
-                <div class="img-box"><img src="../Img/mouse-1.PNG" alt=""></div>
+                <div class="img-box"><img src="../upload/<%=list.get(i).getbimage()%>" alt=""></div>
                 <div class="text-box">
                 <p><%= list.get(i).getbContent() %></p>
                 </div>

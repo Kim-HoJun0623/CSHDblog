@@ -15,7 +15,7 @@ public class BoardDAO {
 	//기본 생성자
 	public BoardDAO() {
 		try {
-			System.out.println("데이터베이스접근");
+//			System.out.println("데이터베이스접근");
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String dbURL="jdbc:mysql://localhost:3306/blog";
 			String dbID ="root";
@@ -35,7 +35,7 @@ public class BoardDAO {
 			
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
-				System.out.println("작성일자");
+//				System.out.println("작성일자");
 				return rs.getString(1);
 			}
 		}catch (Exception e){
@@ -52,7 +52,7 @@ public class BoardDAO {
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				System.out.println("번호부여");
+//				System.out.println("번호부여");
 				return rs.getInt(1)+1;
 			}	
 			return 1;
@@ -62,10 +62,10 @@ public class BoardDAO {
 		return -1;//데이터베이스 오류
 	}
 	
-	public int write(String bTitle,String loginid, String bContent) {
+	public int write(String bTitle,String loginid, String bContent,String filename) {
 		String sql="insert into board values(?,?,?,?,?,?,?)";
 		try {
-			System.out.println("글쓰기");
+//			System.out.println("글쓰기");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, getNext());
 			pstmt.setString(2, bTitle);
@@ -73,7 +73,7 @@ public class BoardDAO {
 			pstmt.setString(4,getDate());
 			pstmt.setString(5, bContent);
 			pstmt.setInt(6, 1);//글의 유호번호
-			pstmt.setString(7, "미구현");//글의 유호번호
+			pstmt.setString(7, filename);//파일이름
 			return pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -85,10 +85,10 @@ public class BoardDAO {
 		String sql = "select * from board where bId < ? and bAvailable=1 order by bId desc limit 4";
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		try {
-			System.out.println(pageNumber);
+//			System.out.println(pageNumber);
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, getNext()-(pageNumber-1)*4);
-			System.out.println(getNext()-(pageNumber-1)*4);
+//			System.out.println(getNext()-(pageNumber-1)*4);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO boardVO = new BoardVO();
@@ -98,6 +98,7 @@ public class BoardDAO {
 				boardVO.setbDate(rs.getString(4));
 				boardVO.setbContent(rs.getString(5));
 				boardVO.setbAvailable(rs.getInt(6));
+				boardVO.setbimage(rs.getString(7));
 				list.add(boardVO);
 				
 			}
@@ -139,6 +140,7 @@ public class BoardDAO {
 				bo.setbDate(rs.getString(4));
 				bo.setbContent(rs.getString(5));
 				bo.setbAvailable(rs.getInt(6));
+				bo.setbimage(rs.getString(7));
 				return bo;
 			}
 		}catch (Exception e) {
