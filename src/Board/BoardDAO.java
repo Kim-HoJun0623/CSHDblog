@@ -82,11 +82,13 @@ public class BoardDAO {
 	}
 	//게시글 리스트
 	public ArrayList<BoardVO> getList(int pageNumber){
-		String sql = "select * from board where bId < ? and bAvailable=1 order by bId desc limit 10";
+		String sql = "select * from board where bId < ? and bAvailable=1 order by bId desc limit 4";
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		try {
+			System.out.println(pageNumber);
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, getNext()-(pageNumber-1)*10);
+			pstmt.setInt(1, getNext()-(pageNumber-1)*4);
+			System.out.println(getNext()-(pageNumber-1)*4);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO boardVO = new BoardVO();
@@ -110,7 +112,7 @@ public class BoardDAO {
 		String sql = "select * from board where bId < ? and bAvailable = 1";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,getNext()-(pageNumber-1)*10);
+			pstmt.setInt(1,getNext()-(pageNumber-1)*4);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				return true;

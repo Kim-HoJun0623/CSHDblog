@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="Board.BoardDAO" %>
  <jsp:useBean id="Board" class="Board.BoardVO" scope="page"/>
  <jsp:setProperty name="Board" property="bTitle"/>
  <jsp:setProperty name="Board" property="bContent"/>
+<% request.setCharacterEncoding("utf-8");
+     response.setContentType("text/html;charset=utf-8"); %>
     
 <!DOCTYPE html>
 <html>
@@ -14,45 +16,45 @@
 </head>
 <body>
 	<%
-			// ÇöÀç ¼¼¼Ç »óÅÂ¸¦ Ã¼Å©ÇÑ´Ù.
+			// í˜„ì¬ ì„¸ì…˜ ìƒíƒœë¥¼ ì²´í¬í•œë‹¤.
 			/* String userID = null;
 			if(session.getAttribute("userID") != null){
 				userID = (String)session.getAttribute("userID");
 			}
-			// ·Î±×ÀÎÀ» ÇÑ »ç¶÷¸¸ ±ÛÀ» ¾µ ¼ö ÀÖµµ·Ï ÄÚµå¸¦ ¼öÁ¤ÇÑ´Ù.
+			// ë¡œê·¸ì¸ì„ í•œ ì‚¬ëŒë§Œ ê¸€ì„ ì“¸ ìˆ˜ ìˆë„ë¡ ì½”ë“œë¥¼ ìˆ˜ì •í•œë‹¤.
 			if(userID == null){
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
-				script.println("alert('·Î±×ÀÎÀ» ÇÏ¼¼¿ä')");
+				script.println("alert('ë¡œê·¸ì¸ì„ í•˜ì„¸ìš”')");
 				script.println("location.href='#'");
 				script.println("</script>");
 			}else{ */
 				
-				// ÀÔ·ÂÀÌ ¾È µÈ ºÎºĞÀÌ ÀÖ´ÂÁö Ã¼Å©ÇÑ´Ù
+				// ì…ë ¥ì´ ì•ˆ ëœ ë¶€ë¶„ì´ ìˆëŠ”ì§€ ì²´í¬í•œë‹¤
 				if(Board.getbTitle() == null || Board.getbContent() == null){
 					PrintWriter script = response.getWriter();
 					script.println("<script>");
-					script.println("alert('ÀÔ·ÂÀÌ ¾È µÈ »çÇ×ÀÌ ÀÖ½À´Ï´Ù')");
+					script.println("alert('ì…ë ¥ì´ ì•ˆ ëœ ì‚¬í•­ì´ ìˆìŠµë‹ˆë‹¤')");
 					script.println("history.back()");
 					script.println("</script>");
 				}else{
-					// Á¤»óÀûÀ¸·Î ÀÔ·ÂÀÌ µÇ¾ú´Ù¸é ±Û¾²±â ·ÎÁ÷À» ¼öÇàÇÑ´Ù
+					// ì •ìƒì ìœ¼ë¡œ ì…ë ¥ì´ ë˜ì—ˆë‹¤ë©´ ê¸€ì“°ê¸° ë¡œì§ì„ ìˆ˜í–‰í•œë‹¤
 					BoardDAO boardDAO = new BoardDAO();
 				
-					int result = boardDAO.write(Board.getbTitle(), "±èÈ£ÁØ", Board.getbContent());
-					// µ¥ÀÌÅÍº£ÀÌ½º ¿À·ùÀÎ °æ¿ì
+					int result = boardDAO.write(Board.getbTitle(), "ê¹€í˜¸ì¤€", Board.getbContent());
+					// ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜ì¸ ê²½ìš°
 					if(result == -1){
 						PrintWriter script = response.getWriter();
 						script.println("<script>");
-						script.println("alert('±Û¾²±â¿¡ ½ÇÆĞÇß½À´Ï´Ù')");
+						script.println("alert('ê¸€ì“°ê¸°ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤')");
 						script.println("history.back()");
 						script.println("</script>");
-					// ±Û¾²±â°¡ Á¤»óÀûÀ¸·Î ½ÇÇàµÇ¸é ¾Ë¸²Ã¢À» ¶ç¿ì°í °Ô½ÃÆÇ ¸ŞÀÎÀ¸·Î ÀÌµ¿ÇÑ´Ù
+					// ê¸€ì“°ê¸°ê°€ ì •ìƒì ìœ¼ë¡œ ì‹¤í–‰ë˜ë©´ ì•Œë¦¼ì°½ì„ ë„ìš°ê³  ê²Œì‹œíŒ ë©”ì¸ìœ¼ë¡œ ì´ë™í•œë‹¤
 					}else {
 						PrintWriter script = response.getWriter();
 						script.println("<script>");
-						script.println("alert('±Û¾²±â ¼º°ø')");
-						script.println("location.href='board.jsp'");
+						script.println("alert('ê¸€ì“°ê¸° ì„±ê³µ')");
+						script.println("location.href='Story.jsp'");
 						script.println("</script>");
 					}
 				}
