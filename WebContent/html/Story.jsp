@@ -78,15 +78,14 @@
             <div class="box">
                 <div class="img-box"><img src="../Img/bird-5.PNG" alt=""></div>
                 <div class="text-box">
-                <p>ë± ì  ë   í  ê· ì  ì ¼ë¡  ëª¸ê¸¸ì ´ê°  14cm, ê¼¬ë¦¬ê¸¸ì ´ê°  8cmì ´ë©° <br>
-                    ê·¸ ì  ì   ëª¸ì ¼ë¡  ë  ê° ì§ í  ë  ê²  ë  ë¬´ ê· ì ¬ì  ì   ë   ì£½ì   >_<</p>
+                <p>아닌데요  >_<</p>
                 </div>
             </div>
             <div class="box">
                 <div class="img-box"><img src="../Img/rock.PNG" alt=""></div>
                 <div class="text-box">
-                <p>ì  . ì  ì   ëª¨ ëª¨ê¸°ë ¼ì   ì  ì   ì   ì  ëª¨.ëª¨ê¸°ë  ì  . ì  . ëª¨ê¸°. ì  ì   ì   ëª¨. ëª¨ê¸°. ì   ë ¼ì  
-                    ì  ì  . ëª¨ê¸° ë ¼ì   ì  ì  ì  ..ì  ì  ì  ì  ì  ì  ã ±
+                <p>아닌데
+                
                 </p>
             </div>
             </div>
