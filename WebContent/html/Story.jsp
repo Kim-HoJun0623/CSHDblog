@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+       <% request.setCharacterEncoding("utf-8");
+     response.setContentType("text/html;charset=utf-8"); %> 
+  <%@ page import="java.io.PrintWriter" %>
+  <%@ page import="Board.BoardVO" %>
+  <%@ page import="Board.BoardDAO" %>
+  <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +14,22 @@
     <link rel="stylesheet" href="../Css/story-style.css">
 </head>
 <body>
+
+<%
+	
+	/* 	// 메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
+		String userID = null;
+		if(session.getAttribute("userID") != null){
+			userID = (String)session.getAttribute("userID");
+		} */
+		int pageNumber = 1;//기본은1페이지 전달
+		//만약 파라미터로 넘어온 오브젝트 타입'pageNumber'가 존대한다면
+		//'int' 타입으로 캐스팅을 해주고 그 값을 'pagaNumber'변수에 저장한다.
+			
+		if(request.getParameter("pageNumber")!=null){
+			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+		}
+	%>
     <header class="header">
         <div class="header_top">
             <a href="../html/Login.jsp">LOGIN</a>
@@ -28,43 +50,62 @@
     </header>
     <div class="tit">
         <h2>STORE</h2>
-        <button> <a href="../html/Write.jsp">ê¸ì°ê¸°</a></button>
+
+        <button> <a href="../html/Write.jsp">글쓰기</a></button>
+
     </div>
 
     <section class="cont">
-        <div class="part">
+     <div class="part">
+    	<%
+					BoardDAO boardDAO = new BoardDAO();
+				ArrayList<BoardVO> list = boardDAO.getList(pageNumber);
+					for(int i=0; i<list.size(); i++){
+		%>
+       
             <div class="box">
-                <div class="img-box"><img src="../Img/mouse-1.PNG" alt=""></div>
+            <a href="view.jsp?bId=<%=list.get(i).getbId()%>">
+                <div class="img-box"><img src="../upload/<%=list.get(i).getbimage()%>" alt=""></div>
                 <div class="text-box">
-                <p>ë©§ë°­ì¥ë íë°ëìì íí ë¤ì¥ë¥ë¡ íêµ­ ì ì­ì ììíë¤.<br>
-                    ì´ë¤ì ë¼ì´ë íë°­ìì ë¥ì§ë¥¼ ë§ë¤ê³  ìë¼ë¥¼ 5~6ë§ë¦¬ë¥¼ ë³ëë¤.</p>
+                <p><%= list.get(i).getbContent() %></p>
                 </div>
+              </a>
             </div>
-            <div class="box">
-                <div class="img-box"><img src="../Img/om-3.PNG" alt=""></div>
-                <div class="text-box">
-                <p>ì´í¡ì´ë ì ì ìê°ê° ê·¸ë¦° ì¹´ì¹´ì¤í¡ ì´ëª¨í°ì½ì´ë©° ëë¬´ëë¬´ ê·ì½ë¤<br>
-                    ë¨¸ë¨¸ë¦¬ ì¤ ìµê° ê·ìë¯¸ì¼ë¯ íë¤.... !!!</p>
-                </div>
-            </div>
-        </div>
-        <div class="part">
+      
+        <%
+			}
+		%>
+          </div>
+       <!--  <div class="part">
             <div class="box">
                 <div class="img-box"><img src="../Img/bird-5.PNG" alt=""></div>
                 <div class="text-box">
-                <p>ë±ìë íê· ì ì¼ë¡ ëª¸ê¸¸ì´ê° 14cm, ê¼¬ë¦¬ê¸¸ì´ê° 8cmì´ë©° <br>
-                    ê·¸ ìì ëª¸ì¼ë¡ ë ê°ì§íëê² ëë¬´ ê·ì¬ìì ë ì£½ì >_<</p>
+                <p>아닌데요  >_<</p>
                 </div>
             </div>
             <div class="box">
                 <div class="img-box"><img src="../Img/rock.PNG" alt=""></div>
                 <div class="text-box">
-                <p>ì. ìì ëª¨ ëª¨ê¸°ë¼ì ìì ì ìëª¨.ëª¨ê¸°ëì. ì. ëª¨ê¸°. ìì ì ëª¨. ëª¨ê¸°. ì ë¼ì
-                    ìì. ëª¨ê¸° ë¼ì ììì..ììììììã±
+                <p>아닌데
+                
                 </p>
             </div>
             </div>
-        </div>
+        </div> -->
+        
     </section>
+    	<!-- 페이지 처리 영억 -->
+      <%
+ 		 if(pageNumber != 1){
+    	%>
+    	<a href="Story.jsp?pageNumber=<%= pageNumber - 1 %>">이전</a>
+    	<%
+    	}if(boardDAO.nextPage(pageNumber+1)){
+    	%>
+    		<a href="Story.jsp?pageNumber=<%= pageNumber + 1 %>">다음</a>
+		<%
+    	}
+		%>
+		
 </body>
 </html>

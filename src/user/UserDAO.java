@@ -7,13 +7,13 @@ import java.sql.ResultSet;
 
 public class UserDAO {
 	
-	private Connection conn; //자바와 데이터베이스를 연결
-	private PreparedStatement pstmt; //쿼리문 대기 및 설정
-	private ResultSet rs; //결과값 받아오기
+	private Connection conn; //�옄諛붿� �뜲�씠�꽣踰좎씠�뒪瑜� �뿰寃�
+	private PreparedStatement pstmt; //荑쇰━臾� ��湲� 諛� �꽕�젙
+	private ResultSet rs; //寃곌낵媛� 諛쏆븘�삤湲�
 	
-	//기본 생성자
-	//UserDAO가 실행되면 자동으로 생성되는 부분
-	//메소드마다 반복되는 코드를 이곳에 넣으면 코드가 간소화된다
+	//湲곕낯 �깮�꽦�옄
+	//UserDAO媛� �떎�뻾�릺硫� �옄�룞�쑝濡� �깮�꽦�릺�뒗 遺�遺�
+	//硫붿냼�뱶留덈떎 諛섎났�릺�뒗 肄붾뱶瑜� �씠怨녹뿉 �꽔�쑝硫� 肄붾뱶媛� 媛꾩냼�솕�맂�떎
 	
 	public UserDAO() {
 		try {
@@ -32,24 +32,23 @@ public class UserDAO {
 		public int login(String userId, String userPassword) {
 			String sql = "select userPassword from user where userId = ?";
 			try {
-				pstmt = conn.prepareStatement(sql); //sql 쿼리문을 대기
-				pstmt.setString(1, userId); //첫번째 '?'에 매개변수로 받아온 'userId'를 대입
-				rs = pstmt.executeQuery(); //쿼리를 실행한 결과를 rs에 저장
+				pstmt = conn.prepareStatement(sql); //sql 荑쇰━臾몄쓣 ��湲�
+				pstmt.setString(1, userId); //泥ル쾲吏� '?'�뿉 留ㅺ컻蹂��닔濡� 諛쏆븘�삩 'userId'瑜� ���엯
+				rs = pstmt.executeQuery(); //荑쇰━瑜� �떎�뻾�븳 寃곌낵瑜� rs�뿉 ���옣
 				if(rs.next()) {
 					if(rs.getString(1).equals(userPassword)) {
-						return 1; //로그인 성공
+						return 1; //濡쒓렇�씤 �꽦怨�
 					}else
-						return 0; //비밀번호 틀림
+						return 0; //鍮꾨�踰덊샇 ��由�
 				}
-				return -1; //아이디 없음
+				return -1; //�븘�씠�뵒 �뾾�쓬
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-			return -2; //디비 연결 문제
+			return -2; //�뵒鍮� �뿰寃� 臾몄젣
 		}
 		public int join(UserVO userVO) {
-			  String sql = "insert into user(userId, userPassword, userName, userGender, userEmail) "
-			  		+ "values(?, ?, ?, ?, ?)";
+			  String sql = "insert into user(userId, userPassword, userName, userGender, userEmail) values(?, ?, ?, ?, ?)";
 			  try {
 			    pstmt = conn.prepareStatement(sql);
 			    pstmt.setString(1, userVO.getUserId());
