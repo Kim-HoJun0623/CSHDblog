@@ -17,7 +17,7 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .header_gnb ul li a:hover{background-color: black;color: white;}
 
 /* main */
-.content{background:#fff;overflow:hidden;width: 1900px;}
+.content{background:#fff;overflow:hidden;}
 .main-visual dl{position:absolute;right:20%;top:50%;transform:translateY(-50%);color:#fff}
 .main-visual dt{text-align:center;font-size:46px}
 .main-visual dt{font-size: 40px;}
@@ -63,15 +63,29 @@ footer>div{width:1200px;margin:0 auto}
 }
 
 @media only screen and (min-width:769px) and (max-width:1280px){ 
+    .jd-slider.main-slider .slide-area, .jd-slider.main-slider .slide-area > li > a{height: 350px;}
+}
+
+@media only screen and (min-width:640px) and (max-width:768px){ 
+    .jd-slider.main-slider .slide-area, .jd-slider.main-slider .slide-area > li > a{height: 240px;}
+    .jd-slider.main-slider a{font-size: 1rem;}
+    .jd-slider .controller .indicate-area a{width: 12px;height: 12px;}
 
 }
 
-@media only screen and (max-width:768px){ 
-
+@media only screen and (min-width:321px) and (max-width:639px){ 
+    .jd-slider.main-slider .slide-area, .jd-slider.main-slider .slide-area > li > a{height: 190px;}
+    .jd-slider.main-slider a{font-size: 1rem;}
+    .jd-slider.main-slider .controller .indicate-area a{width: 10px;height: 10px;}
+    .jd-slider.main-slider .controller .indicate-area a:after{border-width: 3px;}
+  
 }
 
 @media only screen and (max-width:320px){ 
-
+    .jd-slider.main-slider .slide-area, .jd-slider.main-slider .slide-area > li > a{height: 150px;}
+    .jd-slider.main-slider a{font-size: 0.5rem;}
+    .jd-slider .controller .indicate-area a{width: 8px;height: 8px;}
+  
 }
 
 

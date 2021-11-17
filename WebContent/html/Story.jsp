@@ -50,7 +50,9 @@
     </header>
     <div class="tit">
         <h2>STORE</h2>
+
         <button> <a href="../html/Write.jsp">글쓰기</a></button>
+
     </div>
 
     <section class="cont">
