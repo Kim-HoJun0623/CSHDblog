@@ -4,13 +4,13 @@
 <%@page import="java.util.Enumeration"%>
 
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="Board.BoardDAO" %>
+<%@ page import="board.BoardDAO" %>
 
 <%@ page import="java.io.File" %>
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 
- <jsp:useBean id="Board" class="Board.BoardVO" scope="page"/>
+ <jsp:useBean id="Board" class="board.BoardVO" scope="page"/>
  <jsp:setProperty name="Board" property="bTitle"/>
  <jsp:setProperty name="Board" property="bContent"/>
     

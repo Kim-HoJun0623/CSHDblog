@@ -1,4 +1,4 @@
-package Board;
+package board;
 
 import java.net.URLEncoder;
 import java.sql.Connection;
@@ -12,14 +12,14 @@ public class BoardDAO {
 	private Connection conn;
 	private ResultSet rs;
 	
-	//±âº» »ý¼ºÀÚ
+	//ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public BoardDAO() {
 		try {
-//			System.out.println("µ¥ÀÌÅÍº£ÀÌ½ºÁ¢±Ù");
+//			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String dbURL="jdbc:mysql://localhost:3306/blog";
 			String dbID ="root";
-			String dbPassword="1234";
+			String dbPassword="root";
 			Class.forName(driver);
 			conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
 		}catch(Exception e) {
@@ -27,7 +27,7 @@ public class BoardDAO {
 		}	
 	}
 	
-	//ÀÛ¼ºÀÏÀÚ
+	//ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	public String getDate() {
 		String sql="select now()";
 		try {
@@ -35,52 +35,52 @@ public class BoardDAO {
 			
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
-//				System.out.println("ÀÛ¼ºÀÏÀÚ");
+//				System.out.println("ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½");
 				return rs.getString(1);
 			}
 		}catch (Exception e){
 			e.printStackTrace();
 		}
-		return "";//µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return "";//ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
-	//°Ô½Ã±Û ¹øÈ£ ºÎ¿©
+	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£ ï¿½Î¿ï¿½
 	public int getNext() {
-		//ÇöÀç °Ô½Ã±ÛÀ» ³»¸²Â÷¼øÀ¸·Î Á¶È¸ÇÏ¿© °¡Àå ¸¶Áö¸· ±ÛÀÇ ¹øÈ£¸¦ ±¸ÇÑ´Ù.
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 		String sql="select bId from board order by bId desc";
 		try {
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-//				System.out.println("¹øÈ£ºÎ¿©");
+//				System.out.println("ï¿½ï¿½È£ï¿½Î¿ï¿½");
 				return rs.getInt(1)+1;
 			}	
 			return 1;
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1;//µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1;//ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int write(String bTitle,String loginid, String bContent,String filename) {
 		String sql="insert into board values(?,?,?,?,?,?,?)";
 		try {
-//			System.out.println("±Û¾²±â");
+//			System.out.println("ï¿½Û¾ï¿½ï¿½ï¿½");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, getNext());
 			pstmt.setString(2, bTitle);
 			pstmt.setString(3, loginid);
 			pstmt.setString(4,getDate());
 			pstmt.setString(5, bContent);
-			pstmt.setInt(6, 1);//±ÛÀÇ À¯È£¹øÈ£
-			pstmt.setString(7, filename);//ÆÄÀÏÀÌ¸§
+			pstmt.setInt(6, 1);//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½È£
+			pstmt.setString(7, filename);//ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
 			return pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
-	//°Ô½Ã±Û ¸®½ºÆ®
+	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	public ArrayList<BoardVO> getList(int pageNumber){
 		String sql = "select * from board where bId < ? and bAvailable=1 order by bId desc limit 4";
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
@@ -108,7 +108,7 @@ public class BoardDAO {
 		return list;
 		
 	}
-	//ÆäÀÌÁö Ã³¸®
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	public boolean nextPage(int pageNumber) {
 		String sql = "select * from board where bId < ? and bAvailable = 1";
 		try {
@@ -125,7 +125,7 @@ public class BoardDAO {
 		return false;
 	}
 	
-	//°Ô½Ã±Ûº¸±â
+	//ï¿½Ô½Ã±Ûºï¿½ï¿½ï¿½
 	public BoardVO getBoardVO(int bId) {
 		String sql ="select * from board where bId = ?";
 		try {
@@ -148,7 +148,7 @@ public class BoardDAO {
 		}
 		return null;
 	}
-	//°Ô½Ã±Û ¼öÁ¤ 
+	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	public int update(int bId, String bTitle, String bContent) {
 		String sql = "update board set bTitle = ?, bContent = ? where bId = ?";
 		try {
@@ -163,9 +163,9 @@ public class BoardDAO {
 		return -1;
 	}
 	
-	//°Ô½Ã±Û »èÁ¦
+	//ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int delete(int bId) {
-		//½ÇÁ¦ µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÏ´Â°ÍÀÌ ¾Æ´Ï¶ó °Ô½Ã±Û À¯È¿¼ýÀÚ¸¦ 0À¸·Î ¼öÁ¤
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Â°ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½Ú¸ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		String sql = "update board set bAvailable = 0 where bId = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);

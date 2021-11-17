@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="Board.BoardDAO" %>
-<%@ page import="Board.BoardVO" %>
+<%@ page import="board.BoardDAO" %>
+<%@ page import="board.BoardVO" %>
  <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>

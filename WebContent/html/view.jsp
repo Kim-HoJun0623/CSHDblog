@@ -3,8 +3,8 @@
      <% request.setCharacterEncoding("utf-8");
      response.setContentType("text/html;charset=utf-8"); %>
   <%@ page import="java.io.PrintWriter" %>
-  <%@ page import="Board.BoardVO" %>
-  <%@ page import="Board.BoardDAO" %>    
+  <%@ page import="board.BoardVO" %>
+  <%@ page import="board.BoardDAO" %>    
 <!DOCTYPE html>
 <html>
 <head>

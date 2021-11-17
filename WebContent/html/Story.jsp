@@ -3,8 +3,8 @@
        <% request.setCharacterEncoding("utf-8");
      response.setContentType("text/html;charset=utf-8"); %> 
   <%@ page import="java.io.PrintWriter" %>
-  <%@ page import="Board.BoardVO" %>
-  <%@ page import="Board.BoardDAO" %>
+  <%@ page import="board.BoardVO" %>
+  <%@ page import="board.BoardDAO" %>
   <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
@@ -17,11 +17,11 @@
 
 <%
 	
-	/* 	// 메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
+	 	// 메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
 		String userID = null;
 		if(session.getAttribute("userID") != null){
 			userID = (String)session.getAttribute("userID");
-		} */
+		} 
 		int pageNumber = 1;//기본은1페이지 전달
 		//만약 파라미터로 넘어온 오브젝트 타입'pageNumber'가 존대한다면
 		//'int' 타입으로 캐스팅을 해주고 그 값을 'pagaNumber'변수에 저장한다.
@@ -58,9 +58,9 @@
     <section class="cont">
      <div class="part">
     	<%
-					BoardDAO boardDAO = new BoardDAO();
+				BoardDAO boardDAO = new BoardDAO();
 				ArrayList<BoardVO> list = boardDAO.getList(pageNumber);
-					for(int i=0; i<list.size(); i++){
+				for(int i=0; i<list.size(); i++){
 		%>
        
             <div class="box">

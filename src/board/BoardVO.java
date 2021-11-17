@@ -1,4 +1,4 @@
-package Board;
+package board;
 
 public class BoardVO {
 	private int bId;
