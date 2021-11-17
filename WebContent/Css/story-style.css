@@ -29,10 +29,28 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 
 
 /* cont */
-.cont{width: 1900px;height: 1000px;margin-top: 50px;overflow: hidden;}
+.cont{width: 1900px;margin-top: 50px;overflow: hidden;}
 .part{width: 1700px;height: 500px;margin: auto;}
 .box{display: inline-block;width: calc(50% - 50px);height: 400px;float: left;background-color: #999;margin-left: 50px;}
-.img-box{background-color:#ccc; width: 100%;height: 340px;text-align: center;}
+.img-box{background-color:#ccc;height: 340px;text-align: center;}
 .box p{font-size: 20px;font-weight: bold;font-family: 'NotoSansKR';}
 .box img{height: 100%;}
 .text-box{width: 100%;height: calc(100% - 350px); overflow: hidden; text-overflow: ellipsis;}
+
+
+/* num */
+.num{width: 200px;margin: 0 auto;text-align: center;}
+.num a{font: bold 20px 'NotoSansKR';margin-right: 10px;}
+.num a:hover{color: blue;}
+
+/* media query */
+
+@media only screen and (max-width:1400px) {  /* 1400 이하*/
+.cont{width: 100%;}
+.part{width: 100%;}
+}
+@media only screen and (max-width:1000px) {  /* 1000 이하*/
+    .cont{width: 100%;}
+    .part{width: 100%;}
+    .box{width: calc(100% - 30px); margin:0 15px 30px 15px;}
+    }
