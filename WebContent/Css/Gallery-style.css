@@ -24,10 +24,10 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .tit h2{font-size: 50px;font-family: 'NotoSansKR';font-weight: bold;color: black;}
 
 /* cont (공통) */
-.cont{height: 600px; width: 100%;overflow: hidden;position: relative;}
+.cont{width: 100%;overflow: hidden;position: relative;}
 .part-tit{margin: 20px 0 0 30px;}
 .part-tit>h5{font-size: 40px;font-family: 'NotoSansKR';font-weight: bold;color: black;}
-.part-gal{height: 410px; width: 1900px;overflow: hidden;margin: auto;}
+.part-gal{width: 1900px;overflow: hidden;margin: 0 auto 100px auto;}
 .img{height: 364px;width: calc(25% - 60px); float: left;margin: 40px 0 0 40px;
     background:#999 no-repeat center / cover;border-radius: 50px;border: 1px solid #999;
     text-indent:-999999px;font-size:0;color:transparent;}
@@ -55,3 +55,19 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .part3 li:nth-of-type(3) .img{background-image: url(../Img/mouse-3.PNG);}
 .part3 li:nth-of-type(4) .img{background-image: url(../Img/mouse-4.PNG);}
 
+
+
+/* media query */
+
+@media only screen and (min-width:1201px) and (max-width:1600px) {  /* 1201 이상 1600 이하*/
+    .part-gal{width: 100%;}
+    .img{width: calc(33% - 50px);}
+    }
+@media only screen and (min-width:765px) and (max-width:1200px) {  /* 765 이상 1200 이하*/
+    .part-gal{width: 100%;}
+    .img{width: calc(50% - 50px);}
+    }
+@media only screen and (max-width:764px) {  /* 496 이상 764 이하*/
+    .part-gal{width: 100%;}
+    .img{width: calc(100% - 50px);}
+    }

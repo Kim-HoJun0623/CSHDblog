@@ -37,7 +37,6 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .box img{height: 100%;}
 .text-box{width: 100%;height: calc(100% - 350px); overflow: hidden; text-overflow: ellipsis;}
 
-
 /* num */
 .num{width: 200px;margin: 0 auto;text-align: center;}
 .num a{font: bold 20px 'NotoSansKR';margin-right: 10px;}
@@ -45,7 +44,7 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 
 /* media query */
 
-@media only screen and (max-width:1400px) {  /* 1400 이하*/
+@media only screen and (min-width:1001px) and (max-width:1400px) {  /*1001 이상 1400 이하*/
 .cont{width: 100%;}
 .part{width: 100%;}
 }
@@ -54,3 +53,5 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
     .part{width: 100%;}
     .box{width: calc(100% - 30px); margin:0 15px 30px 15px;}
     }
+
+
