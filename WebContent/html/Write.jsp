@@ -20,11 +20,11 @@
 	%> --%>
     <header class="header">
         <div class="header_top">
-            <a href="../html/Login.html">LOGIN</a>
-            <a href="../html/Sign.html">SIGN</a>
+            <a href="../html/Login.jsp">LOGIN</a>
+            <a href="../html/Sign.jsp">SIGN</a>
         </div>
         <div class="header_logo">
-            <a href="../html/Mainpage.html">
+            <a href="../html/Mainpage.jsp">
                 <h1>CSHD</h1>
                 <p>blog</p>
             </a>
@@ -53,7 +53,13 @@
                             <option value="hansume">HANSUME</option>
                         </select>
                     </div>
+
                  <input type="submit" class="btn" value="글쓰기">
+
+                    <button class="btn">
+                        <a href="../html/Story.jsp">ìì±</a>
+                    </button>
+
                 </div>
              </form>
 
