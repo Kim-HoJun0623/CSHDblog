@@ -9,6 +9,7 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .header {height: 194px;text-align: center;box-sizing: border-box;}
 .header_top{font: 15px bold;float: right;font-family: 'NotoSansKR';}
 .header_top a{margin-right:30px;margin-left: 25px;color: #999;}
+.header_top a:hover{color: blueviolet}
 .header_logo{display: block;margin: 0 auto;width: 174px;height: 125px;}
 .header_logo h1{font: bold 60px 'NotoSansKR';padding-top: 40px;letter-spacing: 2px;line-height: 95%;}
 .header_logo p {font: bold 20px 'NotoSansKR';letter-spacing: 2px;margin-top: -1px;}
@@ -24,14 +25,16 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .tit{ margin: 50px 0 0 20px;}
 .tit h2{font-size: 50px;font-family: 'NotoSansKR';font-weight: bold;color: black;display: inline-block;margin-left: 30px;}
 .tit button{float: right;width: 100px;height: 50px;margin-right: 50px;
-    background-color: skyblue;border: none;border-radius: 5px;}
-.tit button a{font-size: 15px;font-family: 'NotoSansKR';font-weight: bold;}
+    background-color: skyblue;border: none;border-radius: 5px;
+    font-size: 15px;font-family: 'NotoSansKR';font-weight: bold;}
+.tit button:hover{color: white;}
 
 
 /* cont */
 .cont{width: 1900px;margin-top: 50px;overflow: hidden;}
 .part{width: 1700px;height: 500px;margin: auto;}
-.box{display: inline-block;width: calc(50% - 50px);height: 400px;float: left;background-color: #999;margin-left: 50px;}
+.box{display: inline-block;width: calc(50% - 52px);height: 400px;float: left;background-color: #999;margin-left: 50px;overflow: hidden;}
+.box:hover{border: 1px rgb(0, 0, 0) solid;}
 .img-box{background-color:#ccc;height: 340px;text-align: center;}
 .box p{font-size: 20px;font-weight: bold;font-family: 'NotoSansKR';}
 .box img{height: 100%;}
@@ -53,5 +56,3 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
     .part{width: 100%;}
     .box{width: calc(100% - 30px); margin:0 15px 30px 15px;}
     }
-
-

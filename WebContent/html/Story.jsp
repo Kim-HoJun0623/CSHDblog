@@ -28,43 +28,51 @@
     </header>
     <div class="tit">
         <h2>STORE</h2>
-        <button> <a href="../html/Write.jsp">ê¸ì°ê¸°</a></button>
+        <a href="../html/Write.jsp"><button> 글쓰기</button></a>
     </div>
 
     <section class="cont">
-        <div class="part">
-            <div class="box">
-                <div class="img-box"><img src="../Img/mouse-1.PNG" alt=""></div>
-                <div class="text-box">
-                <p>ë©§ë°­ì¥ë íë°ëìì íí ë¤ì¥ë¥ë¡ íêµ­ ì ì­ì ììíë¤.<br>
-                    ì´ë¤ì ë¼ì´ë íë°­ìì ë¥ì§ë¥¼ ë§ë¤ê³  ìë¼ë¥¼ 5~6ë§ë¦¬ë¥¼ ë³ëë¤.</p>
-                </div>
-            </div>
-            <div class="box">
+        <ul class="part">
+            <li class="box">
+                <a href="../html/Post.jsp">
+                <dt class="img-box"><img src="../Img/mouse-1.PNG" alt=""></dt>
+                <dt class="text-box">
+                <p>멧밭쥐는 한반도에서 흔한 들쥐류로 한국 전역에 서식한다.<br>
+                    이들은 논이나 풀밭에서 둥지를 만들고 새끼를 5~6마리를 낳는다.</p>
+                </dt>
+            </a>
+            </li>
+            <li class="box">
+                <a href="../html/Post.jsp">
                 <div class="img-box"><img src="../Img/om-3.PNG" alt=""></div>
                 <div class="text-box">
-                <p>ì´í¡ì´ë ì ì ìê°ê° ê·¸ë¦° ì¹´ì¹´ì¤í¡ ì´ëª¨í°ì½ì´ë©° ëë¬´ëë¬´ ê·ì½ë¤<br>
-                    ë¨¸ë¨¸ë¦¬ ì¤ ìµê° ê·ìë¯¸ì¼ë¯ íë¤.... !!!</p>
+                <p>옴팡이는 애소 작가가 그린 카카오톡 이모티콘이며 너무너무 귀엽다<br>
+                    머머리 중 최강 귀요미일듯 하다.... !!!</p>
                 </div>
-            </div>
-        </div>
-        <div class="part">
-            <div class="box">
+            </a>
+            </li>
+        </ul>
+        <ul class="part">
+            <li class="box">
+                <a href="../html/Post.jsp">
                 <div class="img-box"><img src="../Img/bird-5.PNG" alt=""></div>
                 <div class="text-box">
-                <p>ë±ìë íê· ì ì¼ë¡ ëª¸ê¸¸ì´ê° 14cm, ê¼¬ë¦¬ê¸¸ì´ê° 8cmì´ë©° <br>
-                    ê·¸ ìì ëª¸ì¼ë¡ ë ê°ì§íëê² ëë¬´ ê·ì¬ìì ë ì£½ì >_<</p>
+                <p>뱁새는 평균적으로 몸길이가 14cm, 꼬리길이가 8cm이며 <br>
+                    그 작은 몸으로 날개짓하는게 너무 귀여워서 나 죽엉 >_<</p>
                 </div>
-            </div>
-            <div class="box">
+                </a>
+            </li>
+            <li class="box">
+                <a href="../html/Post.jsp">
                 <div class="img-box"><img src="../Img/rock.PNG" alt=""></div>
                 <div class="text-box">
-                <p>ì. ìì ëª¨ ëª¨ê¸°ë¼ì ìì ì ìëª¨.ëª¨ê¸°ëì. ì. ëª¨ê¸°. ìì ì ëª¨. ëª¨ê¸°. ì ë¼ì
-                    ìì. ëª¨ê¸° ë¼ì ììì..ììììììã±
+                <p>슉. 슈슉 모 모기럼아 슈슉 슉 슉모.모기람아. 슉. 모기. 슈슉 슉 모. 모기. 슉 럼아
+                    슈슉. 모기 럼아 슈슈슉..슈슉슈슈슉슛ㄱ
                 </p>
-            </div>
-            </div>
-        </div>
+                </div>
+                </a>
+            </li>
+        </ul>
     </section>
     <div class="num">
         <a href="#">1</a>

@@ -40,7 +40,7 @@
                         <select name="three">
                             <option value="cute">CUTE</option>
                             <option value="sexy">SEXY</option>
-                            <option value="hansume">HANSUME</option>
+                            <option value="hansume">HANDSOME</option>
                         </select>
                     </div>
                     <button class="btn">
