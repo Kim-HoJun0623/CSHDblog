@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
       <%@ page import="java.io.PrintWriter" %>
-  <%@ page import="Board.BoardVO" %>
-  <%@ page import="Board.BoardDAO" %>
+  <%@ page import="board.BoardVO" %>
+  <%@ page import="board.BoardDAO" %>
   <%@ page import="java.util.ArrayList" %>
 <!doctype html>
 <html>
@@ -202,7 +202,7 @@
                 <a href="#"><img src="../Img/dogbig.PNG" alt="image02"></a>
               </li>
               <li>
-                <a href="#"><img src="../IMG/catbig.PNG" alt="image03"></a>
+                <a href="#"><img src="../Img/catbig.PNG" alt="image03"></a>
               </li>
           </ul>
           <a class="prev" href="#">

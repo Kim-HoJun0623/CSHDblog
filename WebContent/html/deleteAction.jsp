@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="Board.BoardDAO" %>
-<%@ page import="Board.BoardVO" %>
+<%@ page import="board.BoardDAO" %>
+<%@ page import="board.BoardVO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,19 +11,19 @@
 </head>
 <body>
 <%
-	/* 	// 현재 세션 상태를 체크한다
-		String userID = null;
-		if(session.getAttribute("userID") != null){
-			userID = (String)session.getAttribute("userID");
+		// 현재 세션 상태를 체크한다
+		String userId = null;
+		if(session.getAttribute("userId") != null){
+			userId = (String)session.getAttribute("userId");
 		}
 		// 로그인을 한 사람만 글을 쓸 수 있도록 코드를 수정한다
-		if(userID == null){
+		if(userId == null){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인을 하세요')");
 			script.println("location.href='login.jsp'");
 			script.println("</script>");
-		} */
+		} 
 		
 		int bId = 0;
 		System.out.println(request.getParameter("bId")); 
@@ -40,7 +40,7 @@
 		}
 		//해당 'bID'에 대한 게시글을 가져온 다음 세션을 통하여 작성자 본인이 맞는지 체크한다
 		BoardVO bo = new BoardDAO().getBoardVO(bId);
-		/* if(!userID.equals(bo.getUserID())){
+		/* if(!userId.equals(bo.getuserId())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('권한이 없습니다')");
