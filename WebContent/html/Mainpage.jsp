@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+      <%@ page import="java.io.PrintWriter" %>
+  <%@ page import="Board.BoardVO" %>
+  <%@ page import="Board.BoardDAO" %>
+  <%@ page import="java.util.ArrayList" %>
 <!doctype html>
 <html>
 <head>
@@ -22,6 +26,15 @@
 </head>
 
 <body>
+<%
+		int pageNumber = 1;//기본은1페이지 전달
+		//만약 파라미터로 넘어온 오브젝트 타입'pageNumber'가 존대한다면
+		//'int' 타입으로 캐스팅을 해주고 그 값을 'pagaNumber'변수에 저장한다.
+			
+		if(request.getParameter("pageNumber")!=null){
+			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+		}
+	%>
 <div id="wrap">
   <header class="header">
     <div class="header_top">
@@ -53,7 +66,7 @@
                 <a href="#"><img src="../Img/dogbig.PNG" alt="image02"></a>
               </li>
               <li>
-                <a href="#"><img src="../IMG/catbig.PNG" alt="image03"></a>
+                <a href="#"><img src="../Img/catbig.PNG" alt="image03"></a>
               </li>
           </ul>
           <a class="prev" href="#">
@@ -107,27 +120,20 @@
     
   </a>
     <ul>
+    <%
+					BoardDAO boardDAO = new BoardDAO();
+				ArrayList<BoardVO> list = boardDAO.getList(pageNumber);
+					for(int i=0; i<3; i++){
+		%>
       <li>
         <div class="story-box">
-          <div class="story-img"><img src="../Img/mouse-1.PNG" alt=""></div>
-          <p>ë©§ë°­ì¥ë íë°ëìì íí ë¤ì¥ë¥ë¡ íêµ­ ì ì­ì ììíë¤.<br>
-            ì´ë¤ì ë¼ì´ë íë°­ìì ë¥ì§ë¥¼ ë§ë¤ê³  ìë¼ë¥¼ 5~6ë§ë¦¬ë¥¼ ë³ëë¤.</p>
+          <div class="story-img"><img src="../upload/<%=list.get(i).getbimage()%>" alt=""></div>
+          <p><%= list.get(i).getbContent() %></p>
         </div> 
       </li>
-      <li>
-        <div class="story-box">
-          <div class="story-img"><img src="../Img/om-3.PNG" alt=""></div>
-          <p>ì´í¡ì´ë ì ì ìê°ê° ê·¸ë¦° ì¹´ì¹´ì¤í¡ ì´ëª¨í°ì½ì´ë©° ëë¬´ëë¬´ ê·ì½ë¤<br>
-          ë¨¸ë¨¸ë¦¬ ì¤ ìµê° ê·ìë¯¸ì¼ë¯ íë¤.... !!!</p>
-        </div>
-      </li>
-      <li>
-        <div class="story-box">
-          <div class="story-img"><img src="../Img/bird-5.PNG" alt=""></div>
-          <p>ë±ìë íê· ì ì¼ë¡ ëª¸ê¸¸ì´ê° 14cm, ê¼¬ë¦¬ê¸¸ì´ê° 8cmì´ë©° <br>
-          ê·¸ ìì ëª¸ì¼ë¡ ë ê°ì§íëê² ëë¬´ ê·ì¬ìì ë ì£½ì >_<</p>
-        </div>
-      </li>
+   	 <%
+			}
+		%>
     </ul>
   </section>
 

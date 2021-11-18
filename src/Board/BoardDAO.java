@@ -32,12 +32,12 @@ public class BoardDAO {
 		String sql="select now()";
 		try {
 			PreparedStatement pstmt= conn.prepareStatement(sql);
-			
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 //				System.out.println("작성일자");
 				return rs.getString(1);
 			}
+			
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -80,6 +80,7 @@ public class BoardDAO {
 		}
 		return -1; //데이터베이스 오류
 	}
+	
 	//게시글 리스트
 	public ArrayList<BoardVO> getList(int pageNumber){
 		String sql = "select * from board where bId < ? and bAvailable=1 order by bId desc limit 4";

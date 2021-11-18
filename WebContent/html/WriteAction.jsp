@@ -26,14 +26,15 @@
 
 	
 	System.out.println(request.getServletContext().getRealPath("upload"));
+	
 	 MultipartRequest multi = new MultipartRequest(
 			 request,
 			 request.getServletContext().getRealPath("upload"),
 			 10000*1024*1024,
 			 "utf-8",
 			 new DefaultFileRenamePolicy()
-			 );
-	File file = multi.getFile("image");
+			 );//업로드한 file기본 설정
+	File file = multi.getFile("image");//앞에서 업로드하여 올라온파일을 file에저장
 	System.out.println(file);
 	
     
@@ -60,9 +61,12 @@
 			
 				String bTitle = multi.getParameter("bTitle");
 				String bContent = multi.getParameter("bContent");
+				
 				System.out.println(bTitle);
+				
 				System.out.println(Board.getbTitle());
 				System.out.println(Board.getbContent());
+				
 				if(bTitle == null || bContent == null){
 					System.out.println(Board.getbTitle());
 					PrintWriter script = response.getWriter();
