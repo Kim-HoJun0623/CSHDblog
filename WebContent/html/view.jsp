@@ -12,13 +12,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- 	<%
+	<%
 		// 메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
-		String userID = null;
-		if(session.getAttribute("userID") != null){
-			userID = (String)session.getAttribute("userID");
+		String userId = null;
+		if(session.getAttribute("userId") != null){
+			userId = (String)session.getAttribute("userId");
 		}
-	%> --%>
+	%>
 	
 	<%	
 	//bId 를 초기화시키고
@@ -63,7 +63,7 @@
 								</tr>
 								<tr><td>작성자</td>
 									<td colspan="1">
-										<%= bo.getLoginid().replaceAll("","&nbsp;").replaceAll("<","&lt").replaceAll(">", "&gt").replaceAll("\n","<br>") %>
+										<%= bo.getuserId().replaceAll("","&nbsp;").replaceAll("<","&lt").replaceAll(">", "&gt").replaceAll("\n","<br>") %>
 									</td>
 									<td>작성일</td>
 									<td colspan="1">
@@ -89,18 +89,18 @@
 					</table>
 					<a href="Story.jsp" class=btn >목록</a>
 					<!-- 해당 글의 작성자가 본인이라면 수정과 삭제가 가능하도록 코드추가 -->
-				<%-- 	<%
-						if(userID != null && userID.equals(bo.getLoginid())){
+				 	<%
+						if(userId != null && userId.equals(bo.getuserId())){
 						
-					%> --%>
+					%> 
 					
 						<a class=btn href="update.jsp?bId=<%= bId %>">수정</a>
 						<a class=btn href="deleteAction.jsp?bId=<%= bId %>" >삭제</a>
 						
 					
-					<%-- <%
+					<%
 					} 
-					%> --%>
+					%> 
 			</div>
 	</div>
 

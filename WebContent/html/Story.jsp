@@ -17,6 +17,7 @@
 
 <%
 	
+
 	 	// 메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
 		String userID = null;
 		if(session.getAttribute("userID") != null){
@@ -29,6 +30,7 @@
 		if(request.getParameter("pageNumber")!=null){
 			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		}
+		
 	%>
     <header class="header">
         <div class="header_top">
@@ -50,9 +52,19 @@
     </header>
     <div class="tit">
         <h2>STORE</h2>
+        <%
+
+	 	// 메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
+		String userId = null;
+		if(session.getAttribute("userId") != null){
+			userId = (String)session.getAttribute("userId");
+		
+        %>
 
         <button> <a href="../html/Write.jsp">글쓰기</a></button>
-
+		<%
+		}
+		%>
     </div>
 
     <section class="cont">
@@ -75,24 +87,7 @@
         <%
 			}
 		%>
-          </div>
-       <!--  <div class="part">
-            <div class="box">
-                <div class="img-box"><img src="../Img/bird-5.PNG" alt=""></div>
-                <div class="text-box">
-                <p>아닌데요  >_<</p>
-                </div>
-            </div>
-            <div class="box">
-                <div class="img-box"><img src="../Img/rock.PNG" alt=""></div>
-                <div class="text-box">
-                <p>아닌데
-                
-                </p>
-            </div>
-            </div>
-        </div> -->
-        
+     
     </section>
     	<!-- 페이지 처리 영억 -->
       <%

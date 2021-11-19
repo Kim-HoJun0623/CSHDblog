@@ -10,14 +10,6 @@
 </head>
 <body>
 
-
-<%-- 	<%
-		// 메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
-		String userID = null;
-		if(session.getAttribute("userID") != null){
-			userID = (String)session.getAttribute("userID");
-		}
-	%> --%>
     <header class="header">
         <div class="header_top">
             <a href="../html/Login.jsp">LOGIN</a>

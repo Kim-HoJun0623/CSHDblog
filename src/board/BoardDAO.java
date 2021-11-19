@@ -12,6 +12,7 @@ public class BoardDAO {
 	private Connection conn;
 	private ResultSet rs;
 	
+
 	//�⺻ ������
 	public BoardDAO() {
 		try {
@@ -20,6 +21,7 @@ public class BoardDAO {
 			String dbURL="jdbc:mysql://localhost:3306/blog";
 			String dbID ="root";
 			String dbPassword="root";
+
 			Class.forName(driver);
 			conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
 		}catch(Exception e) {
@@ -27,60 +29,71 @@ public class BoardDAO {
 		}	
 	}
 	
+
 	//�ۼ�����
+
 	public String getDate() {
 		String sql="select now()";
 		try {
 			PreparedStatement pstmt= conn.prepareStatement(sql);
-			
+
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 //				System.out.println("�ۼ�����");
 				return rs.getString(1);
 			}
+			
 		}catch (Exception e){
 			e.printStackTrace();
 		}
-		return "";//�����ͺ��̽� ����
+		return "";//�����ͺ��̽� ���
 	}
 	
 	//�Խñ� ��ȣ �ο�
 	public int getNext() {
-		//���� �Խñ��� ������������ ��ȸ�Ͽ� ���� ������ ���� ��ȣ�� ���Ѵ�.
+		//���� �Խñ�� ���������� �ȸ�Ͽ� ���� ���� ���� ��ȣ�� ���Ѵ�.
+
 		String sql="select bId from board order by bId desc";
 		try {
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
+
 //				System.out.println("��ȣ�ο�");
+
 				return rs.getInt(1)+1;
 			}	
 			return 1;
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1;//�����ͺ��̽� ����
+
+		return -1;//�����ͺ��̽� ���
 	}
 	
-	public int write(String bTitle,String loginid, String bContent,String filename) {
+	public int write(String bTitle,String userId, String bContent,String filename) {
 		String sql="insert into board values(?,?,?,?,?,?,?)";
 		try {
 //			System.out.println("�۾���");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, getNext());
 			pstmt.setString(2, bTitle);
-			pstmt.setString(3, loginid);
+			pstmt.setString(3, userId);
 			pstmt.setString(4,getDate());
 			pstmt.setString(5, bContent);
-			pstmt.setInt(6, 1);//���� ��ȣ��ȣ
+			pstmt.setInt(6, 1);//���� �ȣ��ȣ
 			pstmt.setString(7, filename);//�����̸�
+
 			return pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1; //�����ͺ��̽� ����
+
+		return -1; //�����ͺ��̽� ���
 	}
+	
 	//�Խñ� ����Ʈ
+
 	public ArrayList<BoardVO> getList(int pageNumber){
 		String sql = "select * from board where bId < ? and bAvailable=1 order by bId desc limit 4";
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
@@ -94,7 +107,7 @@ public class BoardDAO {
 				BoardVO boardVO = new BoardVO();
 				boardVO.setbId(rs.getInt(1));
 				boardVO.setbTitle(rs.getString(2));
-				boardVO.setLoginid(rs.getString(3));
+				boardVO.setuserId(rs.getString(3));
 				boardVO.setbDate(rs.getString(4));
 				boardVO.setbContent(rs.getString(5));
 				boardVO.setbAvailable(rs.getInt(6));
@@ -108,7 +121,9 @@ public class BoardDAO {
 		return list;
 		
 	}
+
 	//������ ó��
+
 	public boolean nextPage(int pageNumber) {
 		String sql = "select * from board where bId < ? and bAvailable = 1";
 		try {
@@ -125,7 +140,7 @@ public class BoardDAO {
 		return false;
 	}
 	
-	//�Խñۺ���
+
 	public BoardVO getBoardVO(int bId) {
 		String sql ="select * from board where bId = ?";
 		try {
@@ -136,7 +151,7 @@ public class BoardDAO {
 				BoardVO bo = new BoardVO();
 				bo.setbId(rs.getInt(1));
 				bo.setbTitle(rs.getString(2));
-				bo.setLoginid(rs.getString(3));
+				bo.setuserId(rs.getString(3))
 				bo.setbDate(rs.getString(4));
 				bo.setbContent(rs.getString(5));
 				bo.setbAvailable(rs.getInt(6));
@@ -148,14 +163,17 @@ public class BoardDAO {
 		}
 		return null;
 	}
-	//�Խñ� ���� 
-	public int update(int bId, String bTitle, String bContent) {
-		String sql = "update board set bTitle = ?, bContent = ? where bId = ?";
+
+	//�Խñ� ��� 
+	public int update(int bId, String bTitle, String bContent, String filename) {
+		String sql = "update board set bTitle = ?, bContent = ?, bimage = ? where bId = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,bTitle);
 			pstmt.setString(2, bContent);
-			pstmt.setInt(3, bId);
+			pstmt.setString(3, filename);
+			pstmt.setInt(4, bId);
+			
 			return pstmt.executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -163,10 +181,12 @@ public class BoardDAO {
 		return -1;
 	}
 	
-	//�Խñ� ����
+
+	//�Խñ� ���
 	public int delete(int bId) {
-		//���� �����͸� �����ϴ°��� �ƴ϶� �Խñ� ��ȿ���ڸ� 0���� ����
-		String sql = "update board set bAvailable = 0 where bId = ?";
+		//��� �����͸� ����ϴ°��� �ƴ϶� �Խñ� �ȿ���ڸ� 0��� ���
+		String sql = "delete from board where bId = ?";
+
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bId);

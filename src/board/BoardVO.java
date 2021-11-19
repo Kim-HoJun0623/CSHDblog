@@ -3,7 +3,8 @@ package board;
 public class BoardVO {
 	private int bId;
 	private String bTitle;
-	private String loginid;
+
+	private String userId;
 	private String bDate;
 	private String bContent;
 	private int bAvailable;
@@ -27,11 +28,13 @@ public class BoardVO {
 	public void setbTitle(String bTitle) {
 		this.bTitle = bTitle;
 	}
-	public String getLoginid() {
-		return loginid;
+
+	public String getuserId() {
+		return userId;
 	}
-	public void setLoginid(String loginid) {
-		this.loginid = loginid;
+	public void setuserId(String userId) {
+		this.userId = userId;
+
 	}
 	public String getbDate() {
 		return bDate;
