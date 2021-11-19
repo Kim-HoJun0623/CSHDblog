@@ -159,7 +159,7 @@
       <div class="team">
         <span><p>Team Member</p>
           <p>Cute HYUK</p>
-          <p>Sexy KYU / Hansume JUNE</p>
+          <p>Sexy KYU / Handsome JUNE</p>
         </span>
       </div>
       
@@ -283,7 +283,7 @@
       <div class="team">
         <span><p>Team Member</p>
           <p>Cute HYUK</p>
-          <p>Sexy KYU / Hansume JUNE</p>
+          <p>Sexy KYU / Handsome JUNE</p>
         </span>
       </div>
       

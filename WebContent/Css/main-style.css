@@ -8,6 +8,7 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .header {height: 200px;text-align: center;box-sizing: border-box;border-bottom: 1px solid #999;}
 .header_top{font: 15px bold;float: right;font-family: 'NotoSansKR';}
 .header_top a{margin-right:30px;margin-left: 25px;color: #999;}
+.header_top a:hover{color: blueviolet}
 .header_logo{display: block;margin: 0 auto;width: 174px;height: 125px;}
 .header_logo h1{font: bold 60px 'NotoSansKR';padding-top: 40px;letter-spacing: 2px;line-height: 95%;}
 .header_logo p {font: bold 20px 'NotoSansKR';letter-spacing: 2px;margin-top: -1px;}
@@ -25,9 +26,11 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 
 
 /* best */
-.sec-cont h3 ,.story-tap h3{text-align:center;font-size:35px;padding:80px 0 60px;position: relative;}
-.best-tit{display: block;width: 250px;height: 195px;margin: auto;}
+.sec-cont h3 ,.story-tap h3{text-align:center;font-size:35px;margin-top: 80px;position: relative;}
+.sec-cont, .story-tap{width: 100%;height: 500px; margin-bottom: 50px;}
+.best-tit{display: block;width: 250px;height: 105px;margin: auto;}
 .tit{font-size:30px;font-weight:700;font-family:'Roboto', sans-serif}
+.tit:hover{color:#999}
 .best-img{height: 300px;margin-bottom:20px;text-indent:-999999px;font-size:0;color:transparent;background:#999 no-repeat center / cover;border-radius: 50px;}
 .best-tap ul li:nth-child(1) .best-img{background-image: url(../Img/bird-1.PNG);}
 .best-tap ul li:nth-child(2) .best-img{background-image: url(../Img/mouse-2.PNG);}
@@ -35,18 +38,18 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .best-tap ul li:nth-child(4) .best-img{background-image: url(../Img/bird-4.PNG);}
 .best-tap ul {overflow: hidden;width: 1400px;margin: auto;}
 .best-tap ul li {width:calc(25% - 25px);float:left;margin-left: 20px;}
-.best-tap h3::before{content: '';display: inline-block;width: 230px;height: 2px;background-color: rgb(95, 95, 95);position: absolute;bottom: 50px;}
+.best-tap h3::before{content: '';display: inline-block;width: 230px;height: 2px;background-color: rgb(95, 95, 95);position: absolute;bottom: 0px;}
 
 /* story */
 .story-box{height: 300px;margin-bottom: 20px;background:#ccc no-repeat center / cover;border-radius: 10px 10px 0 0;}
-.story-tit{display: block;width: 130px;height: 195px;margin: auto;}
+.story-tit{display: block;width: 130px;height: 105px;margin: auto;}
 .story-tap ul{overflow: hidden;width: 1400px;margin: auto;}
 .story-tap ul li{width: calc(33% - 20px);float: left;margin-left: 20px;}
-.story-tap h3::before{content: '';display: inline-block;width: 110px;height: 2px;background-color: rgb(95, 95, 95);position: absolute;bottom: 57px;}
+.story-tap h3::before{content: '';display: inline-block;width: 110px;height: 2px;background-color: rgb(95, 95, 95);position: absolute;bottom: 0px;}
 .story-box .story-img{background-color: #999;width: 100%;height: calc(100% - 50px);text-align: center;border-radius: 10px 10px 0 0;}
 .story-img img{height: 100%;}
 .story-box p{overflow: hidden;font-size: 15px;font-family: 'NotoSansKR';font-weight: bold;}
-.sec-cont, .story-tap{width: 100%;height: 550px; margin-bottom: 50px;}
+
 
 /* Footer - footer의 width는 1200px을 기준으로 한다 */
 footer{height:150px;background:#eee;text-align:left}
@@ -64,18 +67,19 @@ footer>div{width:1200px;margin:0 auto}
 
 @media only screen and (min-width:769px) and (max-width:1280px){ 
     .jd-slider.main-slider .slide-area, .jd-slider.main-slider .slide-area > li > a{height: 350px;}
+    .jd-slider.main-slider a{font-size: 0.9rem;}
 }
 
 @media only screen and (min-width:640px) and (max-width:768px){ 
     .jd-slider.main-slider .slide-area, .jd-slider.main-slider .slide-area > li > a{height: 240px;}
-    .jd-slider.main-slider a{font-size: 1rem;}
+    .jd-slider.main-slider a{font-size: 0.5rem;}
     .jd-slider .controller .indicate-area a{width: 12px;height: 12px;}
 
 }
 
 @media only screen and (min-width:321px) and (max-width:639px){ 
     .jd-slider.main-slider .slide-area, .jd-slider.main-slider .slide-area > li > a{height: 190px;}
-    .jd-slider.main-slider a{font-size: 1rem;}
+    .jd-slider.main-slider a{font-size: 0.5rem;}
     .jd-slider.main-slider .controller .indicate-area a{width: 10px;height: 10px;}
     .jd-slider.main-slider .controller .indicate-area a:after{border-width: 3px;}
   
@@ -83,16 +87,7 @@ footer>div{width:1200px;margin:0 auto}
 
 @media only screen and (max-width:320px){ 
     .jd-slider.main-slider .slide-area, .jd-slider.main-slider .slide-area > li > a{height: 150px;}
-    .jd-slider.main-slider a{font-size: 0.5rem;}
+    .jd-slider.main-slider a{font-size: 0.3rem;}
     .jd-slider .controller .indicate-area a{width: 8px;height: 8px;}
   
 }
-
-
-
-
-
-
-
-
-

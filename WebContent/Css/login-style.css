@@ -9,6 +9,7 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .header {height: 150px;text-align: center;box-sizing: border-box;}
 .header_top{font: 15px bold;float: right;font-family: 'NotoSansKR';}
 .header_top a{margin-right:30px;margin-left: 25px;color: #999;}
+.header_top a:hover{color: blueviolet}
 .header_logo{display: block;margin: 0 auto;width: 174px;height: 125px;}
 .header_logo h1{font: bold 60px 'NotoSansKR';padding-top: 40px;letter-spacing: 2px;line-height: 95%;}
 .header_logo p {font: bold 20px 'NotoSansKR';letter-spacing: 2px;margin-top: -1px;}

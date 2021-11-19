@@ -64,7 +64,7 @@
 </section>
 
 <section class="cont part3">
-    <div class="part-tit"><h5>HANSUME</h5></div>
+    <div class="part-tit"><h5>HANDSOME</h5></div>
     <ul class="part-gal">
         <li><a href="../Img/mouse-1.PNG" data-fancybox="han-img" data-caption="card-image" data-width="1280" data-height="720" title="han-1">
             <div class="img">image</div></a></li>
