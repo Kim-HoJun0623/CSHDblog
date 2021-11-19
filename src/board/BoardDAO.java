@@ -151,7 +151,7 @@ public class BoardDAO {
 				BoardVO bo = new BoardVO();
 				bo.setbId(rs.getInt(1));
 				bo.setbTitle(rs.getString(2));
-				bo.setuserId(rs.getString(3))
+				bo.setuserId(rs.getString(3));
 				bo.setbDate(rs.getString(4));
 				bo.setbContent(rs.getString(5));
 				bo.setbAvailable(rs.getInt(6));

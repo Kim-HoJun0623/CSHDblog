@@ -3,7 +3,6 @@ package board;
 public class BoardVO {
 	private int bId;
 	private String bTitle;
-
 	private String userId;
 	private String bDate;
 	private String bContent;
