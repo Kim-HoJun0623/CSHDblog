@@ -5,9 +5,11 @@
 <%@ page import="board.BoardDAO" %>
 <%@ page import="board.BoardVO" %>
 
+
 <%@ page import="java.io.File" %>
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+
  <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html>

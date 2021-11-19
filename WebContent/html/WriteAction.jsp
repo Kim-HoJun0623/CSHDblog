@@ -10,9 +10,14 @@
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 
+
  <jsp:useBean id="board" class="board.BoardVO" scope="page"/>
  <jsp:setProperty name="board" property="bTitle"/>
  <jsp:setProperty name="board" property="bContent"/>
+ <jsp:useBean id="Board" class="board.BoardVO" scope="page"/>
+ <jsp:setProperty name="Board" property="bTitle"/>
+ <jsp:setProperty name="Board" property="bContent"/>
+
     
 <!DOCTYPE html>
 <html>
