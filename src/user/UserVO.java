@@ -6,6 +6,7 @@ public class UserVO {
 	private String userName;
 	private String userGender;
 	private String userEmail;
+	
 	public String getUserId() {
 		return userId;
 	}

@@ -33,9 +33,11 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 /* cont */
 .cont{width: 1900px;margin-top: 50px;overflow: hidden;}
 .part{width: 1700px;height: 500px;margin: auto;}
+
 .box{display: inline-block;width: calc(50% - 52px);height: 400px;float: left;background-color: #999;margin-left: 50px;overflow: hidden;}
 .box:hover{border: 1px rgb(0, 0, 0) solid;}
 .img-box{background-color:#ccc;height: 340px;text-align: center;}
+
 .box p{font-size: 20px;font-weight: bold;font-family: 'NotoSansKR';}
 .box img{height: 100%;}
 .text-box{width: 100%;height: calc(100% - 350px); overflow: hidden; text-overflow: ellipsis;}
