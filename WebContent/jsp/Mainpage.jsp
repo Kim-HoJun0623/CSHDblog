@@ -37,19 +37,19 @@
 <div id="wrap">
   <header class="header">
     <div class="header_top">
-        <a href="../html/Login.jsp">LOGIN</a>
-        <a href="../html/Sign.jsp">SIGN</a>
+        <a href="../jsp/Login.jsp">LOGIN</a>
+        <a href="../jsp/Sign.jsp">SIGN</a>
     </div>
     <div class="header_logo">
-        <a href="../html/Mainpage.jsp">
+        <a href="../jsp/Mainpage.jsp">
             <h1>CSHD</h1>
             <p>blog</p>
         </a>
     </div>
     <div class="header_gnb">
         <ul>
-            <li><a href="../html/Gallery.jsp">GALLERY</a></li>
-            <li><a href="../html/Story.jsp">STORY</a></li>
+            <li><a href="../jsp/Gallery.jsp">GALLERY</a></li>
+            <li><a href="../jsp/Story.jsp">STORY</a></li>
         </ul>
     </div>
 </header>
@@ -88,7 +88,7 @@
     <section class="sec-cont">
       <div class="best-tap">
         <div class="best-tit">
-          <a href="../html/Gallery.jsp">
+          <a href="../jsp/Gallery.jsp">
             <h3 class="tit">BEST GALLERY</h3>
           </a>
         </div>
@@ -113,7 +113,7 @@
   <!-- story tap -->
 	<section class="story-tap">
     <div class="story-tit">
-      <a href="../html/Story.jsp">
+      <a href="../jsp/Story.jsp">
       <h3 class="tit">STORY</h3>
     </div>
     
@@ -168,18 +168,18 @@
 	<div id="wrap">
   <header class="header">
     <div class="header_top">
-        <a href="../html/logoutAction.jsp">LOGOUT</a>
+        <a href="../jsp/logoutAction.jsp">LOGOUT</a>
     </div>
     <div class="header_logo">
-        <a href="../html/Mainpage.jsp">
+        <a href="../jsp/Mainpage.jsp">
             <h1>CSHD</h1>
             <p>blog</p>
         </a>
     </div>
     <div class="header_gnb">
         <ul>
-            <li><a href="../html/Gallery.jsp">GALLERY</a></li>
-            <li><a href="../html/Story.jsp">STORY</a></li>
+            <li><a href="../jsp/Gallery.jsp">GALLERY</a></li>
+            <li><a href="../jsp/Story.jsp">STORY</a></li>
         </ul>
     </div>
 </header>
@@ -218,7 +218,7 @@
     <section class="sec-cont">
       <div class="best-tap">
         <div class="best-tit">
-          <a href="../html/Gallery.jsp">
+          <a href="../jsp/Gallery.jsp">
             <h3 class="tit">BEST GALLERY</h3>
           </a>
         </div>
@@ -243,7 +243,7 @@
   <!-- story tap -->
 	<section class="story-tap">
     <div class="story-tit">
-      <a href="../html/Story.jsp">
+      <a href="../jsp/Story.jsp">
       <h3 class="tit">STORY</h3>
     </div>
     
