@@ -33,31 +33,26 @@
 		
 	%>
     <header class="header">
-        <div class="header_top">
-            <a href="../jsp/Login.jsp">LOGIN</a>
-            <a href="../jsp/Sign.jsp">SIGN</a>
+        <a href="#" class="logo">
+            <img src="../Img/logo.jpg" alt="logo">
+        </a>
+        <span class="menu">
+            <a href="../jsp/Gallery.jsp">GALLERY</a>
+            <a href="../jsp/Story.jsp">STORY</a>
+        </span>
+        <div class="search">
+            <input type="text">
+            <button>검색</button>
         </div>
-        <div class="header_logo">
-            <a href="../jsp/Mainpage.jsp">
-                <h1>CSHD</h1>
-                <p>blog</p>
-            </a>
-        </div>
-        <div class="header_gnb">
-            <ul>
-                <li><a href="../jsp/Gallery.jsp">GALLERY</a></li>
-                <li><a href="../jsp/Story.jsp">STORY</a></li>
-            </ul>
-        </div>
+        <span class="sign">
+            <a href="../jsp/Sign.jsp">sign</a>
+            <a href="../jsp/Login.jsp">login</a>
+        </span>
+        <a href="../jsp/Write.jsp"><button class="head-btn">글쓰기</button></a>
+        
     </header>
     <div class="tit">
         <h2>STORE</h2>
-<<<<<<< HEAD:WebContent/jsp/Story.jsp
-        <a href="../jsp/Write.jsp"><button> 글쓰기</button></a>
-=======
-
-        <a href="../html/Write.jsp"><button> 글쓰기</button></a>
->>>>>>> 904bc66f5e975c1999bf15551d0c1516b66be96b:WebContent/html/Story.jsp
     </div>
 
     <section class="cont">
@@ -79,9 +74,7 @@
                     머머리 중 최강 귀요미일듯 하다.... !!!</p>
                 </div>
             </a>
-            </li>
-        </ul>
-        <ul class="part">
+        </li>
             <li class="box">
                 <a href="../jsp/Post.jsp">
                 <div class="img-box"><img src="../Img/bird-5.PNG" alt=""></div>
@@ -93,10 +86,9 @@
             </li>
             <li class="box">
                 <a href="../jsp/Post.jsp">
-                <div class="img-box"><img src="../Img/rock.PNG" alt=""></div>
+                <div class="img-box"><img src="../Img/mouse-4.PNG" alt=""></div>
                 <div class="text-box">
-                <p>슉. 슈슉 모 모기럼아 슈슉 슉 슉모.모기람아. 슉. 모기. 슈슉 슉 모. 모기. 슉 럼아
-                    슈슉. 모기 럼아 슈슈슉..슈슉슈슈슉슛ㄱ
+                <p>니나노오
                 </p>
                 </div>
                 </a>

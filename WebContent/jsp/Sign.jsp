@@ -40,8 +40,7 @@ function fn_sendJoin(){
         </div>
         <div class="header_logo">
             <a href="../jsp/Mainpage.jsp">
-                <h1>CSHD</h1>
-                <p>blog</p>
+                <img src="../Img/big-log.jpg" alt="logo">
             </a>
         </div>
 </header>
@@ -52,7 +51,7 @@ function fn_sendJoin(){
         <form accept-charset="utf-8" name="frmJoin">
             <!-- name -->
             <div>
-                <h3 class="title"><label for="id">Id</label></h3>
+                <h3 class="title"><label for="id">아이디</label></h3>
                 <span class="name box">
                     <input type="text" name="userId" id="id" class="int" maxlength="20"placeholder="ID">
                 </span>
@@ -61,10 +60,10 @@ function fn_sendJoin(){
 
             <!-- password -->
             <div>
-                <h3 class="title"><label for="password">Password</label></h3>
+                <h3 class="title"><label for="password">비밀번호</label></h3>
                 <span class="password box">
                     <input type="password" name="userPassword" id="password" class="int" maxlength="20"placeholder="Password">
-                    <span id="alerTxt">ì¬ì©ë¶ê°</span>
+                    <span id="alerTxt">사용불가</span>
                     <img src="../Img/lock-solid.svg" id="pswd_img" class="pswdimg" alt="">
                 </span>
                 <span class="error_next_box"></span>
@@ -72,7 +71,7 @@ function fn_sendJoin(){
 
             <!-- password_check -->
             <div>
-                <h3 class="title"><label for="check">Password_check</label></h3>
+                <h3 class="title"><label for="check">비밀번호 확인</label></h3>
                 <span class="check box">
                     <input type="password" name="password_check" id="check" class="int" maxlength="20"placeholder="Password_check">
                     <img src="../Img/user-lock-solid.svg" id="check_img" class="pswdimg" alt="">
@@ -82,7 +81,7 @@ function fn_sendJoin(){
 
             <!-- name -->
             <div>
-                <h3 class="title"><label for="name">Name</label></h3>
+                <h3 class="title"><label for="name">이름</label></h3>
                 <span class="name box">
                     <input type="text" name="userName" id="name" class="int" maxlength="20" placeholder="name">  
                 </span>
@@ -91,7 +90,7 @@ function fn_sendJoin(){
 
 			<!-- gender -->
             <div>
-                <h3 class="title"><label for="gender">Gender</label></h3>
+                <h3 class="title"><label for="gender">성별</label></h3>
                 <select name="userGender">
 				<option value="남">남자</option>
 				<option value="여">여자</option>
@@ -101,11 +100,11 @@ function fn_sendJoin(){
 
             <!-- email -->
             <div>
-                <h3 class="title"><label for="email">Email</label></h3>
+                <h3 class="title"><label for="email">이메일</label></h3>
                 <span class="email box">
                     <input type="text" name="userEmail" id="email" class="int" placeholder="####@naver.com">
                 </span>   
-                <span class="error_next_box">ì´ë©ì¼ ì£¼ìë¥¼ ë¤ì íì¸í´ì£¼ì¸ì</span>
+                <span class="error_next_box">이메일 주소를 다시 확인해주세요</span>
             </div>
 
            <!-- button -->

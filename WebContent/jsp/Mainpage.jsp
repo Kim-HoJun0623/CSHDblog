@@ -49,22 +49,22 @@
 %>
 <div id="wrap">
   <header class="header">
-    <div class="header_top">
-        <a href="../jsp/Login.jsp">LOGIN</a>
-        <a href="../jsp/Sign.jsp">SIGN</a>
-    </div>
-    <div class="header_logo">
-        <a href="../jsp/Mainpage.jsp">
-            <h1>CSHD</h1>
-            <p>blog</p>
-        </a>
-    </div>
-    <div class="header_gnb">
-        <ul>
-            <li><a href="../jsp/Gallery.jsp">GALLERY</a></li>
-            <li><a href="../jsp/Story.jsp">STORY</a></li>
-        </ul>
-    </div>
+    <a href="../jsp/Mainpage.jsp" class="logo">
+      <img src="../Img/logo.jpg" alt="logo">
+  </a>
+  <span class="menu">
+      <a href="../jsp/Gallery.jsp">GALLERY</a>
+      <a href="../jsp/Story.jsp">STORY</a>
+  </span>
+  <div class="search">
+      <input type="text">
+      <button>검색</button>
+  </div>
+  <span class="sign">
+      <a href="../jsp/Sign.jsp">sign</a>
+      <a href="../jsp/Login.jsp">login</a>
+  </span>
+  <a href="../jsp/Write.jsp"><button class="head-btn">글쓰기</button></a>
 </header>
   <div class="content main"> 
     
@@ -177,18 +177,18 @@
     <div class="header_top">
         <a href="../jsp/logoutAction.jsp">LOGOUT</a>
     </div>
-    <div class="header_logo">
-        <a href="../jsp/Mainpage.jsp">
-            <h1>CSHD</h1>
-            <p>blog</p>
-        </a>
-    </div>
-    <div class="header_gnb">
-        <ul>
-            <li><a href="../jsp/Gallery.jsp">GALLERY</a></li>
-            <li><a href="../jsp/Story.jsp">STORY</a></li>
-        </ul>
-    </div>
+    <a href="../jsp/Mainpage.jsp" class="logo">
+      <img src="../Img/logo.jpg" alt="logo">
+  </a>
+  <span class="menu">
+      <a href="../jsp/Gallery.jsp">GALLERY</a>
+      <a href="../jsp/Story.jsp">STORY</a>
+  </span>
+  <div class="search">
+      <input type="text">
+      <button>검색</button>
+  </div>
+  <a href="../jsp/Write.jsp"><button class="head-btn">글쓰기</button></a>
 </header>
   <div class="content main"> 
     
