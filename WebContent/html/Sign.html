@@ -61,6 +61,16 @@
                 <span class="error_next_box"></span>
             </div>
 
+            <!-- gender -->
+            <div>
+                <h3 class="title"><label for="gender">성별</label></h3>
+                <select name="userGender">
+				<option value="남">남자</option>
+				<option value="여">여자</option>
+				</select>
+                <span class="error_next_box"></span>
+            </div>
+
             <!-- email -->
             <div>
                 <h3 class="title"><label for="email">이메일</label></h3>
@@ -72,9 +82,7 @@
 
            <!-- button -->
             <div class="sumit">
-                <button type="button" id="btnsign">
-                    <a href="../html/Login.html">회원가입</a>
-                </button>
+                    <input type="button" value="회원가입" onclick="fn_sendJoin()" id="btnsign">
             </div>
             
             

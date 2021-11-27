@@ -56,8 +56,8 @@ header{height: 60px;max-width: 2000px;min-width: 1200px;display: flex;align-item
 /* Footer - footer의 width는 1200px을 기준으로 한다 */
 footer{height:150px;background:#eee;text-align:left}
 footer>div{width:1200px;margin:0 auto}
-.footer-logo{position: absolute;display: inline-block;width: 200px;height: 100px;left: 30px;}
-.footer-logo h2{color: #999;font-size: 50px;margin-top: 40px;}
+.footer-logo{position: absolute;display: inline-block;width: 220px;height: 100px;left: 30px;margin-top: 15px;}
+.footer-logo img{width: 200px;height: auto;opacity: .7;}
 .team{position: absolute;width: 200px;height: 150px;display: inline-block;right: 10px;}
 .footer-cont span p:nth-child(1){font: 25px bold;font-family: 'NotoSansKR';font-weight: 900;line-height: 300%;margin-top: 10px;}
 .footer-cont span p:nth-child(2){font: 15px bold;font-family: 'NotoSansKR';}
