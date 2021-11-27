@@ -155,7 +155,7 @@
   <!-- Footer -->
   <footer>
     <div class="footer-cont">
-      <div class="footer-logo"><h2>C.S.H.D</h2></div>
+      <div class="footer-logo"><img src="../Img/big-log_png.png" alt="logo"></div>
       <div class="team">
         <span><p>Team Member</p>
           <p>Cute HYUK</p>
@@ -279,7 +279,7 @@
   <!-- Footer -->
   <footer>
     <div class="footer-cont">
-      <div class="footer-logo"><h2>C.S.H.D</h2></div>
+      <div class="footer-logo"><img src="../Img/big-log_png.png" alt="logo"></div>
       <div class="team">
         <span><p>Team Member</p>
           <p>Cute HYUK</p>
