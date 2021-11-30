@@ -95,6 +95,14 @@ h3{
     cursor: pointer;
 }
 
+.gender{
+    width: 30%;
+    height: 25px;
+    border: solid 1px #dadada;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
 input {
     font-family: 'NotoSansKR';
 }
