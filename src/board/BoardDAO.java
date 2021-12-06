@@ -99,7 +99,7 @@ public class BoardDAO {
 				boardVO.setbDate(rs.getString(4));
 				boardVO.setbContent(rs.getString(5));
 				boardVO.setbAvailable(rs.getInt(6));
-				boardVO.setbimage(rs.getString(7));
+				boardVO.setbimage(rs.getString(8));
 				list.add(boardVO);
 				
 			}
@@ -141,7 +141,11 @@ public class BoardDAO {
 				bo.setbDate(rs.getString(4));
 				bo.setbContent(rs.getString(5));
 				bo.setbAvailable(rs.getInt(6));
-				bo.setbimage(rs.getString(7));
+				int bcount = rs.getInt(7);
+				bo.setBcount(bcount);
+				bcount++;
+				countUpdate(bcount,bId);
+				bo.setbimage(rs.getString(8));
 				return bo;
 			}
 		}catch (Exception e) {
@@ -175,6 +179,19 @@ public class BoardDAO {
 			pstmt.setInt(1, bId);
 			return pstmt.executeUpdate();
 		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	public int countUpdate(int bcount, int bId) {
+		String sql = "update board set bcount = ? where bId = ?";
+		try {
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, bcount);
+				pstmt.setInt(2, bId);
+				return pstmt.executeUpdate();
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		return -1;

@@ -8,7 +8,14 @@ public class BoardVO {
 	private String bContent;
 	private int bAvailable;
 	private String bimage;
+	private int bcount;
 
+	public int getBcount() {
+		return bcount;
+	}
+	public void setBcount(int bcount) {
+		this.bcount = bcount;
+	}
 	public String getbimage(){
 		return bimage;
 	}
