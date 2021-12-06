@@ -9,22 +9,22 @@
 </head>
 <body>
     <header>
-        <a href="../html/Mainpage.html" class="logo">
+        <a href="../html/Mainpage.jsp" class="logo">
             <img src="../Img/logo.jpg" alt="logo">
         </a>
         <span class="menu">
-            <a href="../html/Gallery.html">GALLERY</a>
-            <a href="../html/Story.html">STORY</a>
+            <a href="../html/Gallery.jsp">GALLERY</a>
+            <a href="../html/Story.jsp">STORY</a>
         </span>
         <div class="search">
             <input type="text">
             <button>검색</button>
         </div>
         <span class="sign">
-            <a href="../html/Sign.html">sign</a>
-            <a href="../html/Login.html">login</a>
+            <a href="../html/Sign.jsp">sign</a>
+            <a href="../html/Login.jsp">login</a>
         </span>
-        <a href="../html/Write.html"><button class="head-btn">글쓰기</button></a>
+        <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
         
     </header>
     <section>

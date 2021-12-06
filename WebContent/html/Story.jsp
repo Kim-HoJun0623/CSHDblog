@@ -37,18 +37,18 @@
             <img src="../Img/logo.jpg" alt="logo">
         </a>
         <span class="menu">
-            <a href="../jsp/Gallery.jsp">GALLERY</a>
-            <a href="../jsp/Story.jsp">STORY</a>
+            <a href="../html/Gallery.jsp">GALLERY</a>
+            <a href="../html/Story.jsp">STORY</a>
         </span>
         <div class="search">
             <input type="text">
             <button>검색</button>
         </div>
         <span class="sign">
-            <a href="../jsp/Sign.jsp">sign</a>
-            <a href="../jsp/Login.jsp">login</a>
+            <a href="../html/Sign.jsp">sign</a>
+            <a href="../html/Login.jsp">login</a>
         </span>
-        <a href="../jsp/Write.jsp"><button class="head-btn">글쓰기</button></a>
+        <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
         
     </header>
     <div class="tit">
@@ -58,7 +58,7 @@
     <section class="cont">
         <ul class="part">
             <li class="box">
-                <a href="../jsp/Post.jsp">
+                <a href="../html/Post.jsp">
                 <dt class="img-box"><img src="../Img/mouse-1.PNG" alt=""></dt>
                 <dt class="text-box">
                 <p>멧밭쥐는 한반도에서 흔한 들쥐류로 한국 전역에 서식한다.<br>
@@ -67,7 +67,7 @@
             </a>
             </li>
             <li class="box">
-                <a href="../jsp/Post.jsp">
+                <a href="../html/Post.jsp">
                 <div class="img-box"><img src="../Img/om-3.PNG" alt=""></div>
                 <div class="text-box">
                 <p>옴팡이는 애소 작가가 그린 카카오톡 이모티콘이며 너무너무 귀엽다<br>
@@ -76,7 +76,7 @@
             </a>
         </li>
             <li class="box">
-                <a href="../jsp/Post.jsp">
+                <a href="../html/Post.jsp">
                 <div class="img-box"><img src="../Img/bird-5.PNG" alt=""></div>
                 <div class="text-box">
                 <p>뱁새는 평균적으로 몸길이가 14cm, 꼬리길이가 8cm이며 <br>
@@ -85,7 +85,7 @@
                 </a>
             </li>
             <li class="box">
-                <a href="../jsp/Post.jsp">
+                <a href="../html/Post.jsp">
                 <div class="img-box"><img src="../Img/mouse-4.PNG" alt=""></div>
                 <div class="text-box">
                 <p>니나노오

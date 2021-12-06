@@ -49,22 +49,22 @@
 %>
 <div id="wrap">
   <header class="header">
-    <a href="../jsp/Mainpage.jsp" class="logo">
+    <a href="../html/Mainpage.jsp" class="logo">
       <img src="../Img/logo.jpg" alt="logo">
   </a>
   <span class="menu">
-      <a href="../jsp/Gallery.jsp">GALLERY</a>
-      <a href="../jsp/Story.jsp">STORY</a>
+      <a href="../html/Gallery.jsp">GALLERY</a>
+      <a href="../html/Story.jsp">STORY</a>
   </span>
   <div class="search">
       <input type="text">
       <button>검색</button>
   </div>
   <span class="sign">
-      <a href="../jsp/Sign.jsp">sign</a>
-      <a href="../jsp/Login.jsp">login</a>
+      <a href="../html/Sign.jsp">sign</a>
+      <a href="../html/Login.jsp">login</a>
   </span>
-  <a href="../jsp/Write.jsp"><button class="head-btn">글쓰기</button></a>
+  <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
 </header>
   <div class="content main"> 
     
@@ -101,7 +101,7 @@
     <section class="sec-cont">
       <div class="best-tap">
         <div class="best-tit">
-          <a href="../jsp/Gallery.jsp">
+          <a href="../html/Gallery.jsp">
             <h3 class="tit">BEST GALLERY</h3>
           </a>
         </div>
@@ -126,7 +126,7 @@
   <!-- story tap -->
 	<section class="story-tap">
     <div class="story-tit">
-      <a href="../jsp/Story.jsp">
+      <a href="../html/Story.jsp">
       <h3 class="tit">STORY</h3>
     </div>
     
@@ -175,20 +175,20 @@
 	<div id="wrap">
   <header class="header">
     <div class="header_top">
-        <a href="../jsp/logoutAction.jsp">LOGOUT</a>
+        <a href="../html/logoutAction.jsp">LOGOUT</a>
     </div>
-    <a href="../jsp/Mainpage.jsp" class="logo">
+    <a href="../html/Mainpage.jsp" class="logo">
       <img src="../Img/logo.jpg" alt="logo">
   </a>
   <span class="menu">
-      <a href="../jsp/Gallery.jsp">GALLERY</a>
-      <a href="../jsp/Story.jsp">STORY</a>
+      <a href="../html/Gallery.jsp">GALLERY</a>
+      <a href="../html/Story.jsp">STORY</a>
   </span>
   <div class="search">
       <input type="text">
       <button>검색</button>
   </div>
-  <a href="../jsp/Write.jsp"><button class="head-btn">글쓰기</button></a>
+  <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
 </header>
   <div class="content main"> 
     
@@ -225,7 +225,7 @@
     <section class="sec-cont">
       <div class="best-tap">
         <div class="best-tit">
-          <a href="../jsp/Gallery.jsp">
+          <a href="../html/Gallery.jsp">
             <h3 class="tit">BEST GALLERY</h3>
           </a>
         </div>
@@ -250,7 +250,7 @@
   <!-- story tap -->
 	<section class="story-tap">
     <div class="story-tit">
-      <a href="../jsp/Story.jsp">
+      <a href="../html/Story.jsp">
       <h3 class="tit">STORY</h3>
     </div>
     

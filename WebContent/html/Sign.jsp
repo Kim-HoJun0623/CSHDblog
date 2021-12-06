@@ -35,11 +35,11 @@ function fn_sendJoin(){
 <body>
     <header class="header">
         <div class="header_top">
-            <a href="../jsp/Login.jsp">LOGIN</a>
-            <a href="../jsp/Sign.jsp">SIGN</a>
+            <a href="../html/Login.jsp">LOGIN</a>
+            <a href="../html/Sign.jsp">SIGN</a>
         </div>
         <div class="header_logo">
-            <a href="../jsp/Mainpage.jsp">
+            <a href="../jhtmlsp/Mainpage.jsp">
                 <img src="../Img/big-log.jpg" alt="logo">
             </a>
         </div>

@@ -29,11 +29,11 @@ function fn_join(){
 <body>
     <header class="header">
         <div class="header_top">
-            <a href="../jsp/Login.jsp">LOGIN</a>
-            <a href="../jsp/Sign.jsp">SIGN</a>
+            <a href="../html/Login.jsp">LOGIN</a>
+            <a href="../html/Sign.jsp">SIGN</a>
         </div>
         <div class="header_logo">
-            <a href="../jsp/Mainpage.jsp">
+            <a href="../html/Mainpage.jsp">
                 <img src="../Img/big-log.jpg" alt="logo">
             </a>
         </div>
@@ -66,7 +66,7 @@ function fn_join(){
             
                 <input type="button" value="로그인" onclick="fn_sendLogin()" class="login-btn">
             
-            <a href="../jsp/Sign.jsp">회원가입</a>
+            <a href="../html/Sign.jsp">회원가입</a>
         </div>
         </form>
     </section>
