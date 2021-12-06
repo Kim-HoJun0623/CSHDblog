@@ -52,59 +52,11 @@
     </header>
     <div class="tit">
         <h2>STORE</h2>
-
+```
         <a href="../html/Write.jsp"><button> 글쓰기</button></a>
     </div>
 
-    <section class="cont">
-        <ul class="part">
-            <li class="box">
-                <a href="../html/Post.jsp">
-                <dt class="img-box"><img src="../Img/mouse-1.PNG" alt=""></dt>
-                <dt class="text-box">
-                <p>멧밭쥐는 한반도에서 흔한 들쥐류로 한국 전역에 서식한다.<br>
-                    이들은 논이나 풀밭에서 둥지를 만들고 새끼를 5~6마리를 낳는다.</p>
-                </dt>
-            </a>
-            </li>
-            <li class="box">
-                <a href="../html/Post.jsp">
-                <div class="img-box"><img src="../Img/om-3.PNG" alt=""></div>
-                <div class="text-box">
-                <p>옴팡이는 애소 작가가 그린 카카오톡 이모티콘이며 너무너무 귀엽다<br>
-                    머머리 중 최강 귀요미일듯 하다.... !!!</p>
-                </div>
-            </a>
-            </li>
-        </ul>
-        <ul class="part">
-            <li class="box">
-                <a href="../html/Post.jsp">
-                <div class="img-box"><img src="../Img/bird-5.PNG" alt=""></div>
-                <div class="text-box">
-                <p>뱁새는 평균적으로 몸길이가 14cm, 꼬리길이가 8cm이며 <br>
-                    그 작은 몸으로 날개짓하는게 너무 귀여워서 나 죽엉 >_<</p>
-                </div>
-                </a>
-            </li>
-            <li class="box">
-                <a href="../html/Post.jsp">
-                <div class="img-box"><img src="../Img/rock.PNG" alt=""></div>
-                <div class="text-box">
-                <p>슉. 슈슉 모 모기럼아 슈슉 슉 슉모.모기람아. 슉. 모기. 슈슉 슉 모. 모기. 슉 럼아
-                    슈슉. 모기 럼아 슈슈슉..슈슉슈슈슉슛ㄱ
-                </p>
-                </div>
-                </a>
-            </li>
-        </ul>
-    </section>
-    <div class="num">
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-    </div>
-=======
+    
         <%
 
 	 	// 메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
@@ -148,9 +100,12 @@
     	%>
     	<a href="Story.jsp?pageNumber=<%= pageNumber - 1 %>">이전</a>
     	<%
-    	}if(boardDAO.nextPage(pageNumber+1)){
+    	}%>
+      <a><%=pageNumber %></a>
+      <%
+      if(boardDAO.nextPage(pageNumber+1)){
     	%>
-    		<a href="Story.jsp?pageNumber=<%= pageNumber + 1 %>">다음</a>
+    	<a href="Story.jsp?pageNumber=<%= pageNumber + 1 %>">다음</a>
 		<%
     	}
 		%>

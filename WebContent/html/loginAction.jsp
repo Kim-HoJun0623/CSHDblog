@@ -58,5 +58,7 @@
 			script.println("</script>");
 		}
 	%>
+	
+	<!-- 카카오 로그인 부분 -->
 </body>
 </html>
