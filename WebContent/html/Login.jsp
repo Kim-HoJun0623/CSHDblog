@@ -34,8 +34,7 @@ function fn_join(){
         </div>
         <div class="header_logo">
             <a href="../html/Mainpage.jsp">
-                <h1>CSHD</h1>
-                <p>blog</p>
+                <img src="../Img/big-log.jpg" alt="logo">
             </a>
         </div>
 </header>

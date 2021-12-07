@@ -6,40 +6,36 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 
 
 /* header */
-.header {height: 194px;text-align: center;box-sizing: border-box;}
-.header_top{font: 15px bold;float: right;font-family: 'NotoSansKR';}
-.header_top a{margin-right:30px;margin-left: 25px;color: #999;}
-.header_top a:hover{color: blueviolet}
-.header_logo{display: block;margin: 0 auto;width: 174px;height: 125px;}
-.header_logo h1{font: bold 60px 'NotoSansKR';padding-top: 40px;letter-spacing: 2px;line-height: 95%;}
-.header_logo p {font: bold 20px 'NotoSansKR';letter-spacing: 2px;margin-top: -1px;}
-.header_gnb ul{margin-top: 40px;float: left;}
-.header_gnb ul li{display: inline-block;}
-.header_gnb ul li a{display: block;font: bold 20px 'NotoSansKR';margin: 0px 16px;letter-spacing: 1px;transition: 1.5s;padding: 3px 15px 1px 15px;}
-.header_gnb ul li:last-child a{background-color: black;color: white;}
-.header_gnb ul li a:hover{background-color: black;color: white;}
-.header_gnb{height: 100px;}
+header{height: 60px;max-width: 2000px;min-width: 1200px;display: flex;align-items: center;position: relative;overflow: hidden;
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, .1);}
+.logo{margin-left: 30px;float: left;}
+.menu{margin: 0 30px}
+.menu a{margin-left: 50px;font-size: 17px;padding: 18px 0;}
+.menu a:hover{border-bottom: black solid 2px;}
+.sign{margin-right: 30px;position: absolute;right: 55px;}
+.sign a{margin: 0 15px;opacity: .7;font-size: 15px;}
+.search input{width: 450px;height: 40px;border-radius: 15px;border: none;background-color: rgb(219, 219, 219);
+    font-size: 20px;font-weight: bold;margin-left: 50px;}
+.search button{width: 47px;height: 40px;border: none;border-radius: 15px;background-color: skyblue;
+    color: white;font-size: 17px;font-weight: bold;}
+.head-btn{background-color:lightskyblue; border: none;border-radius: 15px;width: 60px;height: 40px;color: white;position: absolute;right: 20px;top: 10px;}
 
 
 /* tit */
-.tit{ margin: 50px 0 0 20px;}
-.tit h2{font-size: 50px;font-family: 'NotoSansKR';font-weight: bold;color: black;display: inline-block;margin-left: 30px;}
-.tit button{float: right;width: 100px;height: 50px;margin-right: 50px;
-    background-color: skyblue;border: none;border-radius: 5px;
-    font-size: 15px;font-family: 'NotoSansKR';font-weight: bold;}
-.tit button:hover{color: white;}
+.tit{ margin: 35px 0 0 20px;}
+.tit h2{font-size: 30px;font-family: 'NotoSansKR';font-weight: bold;color: black;display: inline-block;margin-left: 30px;}
+
 
 
 /* cont */
-.cont{width: 1900px;margin-top: 50px;overflow: hidden;}
-.part{width: 1700px;height: 500px;margin: auto;}
+.cont{width: 1900px;margin-top: 30px;overflow: hidden;height: 850px;}
+.part{width: 1800px;margin: auto;}
 
-.box{display: inline-block;width: calc(50% - 52px);height: 400px;float: left;background-color: #999;margin-left: 50px;overflow: hidden;}
-.box:hover{border: 1px rgb(0, 0, 0) solid;}
+.box{display: inline-block;width: calc(24% - 10px);height: 400px;background-color: #999;margin:20px 0 0 20px;overflow: hidden;}
 .img-box{background-color:#ccc;height: 340px;text-align: center;}
 
 .box p{font-size: 20px;font-weight: bold;font-family: 'NotoSansKR';}
-.box img{height: 100%;}
+.box img{height: 100%;width: auto;}
 .text-box{width: 100%;height: calc(100% - 350px); overflow: hidden; text-overflow: ellipsis;}
 
 /* num */
@@ -48,13 +44,3 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .num a:hover{color: blue;}
 
 /* media query */
-
-@media only screen and (min-width:1001px) and (max-width:1400px) {  /*1001 이상 1400 이하*/
-.cont{width: 100%;}
-.part{width: 100%;}
-}
-@media only screen and (max-width:1000px) {  /* 1000 이하*/
-    .cont{width: 100%;}
-    .part{width: 100%;}
-    .box{width: calc(100% - 30px); margin:0 15px 30px 15px;}
-    }
