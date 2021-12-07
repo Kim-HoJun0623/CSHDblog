@@ -22,7 +22,7 @@
 		}
 		if(userId != null){ //이미 로그인 했으면 다시 로그인 할 필요 없게
 			PrintWriter script = response.getWriter();
-			script.println("<script>");
+			script.println("<script>");	
 			script.println("alert('이미 로그인 성공')");
 			script.println("location.href='Mainpage.jsp'");
 			script.println("</script>");

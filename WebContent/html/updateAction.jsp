@@ -47,6 +47,7 @@
 				script.println("</script>");
 			} 
 				
+		
 			int bId = 0;
 			System.out.println(request.getParameter("bId")); 
 			if(request.getParameter("bId") != null){
