@@ -8,3 +8,6 @@ CREATE TABLE  `blog`.`board` (
   `bimage` varchar(400) DEFAULT NULL,
   PRIMARY KEY (`bId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
+
+ALTER TABLE `blog`.`board` 
+ADD COLUMN `bcount` INT NULL AFTER `bAvailable` default '0';
