@@ -53,6 +53,12 @@
     </header>
     <div class="tit">
         <h2>STORE</h2>
+
+        <a href="../html/Write.jsp"><button> 글쓰기</button></a>
+    </div>
+
+    
+
     </div>
 
     <section class="cont">
@@ -100,7 +106,7 @@
         <a href="#">2</a>
         <a href="#">3</a>
     </div>
-=======
+
         <%
 
 	 	// 메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
@@ -144,9 +150,12 @@
     	%>
     	<a href="Story.jsp?pageNumber=<%= pageNumber - 1 %>">이전</a>
     	<%
-    	}if(boardDAO.nextPage(pageNumber+1)){
+    	}%>
+      <a><%=pageNumber %></a>
+      <%
+      if(boardDAO.nextPage(pageNumber+1)){
     	%>
-    		<a href="Story.jsp?pageNumber=<%= pageNumber + 1 %>">다음</a>
+    	<a href="Story.jsp?pageNumber=<%= pageNumber + 1 %>">다음</a>
 		<%
     	}
 		%>

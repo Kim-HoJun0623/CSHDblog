@@ -75,8 +75,11 @@
 								<tr>
 									<td>이미지</td>
 									<td colspan="2" style="height: 200px; text-align:left">
+									<%if(bo.getbimage()==null){ //이미지가 없음때%> 
+									
+									<%}else { //이미지가 있을때 %>
 								      	<img src="../upload/<%=bo.getbimage() %>">
-								      	
+								     <%} %> 	
 									</td>
 								</tr>
 							
