@@ -84,6 +84,7 @@
 </script>
 </head>
 <body>
+
 	<header class="header">
 		<div class="header_top">
 			<a href="../html/Login.jsp">LOGIN</a> <a href="../html/Sign.jsp">SIGN</a>
@@ -125,6 +126,7 @@
 
 				<!--login-button-->
 				<div class="sumit">
+
 
 
 					<input type="button" value="로그인" onclick="fn_sendLogin()"

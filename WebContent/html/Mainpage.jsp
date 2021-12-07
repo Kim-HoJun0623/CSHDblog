@@ -49,22 +49,22 @@
 %>
 <div id="wrap">
   <header class="header">
-    <div class="header_top">
-        <a href="../html/Login.jsp">LOGIN</a>
-        <a href="../html/Sign.jsp">SIGN</a>
-    </div>
-    <div class="header_logo">
-        <a href="../html/Mainpage.jsp">
-            <h1>CSHD</h1>
-            <p>blog</p>
-        </a>
-    </div>
-    <div class="header_gnb">
-        <ul>
-            <li><a href="../html/Gallery.jsp">GALLERY</a></li>
-            <li><a href="../html/Story.jsp">STORY</a></li>
-        </ul>
-    </div>
+    <a href="../html/Mainpage.jsp" class="logo">
+      <img src="../Img/logo.jpg" alt="logo">
+  </a>
+  <span class="menu">
+      <a href="../html/Gallery.jsp">GALLERY</a>
+      <a href="../html/Story.jsp">STORY</a>
+  </span>
+  <div class="search">
+      <input type="text">
+      <button>검색</button>
+  </div>
+  <span class="sign">
+      <a href="../html/Sign.jsp">sign</a>
+      <a href="../html/Login.jsp">login</a>
+  </span>
+  <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
 </header>
   <div class="content main"> 
     
@@ -155,7 +155,7 @@
   <!-- Footer -->
   <footer>
     <div class="footer-cont">
-      <div class="footer-logo"><h2>C.S.H.D</h2></div>
+      <div class="footer-logo"><img src="../Img/big-log_png.png" alt="logo"></div>
       <div class="team">
         <span><p>Team Member</p>
           <p>Cute HYUK</p>
@@ -177,18 +177,18 @@
     <div class="header_top">
         <a href="../html/logoutAction.jsp">LOGOUT</a>
     </div>
-    <div class="header_logo">
-        <a href="../html/Mainpage.jsp">
-            <h1>CSHD</h1>
-            <p>blog</p>
-        </a>
-    </div>
-    <div class="header_gnb">
-        <ul>
-            <li><a href="../html/Gallery.jsp">GALLERY</a></li>
-            <li><a href="../html/Story.jsp">STORY</a></li>
-        </ul>
-    </div>
+    <a href="../html/Mainpage.jsp" class="logo">
+      <img src="../Img/logo.jpg" alt="logo">
+  </a>
+  <span class="menu">
+      <a href="../html/Gallery.jsp">GALLERY</a>
+      <a href="../html/Story.jsp">STORY</a>
+  </span>
+  <div class="search">
+      <input type="text">
+      <button>검색</button>
+  </div>
+  <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
 </header>
   <div class="content main"> 
     
@@ -279,7 +279,7 @@
   <!-- Footer -->
   <footer>
     <div class="footer-cont">
-      <div class="footer-logo"><h2>C.S.H.D</h2></div>
+      <div class="footer-logo"><img src="../Img/big-log_png.png" alt="logo"></div>
       <div class="team">
         <span><p>Team Member</p>
           <p>Cute HYUK</p>

@@ -54,7 +54,7 @@ function checkPw(){
         error[1].style.display = "block";
 
         pwMsg.style.display = "block";
-        pwImg.src = "../Img/compass-solid.svg";
+        pwImg.src = "../Img/angry.svg";
     } else{
         error[1].style.display = "none";
         pwMsg.innerHTML = "안전";
@@ -69,7 +69,7 @@ function comparePw(){
         checkImg.src = "../Img/lock-open-solid.svg";
         error[2].style.display = "none";
     } else if(check.value !== pw.value) {
-        checkImg.src = "../Img/compass-solid.svg";
+        checkImg.src = "../Img/angry.svg";
         error[2].innerHTML = "비밀번호가 일치하지 않습니다.";
         error[2].style.display = "block";
     }

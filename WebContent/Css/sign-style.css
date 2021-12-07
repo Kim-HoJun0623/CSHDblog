@@ -23,13 +23,8 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
     color: #999;
 }
 .header_top a:hover{color: blueviolet}
-.header_logo{display: block;margin: 0 auto;width: 174px;height: 125px;}
-.header_logo h1{
-    font: bold 60px 'NotoSansKR';
-    padding-top: 40px;
-    letter-spacing: 2px;
-    line-height: 95%;
-}
+.header_logo{display: block;margin: 0 auto;width: 200px;height: 130px;}
+.header_logo img{margin-top: 30px;}
 
 .header_logo p {
     font: bold 20px 'NotoSansKR';
@@ -98,6 +93,14 @@ h3{
     right: 16px;
     margin-top: -10px;
     cursor: pointer;
+}
+
+.gender{
+    width: 30%;
+    height: 25px;
+    border: solid 1px #dadada;
+    font-size: 15px;
+    border-radius: 3px;
 }
 
 input {
