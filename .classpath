@@ -10,6 +10,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0"/>
-	<classpathentry kind="lib" path="C:/Tomcat9/lib/servlet-api.jar"/>
+
+	<classpathentry kind="lib" path="C:/apache-tomcat-9.0.45/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/University/Study/eclipseWorkspace/CSHDblog/WebContent/WEB-INF/lib/cos.jar"/>
+
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

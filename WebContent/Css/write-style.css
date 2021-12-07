@@ -22,6 +22,7 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
     margin-left: 25px;
     color: #999;
 }
+.header_top a:hover{color: blueviolet}
 .header_logo{display: block;margin: 0 auto;width: 174px;height: 125px;}
 .header_logo h1{
     font: bold 60px 'NotoSansKR';

@@ -34,11 +34,13 @@ public class BoardVO {
 	public void setbTitle(String bTitle) {
 		this.bTitle = bTitle;
 	}
+
 	public String getuserId() {
 		return userId;
 	}
 	public void setuserId(String userId) {
 		this.userId = userId;
+
 	}
 	public String getbDate() {
 		return bDate;

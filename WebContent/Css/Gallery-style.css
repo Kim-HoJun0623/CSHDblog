@@ -9,6 +9,7 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .header {height: 194px;text-align: center;box-sizing: border-box;}
 .header_top{font: 15px bold;float: right;font-family: 'NotoSansKR';}
 .header_top a{margin-right:30px;margin-left: 25px;color: #999;}
+.header_top a:hover{color: blueviolet}
 .header_logo{display: block;margin: 0 auto;width: 174px;height: 125px;}
 .header_logo h1{font: bold 60px 'NotoSansKR';padding-top: 40px;letter-spacing: 2px;line-height: 95%;}
 .header_logo p {font: bold 20px 'NotoSansKR';letter-spacing: 2px;margin-top: -1px;}
@@ -24,13 +25,14 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .tit h2{font-size: 50px;font-family: 'NotoSansKR';font-weight: bold;color: black;}
 
 /* cont (공통) */
-.cont{height: 600px; width: 100%;overflow: hidden;position: relative;}
+.cont{width: 100%;overflow: hidden;position: relative;}
 .part-tit{margin: 20px 0 0 30px;}
 .part-tit>h5{font-size: 40px;font-family: 'NotoSansKR';font-weight: bold;color: black;}
-.part-gal{height: 410px; width: 1900px;overflow: hidden;margin: auto;}
+.part-gal{width: 1900px;overflow: hidden;margin: 0 auto 100px auto;}
 .img{height: 364px;width: calc(25% - 60px); float: left;margin: 40px 0 0 40px;
     background:#999 no-repeat center / cover;border-radius: 50px;border: 1px solid #999;
     text-indent:-999999px;font-size:0;color:transparent;}
+.img:hover{border-color: black;}    
 
 /* part1 */
 .part1 .part-tit::before{content: '';display: inline-block;width: 110px;height: 20px;background-color: yellow;position: absolute;top: 50px;mix-blend-mode: multiply;}
@@ -55,3 +57,19 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 .part3 li:nth-of-type(3) .img{background-image: url(../Img/mouse-3.PNG);}
 .part3 li:nth-of-type(4) .img{background-image: url(../Img/mouse-4.PNG);}
 
+
+
+/* media query */
+
+@media only screen and (min-width:1201px) and (max-width:1600px) {  /* 1201 이상 1600 이하*/
+    .part-gal{width: 1250px;}
+    .img{width: calc(33% - 50px);}
+    }
+@media only screen and (min-width:765px) and (max-width:1200px) {  /* 765 이상 1200 이하*/
+    .part-gal{width: 850px;}
+    .img{width: calc(50% - 50px);}
+    }
+@media only screen and (max-width:764px) {  /* 496 이상 764 이하*/
+    .part-gal{width: 450px;}
+    .img{width: calc(100% - 50px);}
+    }
