@@ -13,14 +13,14 @@ public class BoardDAO {
 	private ResultSet rs;
 	
 
-	//�⺻ ������
+	//占썩본 占쏙옙占쏙옙占쏙옙
 	public BoardDAO() {
 		try {
-//			System.out.println("�����ͺ��̽�����");
+//			System.out.println("占쏙옙占쏙옙占싶븝옙占싱쏙옙占쏙옙占쏙옙");
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String dbURL="jdbc:mysql://localhost:3306/blog";
 			String dbID ="root";
-			String dbPassword="root";
+			String dbPassword="1234";
 
 			Class.forName(driver);
 			conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
@@ -30,7 +30,7 @@ public class BoardDAO {
 	}
 	
 
-	//�ۼ�����
+	//占쌜쇽옙占쏙옙占쏙옙
 
 	public String getDate() {
 		String sql="select now()";
@@ -39,19 +39,19 @@ public class BoardDAO {
 
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
-//				System.out.println("�ۼ�����");
+//				System.out.println("占쌜쇽옙占쏙옙占쏙옙");
 				return rs.getString(1);
 			}
 			
 		}catch (Exception e){
 			e.printStackTrace();
 		}
-		return "";//�����ͺ��̽� ���
+		return "";//占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙占�
 	}
 	
-	//�Խñ� ��ȣ �ο�
+	//占쌉시깍옙 占쏙옙호 占싸울옙
 	public int getNext() {
-		//���� �Խñ�� ���������� �ȸ�Ͽ� ���� ���� ���� ��ȣ�� ���Ѵ�.
+		//占쏙옙占쏙옙 占쌉시깍옙占� 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占싫몌옙臼占� 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙호占쏙옙 占쏙옙占싼댐옙.
 
 		String sql="select bId from board order by bId desc";
 		try {
@@ -59,7 +59,7 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 
-//				System.out.println("��ȣ�ο�");
+//				System.out.println("占쏙옙호占싸울옙");
 
 				return rs.getInt(1)+1;
 			}	
@@ -68,31 +68,31 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 
-		return -1;//�����ͺ��̽� ���
+		return -1;//占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙占�
 	}
 	
 	public int write(String bTitle,String userId, String bContent,String filename) {
 		String sql="insert into board values(?,?,?,?,?,?,?)";
 		try {
-//			System.out.println("�۾���");
+//			System.out.println("占쌜억옙占쏙옙");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, getNext());
 			pstmt.setString(2, bTitle);
 			pstmt.setString(3, userId);
 			pstmt.setString(4,getDate());
 			pstmt.setString(5, bContent);
-			pstmt.setInt(6, 1);//���� �ȣ��ȣ
-			pstmt.setString(7, filename);//�����̸�
+			pstmt.setInt(6, 1);//占쏙옙占쏙옙 占싫ｏ옙占싫�
+			pstmt.setString(7, filename);//占쏙옙占쏙옙占싱몌옙
 
 			return pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 
-		return -1; //�����ͺ��̽� ���
+		return -1; //占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙占�
 	}
 	
-	//�Խñ� ����Ʈ
+	//占쌉시깍옙 占쏙옙占쏙옙트
 
 	public ArrayList<BoardVO> getList(int pageNumber){
 		String sql = "select * from board where bId < ? and bAvailable=1 order by bId desc limit 4";
@@ -121,8 +121,28 @@ public class BoardDAO {
 		return list;
 		
 	}
-
-	//������ ó��
+	public ArrayList<BoardVO> GalleryList(int pageNumber){//pageNumber 를 분류 번호로 바꿔야한다.
+		String sql = "select bimage from board where bId < ? and bAvailable=1 order by bId desc ";
+		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+		try {
+//			System.out.println(pageNumber);
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, getNext());
+//			System.out.println(getNext()-(pageNumber-1)*4);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BoardVO boardVO = new BoardVO();
+				boardVO.setbimage(rs.getString(1));
+				list.add(boardVO);
+				
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+		
+	}
+	//占쏙옙占쏙옙占쏙옙 처占쏙옙
 
 	public boolean nextPage(int pageNumber) {
 		String sql = "select * from board where bId < ? and bAvailable = 1";
@@ -168,7 +188,7 @@ public class BoardDAO {
 		return null;
 	}
 
-	//�Խñ� ��� 
+	//占쌉시깍옙 占쏙옙占� 
 	public int update(int bId, String bTitle, String bContent, String filename) {
 		String sql = "update board set bTitle = ?, bContent = ?, bimage = ? where bId = ?";
 		try {
@@ -186,9 +206,9 @@ public class BoardDAO {
 	}
 	
 
-	//�Խñ� ���
+	//占쌉시깍옙 占쏙옙占�
 	public int delete(int bId) {
-		//��� �����͸� ����ϴ°��� �ƴ϶� �Խñ� �ȿ���ڸ� 0��� ���
+		//占쏙옙占� 占쏙옙占쏙옙占싶몌옙 占쏙옙占쏙옙求째占쏙옙占� 占싣니띰옙 占쌉시깍옙 占싫울옙占쏙옙美占� 0占쏙옙占� 占쏙옙占�
 		String sql = "delete from board where bId = ?";
 
 		try {
