@@ -36,8 +36,6 @@ header{height: 60px;max-width: 2000px;min-width: 1000px;display: flex;align-item
 
 
 /* box */
-.cont{width: 1800px;margin: auto;}
-.box{max-width: 1800px; margin: 20px auto 10px;padding: 0 20px;display: flex;flex-direction: row;flex-wrap: wrap;justify-content: flex-start;align-items: center;}
-.box .image{width: calc(20% - 10px);height: 228px;background-color: #999;margin: 5px;}
-.image:nth-child(1){background-image: url(../Img/bird-1.PNG);background-size: cover;}
-.image:nth-child(2){background-image: url(../Img/bird-2.PNG);background-size: cover;}
+.cont{width: 100%;margin: auto;max-width: 1800px;min-width: 250px;}
+.box{width: 100%; margin: 20px 25px 10px;padding: 0 20px;display: flex;flex-direction: row;flex-wrap: wrap;justify-content: flex-start;align-items: center;}
+
