@@ -10,14 +10,9 @@
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 
-
  <jsp:useBean id="board" class="board.BoardVO" scope="page"/>
  <jsp:setProperty name="board" property="bTitle"/>
  <jsp:setProperty name="board" property="bContent"/>
- <jsp:useBean id="Board" class="board.BoardVO" scope="page"/>
- <jsp:setProperty name="Board" property="bTitle"/>
- <jsp:setProperty name="Board" property="bContent"/>
-
     
 <!DOCTYPE html>
 <html>
@@ -60,6 +55,9 @@
 				script.println("alert('로그인을 하세요')");
 				script.println("location.href='#'");
 				script.println("</script>");
+				
+				
+				
 			}else{ 
 				
 				// 입력이 안 된 부분이 있는지 체크한다

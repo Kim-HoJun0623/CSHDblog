@@ -39,7 +39,7 @@ function fn_sendJoin(){
             <a href="../html/Sign.jsp">SIGN</a>
         </div>
         <div class="header_logo">
-            <a href="../jhtmlsp/Mainpage.jsp">
+            <a href="../html/Mainpage.jsp">
                 <img src="../Img/big-log.jpg" alt="logo">
             </a>
         </div>

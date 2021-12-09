@@ -29,7 +29,7 @@
 	}
 	
 	//만약 넘어온 데이터 없을경우
-	if(bId==0){
+	if(false){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('유효하지 않은 글입니다.')");
@@ -38,7 +38,7 @@
 	}
 	
 	// 유요한 글이라면 구체적인 정보를 bo라는 인스턴스에 담기
-	BoardVO bo = new BoardDAO().getBoardVO(bId);
+	BoardVO bo = new BoardDAO().getBoardVO(1);
 	//BoardVO bcount = new BaordDAO().getCount(bId);
 	%>
 	<!--게시판 글보기 양식 영역시작-->
