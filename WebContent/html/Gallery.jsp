@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo">
+        <a href="../html/Mainpage.jsp" class="logo">
             <img src="../Img/logo.jpg" alt="logo">
         </a>
         <div class="search">
@@ -17,8 +17,8 @@
             <button>검색</button>
         </div>
         <div class="sign">
-            <a href="#">sign</a>
-            <a href="#">login</a>
+            <a href="../html/Sign.jsp">sign</a>
+            <a href="../html/Login.jsp">login</a>
         </div>
         <button class="head-btn">글쓰기</button>
     </header>
