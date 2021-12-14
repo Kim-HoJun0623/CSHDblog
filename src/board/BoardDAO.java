@@ -72,7 +72,7 @@ public class BoardDAO {
 	}
 	
 	public int write(String bTitle,String userId, String bContent,String filename) {
-		String sql="insert into board values(?,?,?,?,?,?,?)";
+		String sql="insert into board(bId,bTitle,userId,bDate,bContent,bAvailable,bcount,bimage) values(?,?,?,?,?,?,?,?)";
 		try {
 //			System.out.println("占쌜억옙占쏙옙");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -82,7 +82,8 @@ public class BoardDAO {
 			pstmt.setString(4,getDate());
 			pstmt.setString(5, bContent);
 			pstmt.setInt(6, 1);//占쏙옙占쏙옙 占싫ｏ옙占싫�
-			pstmt.setString(7, filename);//占쏙옙占쏙옙占싱몌옙
+			pstmt.setInt(7, 0);
+			pstmt.setString(8, filename);//占쏙옙占쏙옙占싱몌옙
 
 			return pstmt.executeUpdate();
 		}catch(Exception e) {

@@ -30,7 +30,7 @@
 		
 	%>
     <header>
-        <a href="#" class="logo">
+        <a href="Mainpage.jsp" class="logo">
             <img src="../Img/logo.jpg" alt="logo">
         </a>
         <div class="search">
@@ -65,6 +65,7 @@
             </span>
             </div>
         </div>
+        <!-- 갤러리 분류별 정렬 -->
     <section class="cont">
         <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6 box">
          	<%

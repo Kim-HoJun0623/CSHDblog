@@ -34,7 +34,7 @@
 		
 	%>
     <header class="header">
-        <a href="#" class="logo">
+        <a href="Mainpage.jsp" class="logo">
             <img src="../Img/logo.jpg" alt="logo">
         </a>
         <span class="menu">
@@ -55,7 +55,8 @@
     <div class="tit">
         <h2>STORE</h2>
     </div>
-
+	
+	<!-- 마이페이지-내가올린 게시글만 보기 -->
     <section class="cont">
         <ul class="part">
          	<%

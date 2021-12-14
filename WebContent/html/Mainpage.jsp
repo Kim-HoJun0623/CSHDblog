@@ -106,6 +106,7 @@
           </a>
         </div>
         <ul>
+        	<!-- 조회수 높은 순으로 정렬 -->
             <li>
               <div class="best-img">image</div>
             </li>
