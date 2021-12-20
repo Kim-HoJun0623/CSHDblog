@@ -7,8 +7,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="google-signin-client_id" content="33328874136-h4f2f7dbfj1ulfugs274ac9mvkvado79.apps.googleusercontent.com">
 <title>LOGIN</title>
 <link rel="stylesheet" href="../Css/login-style.css">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <!-- 카카오 스크립트 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
@@ -81,6 +83,14 @@
 			Kakao.Auth.setAccessToken(undefined)
 		}
 	}
+	//구글 로그인
+	function onSignIn(googleUser) {
+		  var profile = googleUser.getBasicProfile();
+		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		  console.log('Name: ' + profile.getName());
+		  console.log('Image URL: ' + profile.getImageUrl());
+		  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		}
 </script>
 </head>
 <body>
@@ -138,6 +148,9 @@
 					<li><a href="javascript:kakaoLogin()">
 							<img alt="kakaoImg" src="../Img/kakao_login_medium_narrow.png">
 					</a></li>
+					<li>
+					<div class="g-signin2" data-onsuccess="onSignIn"></div>
+					</li>
 					<!-- <li onclick="kakaoLogout();"><a href="javascript:void(0)">
 							<span>카카오 로그아웃</span>
 					</a></li>-->
