@@ -29,7 +29,15 @@
 		}
 		
 	%>
+
     <header>
+    	  <%
+//메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
+		String userId = null;
+		if(session.getAttribute("userId") != null){
+			userId = (String)session.getAttribute("userId");
+		}
+	%>
         <a href="Mainpage.jsp" class="logo">
             <img src="../Img/logo.jpg" alt="logo">
         </a>
@@ -37,11 +45,16 @@
             <input type="text">
             <button>검색</button>
         </div>
+         <% if(userId==null){%>
         <div class="sign">
-            <a href="#">sign</a>
-            <a href="#">login</a>
+        
+            <a href="Sign.jsp">sign</a>
+            <a href="Login.jsp">login</a>
+           
         </div>
+         <%}else{ %>
         <button class="head-btn">글쓰기</button>
+        <%} %>
     </header>
         <div class="cont-head">
             <h5>GALLERY</h5>

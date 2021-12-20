@@ -136,7 +136,10 @@
     <%
 					BoardDAO boardDAO = new BoardDAO();
 				ArrayList<BoardVO> list = boardDAO.getList(pageNumber);
+				System.out.println(list.isEmpty());
+				if(list.isEmpty()){}else{
 					for(int i=0; i<3; i++){
+						
 		%>
       <li>
         <div class="story-box">
@@ -145,6 +148,7 @@
         </div> 
       </li>
    	 <%
+						}
 			}
 		%>
     </ul>
@@ -260,6 +264,7 @@
     <%
 					BoardDAO boardDAO = new BoardDAO();
 				ArrayList<BoardVO> list = boardDAO.getList(pageNumber);
+				if(list.isEmpty()){}else{
 					for(int i=0; i<3; i++){
 		%>
       <li>
@@ -269,6 +274,7 @@
         </div> 
       </li>
    	 <%
+					}
 			}
 		%>
     </ul>

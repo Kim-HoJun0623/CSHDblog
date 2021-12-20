@@ -2,9 +2,10 @@
     pageEncoding="UTF-8"%>
          <% request.setCharacterEncoding("utf-8");
      response.setContentType("text/html;charset=utf-8"); %>
-  <%@ page import="java.io.PrintWriter" %>
+  <%@ page import="java.io.*" %>
   <%@ page import="board.BoardVO" %>
   <%@ page import="board.BoardDAO" %> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +20,8 @@
 		if(session.getAttribute("userId") != null){
 			userId = (String)session.getAttribute("userId");
 		}
+		
+		
 	%>
 	
 	<%	
@@ -30,13 +33,13 @@
 	}
 	
 	//만약 넘어온 데이터 없을경우
-	if(false){
+	/* if(false){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('유효하지 않은 글입니다.')");
 		script.println("location.href='board.jsp'");
 		script.println("</script>");
-	}
+	} */
 	
 	// 유요한 글이라면 구체적인 정보를 bo라는 인스턴스에 담기
 	BoardVO bo = new BoardDAO().getBoardVO(bId);
@@ -106,7 +109,7 @@
     <aside>
         <div class="b-img">광고칸</div>
         <div class="abtn">
-            <button>사진 다운로드</button>
+            <button><a href="filedown.jsp?bId=<%= bId%>">사진 다운로드</a></button>
         </div>
         <div class="s-img">광고칸</div>
     </aside>

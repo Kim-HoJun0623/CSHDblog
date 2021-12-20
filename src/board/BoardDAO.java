@@ -49,7 +49,6 @@ public class BoardDAO {
 		return "";//占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙占�
 	}
 	
-	//占쌉시깍옙 占쏙옙호 占싸울옙
 	public int getNext() {
 		//占쏙옙占쏙옙 占쌉시깍옙占� 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占싫몌옙臼占� 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙호占쏙옙 占쏙옙占싼댐옙.
 
@@ -145,23 +144,33 @@ public class BoardDAO {
 	}
 	//占쏙옙占쏙옙占쏙옙 처占쏙옙
 
-	public boolean nextPage(int pageNumber) {
-		String sql = "select * from board where bId < ? and bAvailable = 1";
+	/*
+	 * public boolean nextPage(int pageNumber) { String sql =
+	 * "select * from board where bId < ? and bAvailable = 1"; try {
+	 * PreparedStatement pstmt = conn.prepareStatement(sql);
+	 * pstmt.setInt(1,getNext()-(pageNumber-1)*4); rs = pstmt.executeQuery();
+	 * if(rs.next()) { return true; } }catch (Exception e) { e.printStackTrace(); }
+	 * 
+	 * return false; }
+	 */
+	public int PageList(String userId) {
+		int pageNumber=0;
+		String sql = "select count(*) from board where userId=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,getNext()-(pageNumber-1)*4);
+			pstmt.setString(1, userId);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				return true;
+				pageNumber=rs.getInt(1);
+				return pageNumber;
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 			
-		return false;
+		return pageNumber;
 	}
 	
-
 	public BoardVO getBoardVO(int bId) {
 		String sql ="select * from board where bId = ?";
 		try {
