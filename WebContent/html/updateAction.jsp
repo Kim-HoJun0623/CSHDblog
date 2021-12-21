@@ -55,6 +55,11 @@ if(request.getParameter("bId") != null){
 			String bTitle = multi.getParameter("bTitle");
 			String bContent = multi.getParameter("bContent");
 			
+			String three[] = multi.getParameterValues("three");
+
+			for(String threest:three){
+				//System.out.println(threest+""); 카테고리 값 
+			}
 			
 			
 			// 로그인을 한 사람만 글을 쓸 수 있도록 코드를 수정한다.
@@ -68,7 +73,7 @@ if(request.getParameter("bId") != null){
 				
 		
 			if(bId == 0){
-				System.out.println(bId);
+				//System.out.println(bId);
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('유효하지 않은 글입니다')");

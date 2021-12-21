@@ -49,7 +49,6 @@ public class BoardDAO {
 		return "";//占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙占�
 	}
 	
-	//占쌉시깍옙 占쏙옙호 占싸울옙
 	public int getNext() {
 		//占쏙옙占쏙옙 占쌉시깍옙占� 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占싫몌옙臼占� 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙호占쏙옙 占쏙옙占싼댐옙.
 
@@ -71,8 +70,8 @@ public class BoardDAO {
 		return -1;//占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙占�
 	}
 	
-	public int write(String bTitle,String userId, String bContent,String filename) {
-		String sql="insert into board values(?,?,?,?,?,?,?)";
+	public int write(String bTitle,String userId, String bContent,String filename,String category) {
+		String sql="insert into board(bId,bTitle,userId,bDate,bContent,bAvailable,bcount,bimage,bcategory) values(?,?,?,?,?,?,?,?,?)";
 		try {
 //			System.out.println("占쌜억옙占쏙옙");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -82,7 +81,9 @@ public class BoardDAO {
 			pstmt.setString(4,getDate());
 			pstmt.setString(5, bContent);
 			pstmt.setInt(6, 1);//占쏙옙占쏙옙 占싫ｏ옙占싫�
-			pstmt.setString(7, filename);//占쏙옙占쏙옙占싱몌옙
+			pstmt.setInt(7, 0);
+			pstmt.setString(8, filename);//占쏙옙占쏙옙占싱몌옙
+			pstmt.setString(9, category);
 
 			return pstmt.executeUpdate();
 		}catch(Exception e) {
@@ -121,14 +122,13 @@ public class BoardDAO {
 		return list;
 		
 	}
-	public ArrayList<BoardVO> GalleryList(int pageNumber){//pageNumber 를 분류 번호로 바꿔야한다.
-		String sql = "select bimage from board where bId < ? and bAvailable=1 order by bId desc ";
+	public ArrayList<BoardVO> GalleryList(String bcategory){//pageNumber 를 분류 번호로 바꿔야한다.
+		String sql = "select bimage from board where bId < ? and bAvailable=1 and bcategory=? order by bId desc ";
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		try {
-//			System.out.println(pageNumber);
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, getNext());
-//			System.out.println(getNext()-(pageNumber-1)*4);
+			pstmt.setString(2, bcategory);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO boardVO = new BoardVO();
@@ -144,23 +144,33 @@ public class BoardDAO {
 	}
 	//占쏙옙占쏙옙占쏙옙 처占쏙옙
 
-	public boolean nextPage(int pageNumber) {
-		String sql = "select * from board where bId < ? and bAvailable = 1";
+	/*
+	 * public boolean nextPage(int pageNumber) { String sql =
+	 * "select * from board where bId < ? and bAvailable = 1"; try {
+	 * PreparedStatement pstmt = conn.prepareStatement(sql);
+	 * pstmt.setInt(1,getNext()-(pageNumber-1)*4); rs = pstmt.executeQuery();
+	 * if(rs.next()) { return true; } }catch (Exception e) { e.printStackTrace(); }
+	 * 
+	 * return false; }
+	 */
+	public int PageList(String userId) {
+		int pageNumber=0;
+		String sql = "select count(*) from board where userId=?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,getNext()-(pageNumber-1)*4);
+			pstmt.setString(1, userId);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				return true;
+				pageNumber=rs.getInt(1);
+				return pageNumber;
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 			
-		return false;
+		return pageNumber;
 	}
 	
-
 	public BoardVO getBoardVO(int bId) {
 		String sql ="select * from board where bId = ?";
 		try {
