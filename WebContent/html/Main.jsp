@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../Css/newmain.css">
 </head>
 
-<body>
+<body style="overflow-x:hidden">
   <div id="wrap">
     <header class="header">
       <a href="../html/Mainpage.jsp" class="logo">
