@@ -106,6 +106,7 @@
           </a>
         </div>
         <ul>
+        	<!-- 조회수 높은 순으로 정렬 -->
             <li>
               <div class="best-img">image</div>
             </li>
@@ -135,7 +136,10 @@
     <%
 					BoardDAO boardDAO = new BoardDAO();
 				ArrayList<BoardVO> list = boardDAO.getList(pageNumber);
+				System.out.println(list.isEmpty());
+				if(list.isEmpty()){}else{
 					for(int i=0; i<3; i++){
+						
 		%>
       <li>
         <div class="story-box">
@@ -144,6 +148,7 @@
         </div> 
       </li>
    	 <%
+						}
 			}
 		%>
     </ul>
@@ -259,6 +264,7 @@
     <%
 					BoardDAO boardDAO = new BoardDAO();
 				ArrayList<BoardVO> list = boardDAO.getList(pageNumber);
+				if(list.isEmpty()){}else{
 					for(int i=0; i<3; i++){
 		%>
       <li>
@@ -268,6 +274,7 @@
         </div> 
       </li>
    	 <%
+					}
 			}
 		%>
     </ul>

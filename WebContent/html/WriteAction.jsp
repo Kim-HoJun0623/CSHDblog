@@ -25,7 +25,7 @@
 	<%
 
 	
-	System.out.println(request.getServletContext().getRealPath("upload"));
+	//System.out.println(request.getServletContext().getRealPath("upload"));
 	
 	 MultipartRequest multi = new MultipartRequest(
 			 request,
@@ -39,7 +39,7 @@
 	
     
     String filename = multi.getFilesystemName("image");
-    System.out.println("filename:"+filename);
+    //System.out.println("filename:"+filename);
    
 	
 
@@ -61,15 +61,24 @@
 			}else{ 
 				
 				// 입력이 안 된 부분이 있는지 체크한다
-			
+				
+				
 				String bTitle = multi.getParameter("bTitle");
 				String bContent = multi.getParameter("bContent");
+				String category[] = multi.getParameterValues("category");
+				String categorystg=null;
 				
+				for(String stg:category){
+					categorystg=stg;
+					//System.out.println(threest+""); 카테고리 값 
+				}
+			
+			
 				
-				System.out.println(bTitle);
+				//System.out.println(bTitle);
 				
-				System.out.println(board.getbTitle());
-				System.out.println(board.getbContent());
+				//System.out.println(board.getbTitle());
+				//System.out.println(board.getbContent());
 				
 				if(bTitle == null || bContent == null){
 					System.out.println(board.getbTitle());
@@ -82,7 +91,7 @@
 					// 정상적으로 입력이 되었다면 글쓰기 로직을 수행한다
 					BoardDAO BoardDAO = new BoardDAO();
 				
-					int result = BoardDAO.write(bTitle, userId, bContent,filename);
+					int result = BoardDAO.write(bTitle, userId, bContent,filename,categorystg);
 					// 데이터베이스 오류인 경우
 					if(result == -1){
 						PrintWriter script = response.getWriter();
