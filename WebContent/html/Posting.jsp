@@ -9,7 +9,7 @@
     </head>
     <body>
         <header>
-            <a href="../html_new/Mainpage.html" class="logo">
+            <a href="../html/Main.jsp" class="logo">
                 <img src="../Img/logo.jpg" alt="logo">
             </a>
             <div class="search">
@@ -31,10 +31,10 @@
             </form>
         </div>
             <span class="sign">
-                <a href="../html_new/Sign.html">sign</a>
-                <a href="../html_new/Login.html">login</a>
+                <a href="../html/Sign.jsp">sign</a>
+                <a href="../html/Login.jsp">login</a>
             </span>
-            <a href="../html_new/Write.html"><button class="head-btn">글쓰기</button></a>
+            <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
             
         </header>
         <div class="cont">
