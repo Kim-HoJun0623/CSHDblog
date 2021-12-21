@@ -18,17 +18,6 @@
     <script src="../js/jquery.fancybox.min.js"></script> <script src="../js/jquery.js"></script>
 </head>
 <body>
-<%
-	
-		int pageNumber = 1;//기본은1페이지 전달
-		//만약 파라미터로 넘어온 오브젝트 타입'pageNumber'가 존대한다면
-		//'int' 타입으로 캐스팅을 해주고 그 값을 'pagaNumber'변수에 저장한다.
-			
-		if(request.getParameter("pageNumber")!=null){
-			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-		}
-		
-	%>
 
     <header>
     	  <%
@@ -36,6 +25,10 @@
 		String userId = null;
 		if(session.getAttribute("userId") != null){
 			userId = (String)session.getAttribute("userId");
+		}
+		String bcategory = "CUTE";
+		if(request.getParameter("bcategory")!=null){
+			bcategory=request.getParameter("bcategory");
 		}
 	%>
         <a href="Mainpage.jsp" class="logo">
@@ -70,10 +63,9 @@
             <span class="dropdown">
                 <button class="dropdown-btn">카테고리</button>
                 <div class="dropdown-cont">
-                    <a href="#">CUTE</a>
-                    <a href="#">SEXY</a>
-                    <a href="#">HAND</a>
-                    <a href="#">DEL</a>
+                    <a href="Gallery.jsp?bcategory=CUTE">CUTE</a>
+                    <a href="Gallery.jsp?bcategory=SEXY">SEXY</a>
+                    <a href="Gallery.jsp?bcategory=HANSUME">HAND</a>
                 </div>
             </span>
             </div>
@@ -83,7 +75,7 @@
         <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6 box">
          	<%
 				BoardDAO boardDAO = new BoardDAO();
-				ArrayList<BoardVO> list = boardDAO.GalleryList(pageNumber);
+				ArrayList<BoardVO> list = boardDAO.GalleryList(bcategory);
 				for(int i=0; i<list.size(); i++){
 		%>
 		<a

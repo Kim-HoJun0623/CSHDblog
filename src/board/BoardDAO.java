@@ -70,8 +70,8 @@ public class BoardDAO {
 		return -1;//占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙占�
 	}
 	
-	public int write(String bTitle,String userId, String bContent,String filename) {
-		String sql="insert into board(bId,bTitle,userId,bDate,bContent,bAvailable,bcount,bimage) values(?,?,?,?,?,?,?,?)";
+	public int write(String bTitle,String userId, String bContent,String filename,String category) {
+		String sql="insert into board(bId,bTitle,userId,bDate,bContent,bAvailable,bcount,bimage,bcategory) values(?,?,?,?,?,?,?,?,?)";
 		try {
 //			System.out.println("占쌜억옙占쏙옙");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -83,6 +83,7 @@ public class BoardDAO {
 			pstmt.setInt(6, 1);//占쏙옙占쏙옙 占싫ｏ옙占싫�
 			pstmt.setInt(7, 0);
 			pstmt.setString(8, filename);//占쏙옙占쏙옙占싱몌옙
+			pstmt.setString(9, category);
 
 			return pstmt.executeUpdate();
 		}catch(Exception e) {
@@ -121,14 +122,13 @@ public class BoardDAO {
 		return list;
 		
 	}
-	public ArrayList<BoardVO> GalleryList(int pageNumber){//pageNumber 를 분류 번호로 바꿔야한다.
-		String sql = "select bimage from board where bId < ? and bAvailable=1 order by bId desc ";
+	public ArrayList<BoardVO> GalleryList(String bcategory){//pageNumber 를 분류 번호로 바꿔야한다.
+		String sql = "select bimage from board where bId < ? and bAvailable=1 and bcategory=? order by bId desc ";
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		try {
-//			System.out.println(pageNumber);
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, getNext());
-//			System.out.println(getNext()-(pageNumber-1)*4);
+			pstmt.setString(2, bcategory);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO boardVO = new BoardVO();

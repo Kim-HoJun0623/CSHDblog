@@ -11,3 +11,7 @@ CREATE TABLE  `blog`.`board` (
 
 ALTER TABLE `blog`.`board` 
 ADD COLUMN `bcount` INT NULL AFTER `bAvailable` default '0';
+
+ALTER TABLE `blog`.`board` 
+ADD COLUMN `bcategory` VARCHAR(45) NULL DEFAULT 'CUTE' AFTER `bimage`;
+

@@ -86,12 +86,10 @@
     </section>
     <div class="num">
     	<%
-    		for(int i=0; i<boardDAO.PageList(userId);i++){
-    			if(i==0){
-    				
-    			}else{
+    		for(int i=1; i<=boardDAO.PageList(userId);i++){
+    		 if(i%4==1){
     	%>
-        <a href="Story.jsp?pageNumber=<%=i%>"><%=i %></a>
+        <a href="Story.jsp?pageNumber=<%=i/4+1%>"><%=i/4+1 %></a>
         <%
     			}
     			} %>
