@@ -86,10 +86,14 @@
 	//구글 로그인
 	function onSignIn(googleUser) {
 		  var profile = googleUser.getBasicProfile();
-		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-		  console.log('Name: ' + profile.getName());
-		  console.log('Image URL: ' + profile.getImageUrl());
-		  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		  var name = profile.getEmail();
+		  var id_token = googleUser.getAuthResponse().id_token;
+	       console.log("ID Token: " + id_token);
+		  //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		  //console.log('Name: ' + profile.getName());
+		  //console.log('Image URL: ' + profile.getImageUrl());
+		  //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		  
 		}
 </script>
 </head>
@@ -143,13 +147,20 @@
 				</div>
 				
 			</form>
+			<form name="googleLogin">
+				<a href="javascript:onSignIn()"/>
+				<div class="g-signin2" data-onsuccess="onSignIn">
+				<input type="hidden" name="google_login" id="google_login">
+				</div>
+			</form>
+			
 			<form name="kakaoLogin">
 				<ul>
 					<li><a href="javascript:kakaoLogin()">
 							<img alt="kakaoImg" src="../Img/kakao_login_medium_narrow.png">
 					</a></li>
 					<li>
-					<div class="g-signin2" data-onsuccess="onSignIn"></div>
+					
 					</li>
 					<!-- <li onclick="kakaoLogout();"><a href="javascript:void(0)">
 							<span>카카오 로그아웃</span>
