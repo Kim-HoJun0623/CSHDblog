@@ -10,20 +10,31 @@
     <script src="../js/jquery.fancybox.min.js"></script> <script src="../js/jquery.js"></script>
 </head>
 <body>
-    <header>
-        <a href="../html_new/Mainpage.html" class="logo">
-            <img src="../Img/logo.jpg" alt="logo">
-        </a>
-        <div class="search">
-            <input type="text">
-            <button>검색</button>
-        </div>
-        <div class="sign">
-            <a href="../html_new/Sign.html">sign</a>
-            <a href="../html_new/Login.html">login</a>
-        </div>
-        <button class="head-btn">글쓰기</button>
-    </header>
+  <header>
+    <a href="../html_new/Main.html" class="logo">
+        <img src="../Img/logo.jpg" alt="logo">
+    </a>
+    <div class="search">
+    <form action="get">
+        <div class="search-icon">icon</div>
+        <input class="real-search" type="text" placeholder="이미지, 주제 검색">
+        <span class="sdropdown">
+            <select>
+                <option value="0">선택</option>
+                <option value="bTitleTag">제목</option>
+                <option value="userIdTag">작성자</option>
+            </select>
+            <span class="sdropdown-icon"><img src="../Img/chevron-down-solid.svg" alt=""></span>
+        </span>
+    </form>
+</div>
+    <span class="sign">
+        <a href="../html_new/Sign.html">sign</a>
+        <a href="../html_new/Login.html">login</a>
+    </span>
+    <a href="../html_new/Write.html"><button class="head-btn">글쓰기</button></a>
+    
+</header>
         <div class="cont-head">
             <h5>bird</h5>
             <div>

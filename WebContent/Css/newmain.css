@@ -44,6 +44,7 @@ header{height: 60px;max-width: 2000px;min-width: 1200px;display: flex;align-item
 .car-box{display: flex;align-items: center;justify-content: center;flex-direction: row;align-content: center;margin-top: 20px;}
 .car-box span{font-size: 20px;font-weight: 400;margin: 2px 20px;padding: 8px;}
 .car-box span:hover{border-bottom: #0a88d3 2px solid;color: blueviolet;}
+.car-cont{margin-top: 25px}
 
 /* gallery */
 .img-cont{width: 100%;max-width: 2000px;min-width: 250px; background-color: #f6f5fa;margin-top: 7px;}

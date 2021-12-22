@@ -66,13 +66,13 @@
                 <div class="search-icon"></div>
                 <input class="real-search" type="text" name="searchText" placeholder="이미지, 주제 검색">
                 <span class="dropdown">
-                    <select name="searchField">
-                        <option value="0">모든</option>
-                        <option value="bTitle">제목</option>
-                        <option value="userId">작성자</option>
-                    </select>
-                    <span class="dropdown-icon"><img src="../Img/chevron-down-solid.svg" alt=""></span>
-                </span>
+                <select>
+                    <option value="0">선택</option>
+                    <option value="bTitleTag">제목</option>
+                    <option value="userIdTag">작성자</option>
+                </select>
+                <span class="dropdown-icon"><img src="../Img/chevron-down-solid.svg" alt=""></span>
+            </span>
             </form>
         </div>
         <%if(userId==null){ //로그인 안 되어 있을때%>
