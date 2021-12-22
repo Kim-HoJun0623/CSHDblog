@@ -77,7 +77,7 @@ public class CommentDAO {
 	
 	
 	public ArrayList<CommentVO> getList(int bId){
-		String sql = "select * from comment where bId = ?  order by bId desc limit 10";
+		String sql = "select * from comment where bId = ?  order by bId desc limit 100";
 		System.out.println("리스트출력");
 		ArrayList<CommentVO> list = new ArrayList<CommentVO>();
 		try {		

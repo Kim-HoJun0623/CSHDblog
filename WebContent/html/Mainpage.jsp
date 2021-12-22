@@ -125,7 +125,7 @@
 
 
   <!-- story tap -->
-	<section class="story-tap">
+<%-- 	<section class="story-tap">
     <div class="story-tit">
       <a href="../html/Story.jsp">
       <h3 class="tit">STORY</h3>
@@ -152,7 +152,7 @@
 			}
 		%>
     </ul>
-  </section>
+  </section> --%>
 
 </div>
 
@@ -263,7 +263,7 @@
       <ul>
     <%
 					BoardDAO boardDAO = new BoardDAO();
-				ArrayList<BoardVO> list = boardDAO.getList(pageNumber);
+				ArrayList<BoardVO> list = boardDAO.getList(pageNumber,userId);
 				if(list.isEmpty()){}else{
 					for(int i=0; i<3; i++){
 		%>
