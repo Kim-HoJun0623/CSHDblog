@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
+*{ margin: 0px;padding: 0px;list-style: none;text-decoration: none;color: black;}
+
+/*header*/
+header{height: 60px;max-width: 2000px;min-width: 1200px;display: flex;align-items: center;position: relative;overflow: hidden;
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, .1);}
+.logo{margin-left: 40px;float: left;}
+.menu{margin: 0 30px}
+.menu a{margin-left: 50px;font-size: 17px;padding: 18px 0;}
+.menu a:hover{border-bottom: black solid 2px;}
+.sign{margin-right: 30px;position: absolute;right: 55px;}
+.sign a{margin: 0 15px;opacity: .7;font-size: 15px;}
+.head-btn{background-color:lightskyblue; border: none;border-radius: 15px;width: 60px;height: 40px;color: white;position: absolute;right: 20px;top: 10px;}
+
+
+/* main */
+.cont{width: 100%;min-width: 1200px;}
+.main-img{position: relative;}
+.main-img img{width: 100%;height: auto;}
+.search{position:absolute;left: 26%;top:30%;
+    display: flex;flex-direction: column;align-content: center;justify-content: center;align-items: center;}
+.search h2{margin-bottom: 16px;font-size: 32px;}
+.search p{font-size: 16px;font-weight: 400;margin-bottom: 32px;}
+.search form{width: 800px;height: 60px;background-color: white;border: none;border-radius: 15px;
+    display: flex;flex-direction: row;align-content: center;justify-content: space-between;align-items: center;}
+.search-icon{background: url(../Img/search-solid.svg);background-repeat: no-repeat;color: transparent;margin: 0 15px;}
+.real-search{flex: auto;font-size: 16px;outline: none;background: transparent;border: none;}
+.best-search, .best-search a{color: #ceced2;}
+
+/* dropdown */
+.dropdown{position: relative;display: inline-block;}
+.dropdown-btn{background-color:transparent;border: none;margin: 0 15px;
+    display: flex;align-items: center;align-content: center;padding: 8px;}
+.dropdown-p{font: 12px;color: black;}
+.dropdown-icon{background: url(../Img/chevron-down-solid.svg);background-repeat: no-repeat;color: transparent;margin-left: 10px;}
+.dropdown-cont{display: none;position: absolute;background-color: darkslategray;
+    min-width: 101px;padding: 5px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,.2);margin: 0 15px;border-radius: 0 0 15px 15px;}
+.dropdown-cont a{color: white;padding: 8px;text-decoration: none;display: block;}
+.dropdown-cont a:hover{background-color: gray;}
+.dropdown:hover .dropdown-cont{display: block;}
+.dropdown:hover .dropdown-btn{background-color: gray;border-radius: 15px 15px 0 0;}
+
+
+/* gallery */
+.img-cont{width: 100%;max-width: 2000px;min-width: 250px;}
+.box{width: 95%; margin: 20px auto;
+    display: flex;flex-direction: row;flex-wrap: wrap;justify-content: space-between;align-items: center;}
+.box a img{height: 200px;width: auto;margin: 5px;}
+
+
+    
+/* Footer - footer의 width는 1200px을 기준으로 한다 */
+footer{height:150px;background:#eee;text-align:left}
+footer>div{width:1200px;margin:0 auto}
+.footer-logo{position: absolute;display: inline-block;width: 220px;height: 100px;left: 30px;margin-top: 15px;}
+.footer-logo img{width: 200px;height: auto;opacity: .7;}
+.team{position: absolute;width: 200px;height: 150px;display: inline-block;right: 10px;}
+.footer-cont span p:nth-child(1){font: 25px bold;font-family: 'NotoSansKR';font-weight: 900;line-height: 300%;margin-top: 10px;}
+.footer-cont span p:nth-child(2){font: 15px bold;font-family: 'NotoSansKR';}
+.footer-cont span p:nth-child(3){font: 15px bold;font-family: 'NotoSansKR';}

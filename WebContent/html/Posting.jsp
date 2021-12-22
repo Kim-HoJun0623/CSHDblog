@@ -111,7 +111,5 @@
         <div class="abtn">
             <button><a href="filedown.jsp?bId=<%= bId%>">사진 다운로드</a></button>
         </div>
-        <div class="s-img">광고칸</div>
-    </aside>
-</body>
-</html>
+    </body>
+    </html>
