@@ -24,7 +24,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");	
 			script.println("alert('이미 로그인 성공')");
-			script.println("location.href='Mainpage.jsp'");
+			script.println("location.href='Main.jsp'");
 			script.println("</script>");
 		}
 		
@@ -36,7 +36,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인 성공')");
-			script.println("location.href='Mainpage.jsp'");
+			script.println("location.href='Main.jsp'");
 			script.println("</script>");
 		}else if(result == 0){
 			PrintWriter script = response.getWriter();

@@ -62,11 +62,11 @@
     <section class="cont">
         <ul class="part">
          	<%
+         	
 				BoardDAO boardDAO = new BoardDAO();
-				ArrayList<BoardVO> list = boardDAO.getList(pageNumber);
+				ArrayList<BoardVO> list = boardDAO.getList(pageNumber,userId);
+				if(userId==null){}else{
 				for(int i=0; i<list.size(); i++){
-					if(userId.equals(list.get(i).getuserId())){
-						
 		%>
        
             <li class="box">
@@ -79,7 +79,7 @@
             </a>
             </li>
              <%
-			}else {}
+				}
 		}
 		%>
         </ul>

@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+          <%@ page import="java.io.PrintWriter" %>
+  <%@ page import="board.BoardVO" %>
+  <%@ page import="board.BoardDAO" %>
+  <%@ page import="java.util.ArrayList" %>
+
 <!doctype html>
 <html>
 <head>
@@ -11,16 +17,40 @@
 </head>
 
 <body style="overflow-x:hidden">
+
+
+	<%
+	String userId = null;
+	if(session.getAttribute("userId") != null){
+		userId = (String)session.getAttribute("userId"); 
+				//로그인 세션 확인 되어있으면 값이 들어가고 아니면 null
+	}
+	String bcategory = "CUTE";
+	if(request.getParameter("bcategory")!=null){
+		bcategory=request.getParameter("bcategory");
+	}
+%>
+
   <div id="wrap">
     <header class="header">
       <a href="../html/Mainpage.jsp" class="logo">
         <img src="../Img/logo.jpg" alt="logo">
     </a>
     <span class="sign">
+
+    <%
+	if(userId == null){
+		//로그인 안되어 있을 때
+	
+%>
         <a href="../html/Sign.jsp">sign</a>
         <a href="../html/Login.jsp">login</a>
+        <%}else { %>
     </span>
+    
     <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
+    <%} %>
+
   </header>
 
   <section class="cont">
@@ -38,10 +68,12 @@
                         <span class="dropdown-icon">ico</span>
                     </button>
                     <div class="dropdown-cont">
-                        <a href="#">CUTE</a>
-                        <a href="#">SEXY</a>
-                        <a href="#">HAND</a>
-                        <a href="#">DEL</a>
+
+                        <a href="Gallery.jsp?bcategory=CUTE">CUTE</a>
+                        <a href="Gallery.jsp?bcategory=SEXY">SEXY</a>
+                        <a href="Gallery.jsp?bcategory=HANSUME">HAND</a>
+                        <!-- <a href="#">DEL</a> -->
+
                     </div>
                 </span>
             </form>
@@ -58,66 +90,20 @@
 
   <section class="cont img-cont">
       <div class="box">
-          <a href="#">
-              <img src="../Img/mouse-1.PNG" alt="">
-          </a>
-          <a href="#">
-            <img src="../Img/bird-7.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/om-9.PNG" alt="">
-        </a>
-          <a href="#">
-            <img src="../Img/mouse-2.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/bird-3.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/om-3.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/mouse-3.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/bird-1.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/om-6.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/mouse-4.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/om-2.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/mouse-6.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/bird-2.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/bird-4.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/om-10.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/bird-5.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/om-1.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/bird-6.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/mouse-5.PNG" alt="">
-        </a>
-        <a href="#">
-            <img src="../Img/bird-8.PNG" alt="">
-        </a>
+
+            	<%
+				BoardDAO boardDAO = new BoardDAO();
+				ArrayList<BoardVO> list = boardDAO.GalleryList(bcategory);
+				for(int i=0; i<list.size(); i++){
+		%>
+		<a href="../html/Posting.jsp?bId=<%=list.get(i).getbId() %>" 
+                  > <!-- 클릭시 -->
+                  <img class="rounded" src="../upload/<%=list.get(i).getbimage()%>" /> <!-- 작은사진 -->
+                </a>
+            
+                  <%
+			}
+		%>
 
       </div>
 
