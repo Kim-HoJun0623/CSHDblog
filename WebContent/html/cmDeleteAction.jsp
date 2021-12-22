@@ -11,11 +11,17 @@
 </head>
 <body>
 <%
-	int bId=1;
+	int bId=0;
 	int cId=0;
 	if(request.getParameter("cId")!=null){
 		cId=Integer.parseInt(request.getParameter("cId"));
 	}
+	if(request.getParameter("bId")!=null){
+		bId=Integer.parseInt(request.getParameter("bId"));
+	}
+	%>
+	<input type="hidden" id="bId" value='<%=bId%>'/>
+	<% 
 	CommentVO cvo = new CommentDAO().getComment(cId);
 	/*if(!userID.equals(comment.getUserID())){
 	 		PrintWriter script=response.getWriter();
@@ -34,11 +40,15 @@
 		script.println("history.back()");
 		script.println("</script>");
 	}else{
-		PrintWriter script=response.getWriter();
-		script.println("<script>");
-		script.println("alert('댓글 삭제에성공하셨습니다.')");
-		script.println("location.href='deat.jsp'");
-		script.println("</script>");
+		%>
+		<script src="http://code.jquery.com/jquery-latest.js"></script> 
+		<script type="text/javascript">
+		const bId=$('#bId').val();
+		console.log(bId);
+		alert('댓글 삭제!');
+		location.href='Posting.jsp?bId='+bId
+		</script>
+		<% 
 	}
 	//}
 %>

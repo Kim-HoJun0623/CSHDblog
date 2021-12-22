@@ -40,7 +40,6 @@
         </div>
          <% if(userId==null){%>
         <div class="sign">
-        
             <a href="Sign.jsp">sign</a>
             <a href="Login.jsp">login</a>
            

@@ -23,7 +23,7 @@
 		}
 	%>
     <header class="header">
-        <a href="Mainpage.jsp" class="logo">
+        <a href="../html/Mainpage.jsp" class="logo">
             <img src="../Img/logo.jpg" alt="logo">
         </a>
         <span class="menu">
@@ -45,7 +45,9 @@
         
     </header>
     <div class="tit">
-        <h2>STORE</h2>
+        <h2>STORY</h2>
+
+        <a href="../html/Write.jsp"><button> 글쓰기</button></a>
     </div>
     <%
 		
@@ -62,11 +64,11 @@
     <section class="cont">
         <ul class="part">
          	<%
+         	
 				BoardDAO boardDAO = new BoardDAO();
-				ArrayList<BoardVO> list = boardDAO.getList(pageNumber);
+				ArrayList<BoardVO> list = boardDAO.getList(pageNumber,userId);
+				if(userId==null){}else{
 				for(int i=0; i<list.size(); i++){
-					if(userId.equals(list.get(i).getuserId())){
-						
 		%>
        
             <li class="box">
@@ -79,7 +81,7 @@
             </a>
             </li>
              <%
-			}else {}
+				}
 		}
 		%>
         </ul>

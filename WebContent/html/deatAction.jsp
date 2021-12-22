@@ -12,13 +12,20 @@
 <body>
 <%
 String userId = null;
-int bId = 1;
+int bId=0 ;
+
 String cmContent = request.getParameter("cmContent");
 if(session.getAttribute("userId") != null){
 	userId = (String)session.getAttribute("userId");
 }
+if(request.getParameter("bId")!=null){
+	bId=Integer.parseInt(request.getParameter("bId"));
+} %>
+<input type="hidden" id="bId" value='<%=bId%>'/>
+<%
+
 // 로그인을 한 사람만 글을 쓸 수 있도록 코드를 수정한다.
-if(userId != null){
+if(userId == null){
 	PrintWriter script = response.getWriter();
 	script.println("<script>");
 	script.println("alert('로그인을 하세요')");
@@ -26,9 +33,14 @@ if(userId != null){
 	script.println("</script>");
 }else{ 
 	if(bId==0 || cmContent==null){
-		
+		System.out.println(cmContent);
+		System.out.println(bId);
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('댓글을 입력해주세요.')");
+		script.println("history.back()");
+		script.println("</script>");
 	}else{
-		userId="ddd";
 		CommentDAO comDAO = new CommentDAO();
 		
 		int result=comDAO.write(cmContent, userId, bId);
@@ -39,11 +51,16 @@ if(userId != null){
 			script.println("history.back()");
 			script.println("</script>");
 		}else{
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('댓글성공!')");
-			script.println("location.href='deat.jsp'");
-			script.println("</script>");
+
+			%>
+			<script src="http://code.jquery.com/jquery-latest.js"></script> 
+			<script type="text/javascript">
+			const bId=$('#bId').val();
+			console.log(bId);
+			alert('댓글 성공!');
+			location.href='Posting.jsp?bId='+bId
+			</script>
+			<% 
 		}
 	}
 }

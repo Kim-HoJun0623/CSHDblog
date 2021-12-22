@@ -95,14 +95,13 @@ public class BoardDAO {
 	
 	//占쌉시깍옙 占쏙옙占쏙옙트
 
-	public ArrayList<BoardVO> getList(int pageNumber){
-		String sql = "select * from board where bId < ? and bAvailable=1 order by bId desc limit 4";
+	public ArrayList<BoardVO> getList(int pageNumber,String userId){
+		String sql = "select * from board where bId < ? and userId=? order by bId desc limit 4";
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		try {
-//			System.out.println(pageNumber);
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, getNext()-(pageNumber-1)*4);
-//			System.out.println(getNext()-(pageNumber-1)*4);
+			pstmt.setString(2, userId);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO boardVO = new BoardVO();
@@ -123,7 +122,7 @@ public class BoardDAO {
 		
 	}
 	public ArrayList<BoardVO> GalleryList(String bcategory){//pageNumber 를 분류 번호로 바꿔야한다.
-		String sql = "select bimage from board where bId < ? and bAvailable=1 and bcategory=? order by bId desc ";
+		String sql = "select bId,bimage from board where bId < ? and bAvailable=1 and bcategory=? order by bId desc ";
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -132,7 +131,8 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO boardVO = new BoardVO();
-				boardVO.setbimage(rs.getString(1));
+				boardVO.setbId(rs.getInt(1));
+				boardVO.setbimage(rs.getString(2));
 				list.add(boardVO);
 				
 			}
@@ -190,7 +190,24 @@ public class BoardDAO {
 				bcount++;
 				countUpdate(bcount,bId);
 				bo.setbimage(rs.getString(8));
+				bo.setBcategory(rs.getString(9));
 				return bo;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	public String imageprint(int bId) {
+		String sql ="select substr(bimage,instr(bimage,'.')+1) from board where bId = ?";
+		String str;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				str=rs.getString(1);
+				return str;
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -199,14 +216,15 @@ public class BoardDAO {
 	}
 
 	//占쌉시깍옙 占쏙옙占� 
-	public int update(int bId, String bTitle, String bContent, String filename) {
-		String sql = "update board set bTitle = ?, bContent = ?, bimage = ? where bId = ?";
+	public int update(int bId, String bTitle, String bContent, String filename,String bcategory) {
+		String sql = "update board set bTitle = ?, bContent = ?, bimage = ?, bcategory=? where bId = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,bTitle);
 			pstmt.setString(2, bContent);
 			pstmt.setString(3, filename);
-			pstmt.setInt(4, bId);
+			pstmt.setString(4, bcategory);
+			pstmt.setInt(5, bId);
 			
 			return pstmt.executeUpdate();
 		}catch (Exception e) {
@@ -242,5 +260,40 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 		return -1;
+	}
+	
+	public ArrayList<BoardVO> getSearach(String searchField, String searchText){
+		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+		String sql = "select * from board where " + searchField.trim();
+		try {
+			if(searchText != null && !searchText.equals("") ){//이거 빼면 안 나온다ㅜ 왜지?
+                sql +=" LIKE '%"+searchText.trim()+"%' order by bId desc limit 10";
+                
+            }
+			if(searchField.equals("0")) {
+				sql = "select * from board where bTitle like '%" + searchText.trim() + "%' or userId like"
+						+ " '%" + searchText.trim() + "%' order by bId desc limit 10";
+			}
+			System.out.println(sql);
+            PreparedStatement pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();//select
+			while(rs.next()) {
+				BoardVO boardVO = new BoardVO();
+				boardVO.setbId(rs.getInt(1));
+				boardVO.setbTitle(rs.getString(2));
+				boardVO.setuserId(rs.getString(3));
+				boardVO.setbDate(rs.getString(4));
+				boardVO.setbContent(rs.getString(5));
+				boardVO.setbAvailable(rs.getInt(6));
+				boardVO.setbimage(rs.getString(8));
+				list.add(boardVO);
+				
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return list;
 	}
 }
