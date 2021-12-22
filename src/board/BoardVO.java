@@ -9,7 +9,15 @@ public class BoardVO {
 	private int bAvailable;
 	private String bimage;
 	private int bcount;
+	private String bcategory;
+	
 
+	public String getBcategory() {
+		return bcategory;
+	}
+	public void setBcategory(String bcategory) {
+		this.bcategory = bcategory;
+	}
 	public int getBcount() {
 		return bcount;
 	}
