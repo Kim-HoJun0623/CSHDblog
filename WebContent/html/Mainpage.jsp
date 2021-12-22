@@ -82,9 +82,9 @@
 
 	<section class="cont">
           <div class="car-box">
-              <a href="#"><span>CUTE</span></a>
-              <a href="#"><span>SEXY</span></a>
-              <a href="#"><span>HANDSOME</span></a>
+              <a href="Gallery.jsp?bcategory=CUTE"><span>CUTE</span></a>
+              <a href="Gallery.jsp?bcategory=SEXY"><span>SEXY</span></a>
+              <a href="Gallery.jsp?bcategory=HANDSOME"><span>HANDSOME</span></a>
           </div>
     
       </section>
@@ -97,8 +97,7 @@
 				ArrayList<BoardVO> list = boardDAO.GalleryList(bcategory);
 				for(int i=0; i<list.size(); i++){
 		%>
-		<a href="../html/Posting.jsp?bId=<%=list.get(i).getbId() %>" 
-                  > <!-- 클릭시 -->
+		<a href="../html/Posting.jsp?bId=<%=list.get(i).getbId() %>" > <!-- 클릭시 -->
                   <img class="rounded" src="../upload/<%=list.get(i).getbimage()%>" /> <!-- 작은사진 -->
                 </a>
             
