@@ -41,7 +41,7 @@
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('유효하지 않은 글입니다.')");
-		script.println("location.href='board.jsp'");
+		script.println("location.href='Posting.jsp'");
 		script.println("</script>");
 	}
 	
@@ -51,7 +51,7 @@
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('권한이 없습니다')");
-		script.println("location.href='board.jsp'");
+		script.println("location.href='Posting.jsp'");
 		script.println("</script>");
 	} 
 	%>

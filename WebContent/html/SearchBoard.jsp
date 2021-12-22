@@ -48,7 +48,7 @@
         </span>
         <%}else{ %>
         <span class="sign"> 
-        <a href="../html/#"><%=userId %>님</a>
+        <a href="../html/userPage.jsp"><%=userId %>님</a>
         <a href="../html/logoutAction.jsp">Logout</a>
         </span>
         <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>

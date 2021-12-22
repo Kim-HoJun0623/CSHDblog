@@ -62,6 +62,7 @@
                 <img src="../Img/logo.jpg" alt="logo">
             </a>
              <div class="search">
+             <%-- 검색창 --%>
             <form action="SearchBoard.jsp">
                 <div class="search-icon"></div>
                 <input class="real-search" type="text" name="searchText" placeholder="이미지, 주제 검색">
@@ -82,7 +83,7 @@
         </span>
         <%}else{ %>
         <span class="sign">
-        <a href="../html/#"><%=userId %>님</a>
+        <a href="../html/userPage.jsp"><%=userId %>님</a>
         <a href="../html/logoutAction.jsp">Logout</a>
         </span>
         <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
@@ -154,8 +155,8 @@
 
                         <!-- 글 수정 삭제-->
                     <div class="aside-btn">
-                        <a href="#">수정</a>
-                        <a href="#">삭제</a>
+                        <a href="update.jsp">수정</a>
+                        <a href="deleteAction.jsp">삭제</a>
                     </div>
 
                 </div>

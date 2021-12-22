@@ -49,7 +49,7 @@
         </span>
         <%}else { %>
 	<span class="sign">
-	<a href="../html/#"><%=userId %>님</a>
+	<a href="../html/userPage.jsp"><%=userId %>님</a>
     <a href="../html/logoutAction.jsp">Logout</a>
     </span>
     <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
@@ -79,6 +79,15 @@
           </div>
       </div>
   </section>
+
+	<section class="cont">
+          <div class="car-box">
+              <a href="#"><span>CUTE</span></a>
+              <a href="#"><span>SEXY</span></a>
+              <a href="#"><span>HANDSOME</span></a>
+          </div>
+    
+      </section>
 
   <section class="cont img-cont">
       <div class="box">
