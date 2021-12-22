@@ -21,7 +21,7 @@
 </head>
 <body>
     <header>
-        <a href="../html_new/Main.html" class="logo">
+        <a href="../html/Mainpage.jsp" class="logo">
             <img src="../Img/logo.jpg" alt="logo">
         </a>
         <div class="search">
@@ -38,11 +38,18 @@
                 </span>
             </form>
     </div>
+        <%if(userId==null){ //로그인 안 되어 있을때%>
         <span class="sign">
-            <a href="../html_new/Sign.html">sign</a>
-            <a href="../html_new/Login.html">login</a>
+            <a href="../html/Sign.jsp">sign</a>
+            <a href="../html/Login.jsp">login</a>
         </span>
-        <a href="../html_new/Write.html"><button class="head-btn">글쓰기</button></a>
+        <%}else{ %>
+        <span class="sign">
+        <a href="../html/userPage.jsp"><%=userId %>님</a>
+        <a href="../html/logoutAction.jsp">Logout</a>
+        </span>
+        <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
+        <%} %>
         
     </header>
     <section class="profile">
