@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
           <%@ page import="java.io.PrintWriter" %>
   <%@ page import="board.BoardVO" %>
   <%@ page import="board.BoardDAO" %>
   <%@ page import="java.util.ArrayList" %>
+
 <!doctype html>
 <html>
 <head>
@@ -15,6 +17,7 @@
 </head>
 
 <body style="overflow-x:hidden">
+
 
 	<%
 	String userId = null;
@@ -34,6 +37,7 @@
         <img src="../Img/logo.jpg" alt="logo">
     </a>
     <span class="sign">
+
     <%
 	if(userId == null){
 		//로그인 안되어 있을 때
@@ -46,6 +50,7 @@
     
     <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
     <%} %>
+
   </header>
 
   <section class="cont">
@@ -63,10 +68,12 @@
                         <span class="dropdown-icon">ico</span>
                     </button>
                     <div class="dropdown-cont">
+
                         <a href="Gallery.jsp?bcategory=CUTE">CUTE</a>
                         <a href="Gallery.jsp?bcategory=SEXY">SEXY</a>
                         <a href="Gallery.jsp?bcategory=HANSUME">HAND</a>
                         <!-- <a href="#">DEL</a> -->
+
                     </div>
                 </span>
             </form>
@@ -83,6 +90,7 @@
 
   <section class="cont img-cont">
       <div class="box">
+
             	<%
 				BoardDAO boardDAO = new BoardDAO();
 				ArrayList<BoardVO> list = boardDAO.GalleryList(bcategory);
@@ -96,6 +104,7 @@
                   <%
 			}
 		%>
+
       </div>
 
   </section>

@@ -48,7 +48,7 @@ public class CommentDAO {
 //			System.out.println("글쓰기");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, cmContent);
-			pstmt.setInt(2, getNext());
+			pstmt.setInt(2, getNext(bId));
 			pstmt.setString(3,userId);
 			pstmt.setString(4, getDate());
 			pstmt.setInt(5, bId);
