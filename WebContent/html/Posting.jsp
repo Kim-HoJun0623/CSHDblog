@@ -151,6 +151,13 @@
                                 </tr> -->
                             </tbody>
                         </table>
+
+                        <!-- 글 수정 삭제-->
+                    <div class="aside-btn">
+                        <a href="#">수정</a>
+                        <a href="#">삭제</a>
+                    </div>
+
                 </div>
             </aside>
             <!-- 댓글창 -->
@@ -193,5 +200,6 @@
 
 
 </body>
+
 </html>
 

@@ -5,8 +5,8 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 *{ margin: 0px;padding: 0px;list-style: none;text-decoration: none;color: black;}
 
 /*header*/
-header{height: 60px;max-width: 2000px;min-width: 1200px;display: flex;align-items: center;position: relative;overflow: hidden;
-    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, .1);}
+header{height: 60px;max-width: 2000px;min-width: 1200px;display: flex;align-items: center;position: fixed;overflow: hidden;
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, .1);width: 100%;z-index: 111;top: 0;background-color: white;}
 .logo{margin-left: 40px;float: left;}
 .menu{margin: 0 30px}
 .menu a{margin-left: 50px;font-size: 17px;padding: 18px 0;}
@@ -17,7 +17,7 @@ header{height: 60px;max-width: 2000px;min-width: 1200px;display: flex;align-item
 
 
 /* main */
-.cont{width: 100%;min-width: 1200px;}
+.cont{width: 100%;min-width: 1200px;margin-top: 60px;}
 .main-img{position: relative;}
 .main-img img{width: 100%;height: auto;}
 .search{position:absolute;left: 26%;top:30%;
