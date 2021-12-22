@@ -23,22 +23,20 @@ header{height: 60px;max-width: 2000px;width: 100%;min-width: 1200px;display: fle
 .real-search{flex: auto;font-size: 16px;outline: none;background: transparent;border: none;}
 
 /* dropdown */
-.dropdown{position: relative;display: inline-block;}
-.dropdown-btn{background-color:transparent;border: none;margin: 0 15px;
-    display: flex;align-items: center;align-content: center;padding: 8px;}
-.dropdown-p{font: 12px;color: black;}
-.dropdown-icon{background: url(../Img/chevron-down-solid.svg);background-repeat: no-repeat;color: transparent;margin-left: 10px;}
-.dropdown-cont{display: none;position: absolute;background-color: darkslategray;
-    min-width: 101px;padding: 5px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,.2);margin: 0 15px;border-radius: 0 0 15px 15px;}
-.dropdown-cont a{color: white;padding: 8px;text-decoration: none;display: block;}
-.dropdown-cont a:hover{background-color: gray;}
-.dropdown:hover .dropdown-cont{display: block;}
-.dropdown:hover .dropdown-btn{background-color: gray;border-radius: 15px 15px 0 0;}
+.dropdown{margin-right: 5px;position: relative;}
+.dropdown select{background:transparent;border: 0 none;outline: 0 none;padding: 0 5px;
+    appearance: none;z-index: 3;position: relative;width: 75px;}
+.dropdown select::-ms-expand{display: none;}
+.dropdown select option{background-color: lightcoral;color: white;padding: 3px 0;font-size: 14px;}
+.dropdown-icon{position: absolute;top: 4px;right: 0;z-index: 1;width: 30px;height: inherit;display: flex;justify-content: center;align-items: center;}
+.dropdown-icon img{width: 50%;transition: .3s;}
+.dropdown select:focus + .dropdown-icon img {transform: rotate(180deg);}
+
 
 /* cont */
 .cont{width: 100%;margin-top: 90px;display: flex;flex-direction: row;justify-content: center;flex-wrap: wrap;}
 .cont section{flex: 2 1 0;}
-.img-box{width: 900px;height: 620px;float: right;display: flex;justify-content: center;}
+.img-box{width: 900px;height: 620px;float: right;display: flex;justify-content: center;overflow: hidden}
 .img-box img{height: 100%;box-shadow: 0 1px 10px rgb(0 0 30 / 30%);}
 
 .cont aside{flex: 1 1 0;margin: 0 20px;}

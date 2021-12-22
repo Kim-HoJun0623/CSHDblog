@@ -261,4 +261,39 @@ public class BoardDAO {
 		}
 		return -1;
 	}
+	
+	public ArrayList<BoardVO> getSearach(String searchField, String searchText){
+		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+		String sql = "select * from board where " + searchField.trim();
+		try {
+			if(searchText != null && !searchText.equals("") ){//이거 빼면 안 나온다ㅜ 왜지?
+                sql +=" LIKE '%"+searchText.trim()+"%' order by bId desc limit 10";
+                
+            }
+			if(searchField.equals("0")) {
+				sql = "select * from board where bTitle like '%" + searchText.trim() + "%' or userId like"
+						+ " '%" + searchText.trim() + "%' order by bId desc limit 10";
+			}
+			System.out.println(sql);
+            PreparedStatement pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();//select
+			while(rs.next()) {
+				BoardVO boardVO = new BoardVO();
+				boardVO.setbId(rs.getInt(1));
+				boardVO.setbTitle(rs.getString(2));
+				boardVO.setuserId(rs.getString(3));
+				boardVO.setbDate(rs.getString(4));
+				boardVO.setbContent(rs.getString(5));
+				boardVO.setbAvailable(rs.getInt(6));
+				boardVO.setbimage(rs.getString(8));
+				list.add(boardVO);
+				
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return list;
+	}
 }
