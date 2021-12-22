@@ -40,10 +40,14 @@ header{height: 60px;max-width: 2000px;min-width: 1200px;display: flex;align-item
 .dropdown-icon img{width: 50%;transition: .3s;}
 .dropdown select:focus + .dropdown-icon img {transform: rotate(180deg);}
 
+/* car-box */
+.car-box{display: flex;align-items: center;justify-content: center;flex-direction: row;align-content: center;margin-top: 20px;}
+.car-box span{font-size: 20px;font-weight: 400;margin: 2px 20px;padding: 8px;}
+.car-box span:hover{border-bottom: #0a88d3 2px solid;color: blueviolet;}
 
 /* gallery */
-.img-cont{width: 100%;max-width: 2000px;min-width: 250px;}
-.box{width: 95%; margin: 20px auto;
+.img-cont{width: 100%;max-width: 2000px;min-width: 250px; background-color: #f6f5fa;margin-top: 7px;}
+.box{width: 95%; margin: 3px auto;
     display: flex;flex-direction: row;flex-wrap: wrap;justify-content: space-between;align-items: center;}
 .box a img{height: 200px;width: auto;margin: 5px;}
 

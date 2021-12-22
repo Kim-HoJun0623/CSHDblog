@@ -36,7 +36,7 @@ header{height: 60px;max-width: 2000px;width: 100%;min-width: 1200px;display: fle
 /* cont */
 .cont{width: 100%;margin-top: 90px;display: flex;flex-direction: row;justify-content: center;flex-wrap: wrap;}
 .cont section{flex: 2 1 0;}
-.img-box{width: 900px;height: 620px;float: right;display: flex;justify-content: center;overflow: hidden}
+.img-box{width: 900px;height: 620px;float: right;display: flex;justify-content: center;overflow: hidden;}
 .img-box img{height: 100%;box-shadow: 0 1px 10px rgb(0 0 30 / 30%);}
 
 .cont aside{flex: 1 1 0;margin: 0 20px;}
@@ -59,6 +59,8 @@ header{height: 60px;max-width: 2000px;width: 100%;min-width: 1200px;display: fle
 .a-table td{float: right;}
 .a-table th,.a-table td{font-size: 14px;font-weight: 400;}
 .a-table a{color: skyblue;text-decoration: none;}
+
+
 
 /* comment */
 .comment-info{width: 70%;margin-top: 30px;}
