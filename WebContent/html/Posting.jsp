@@ -54,11 +54,23 @@
     <head>
         <meta charset="UTF-8">
         <title>Posting</title>
-        <link rel="stylesheet" href="../Css/posting-style.css">
+        <link rel="stylesheet" href="../Css/posting-style.css"> 
+   	<script type="text/javascript">
+   		var popup;
+   		function cmUpdateOpen(bId,cId) {
+   			window.name ="perentForm";
+   			popup=window.open("commentUpdate.jsp?bId="+bId+"&cId="+cId,"a","width=500,height=300,left=100,top=50");
+			popup.addEventListener('beforeunload',function(){
+				setTimeout("location.reload()");
+			});
+   			
+   		}
+   	</script>
     </head>
     <body>
         <header>
-            <a href="../html/Mainpage.jsp" class="logo">
+
+            <a href="Mainpage.jsp" class="logo">
                 <img src="../Img/logo.jpg" alt="logo">
             </a>
              <div class="search">
@@ -66,6 +78,7 @@
             <form action="SearchBoard.jsp">
                 <div class="search-icon"></div>
                 <input class="real-search" type="text" name="searchText" placeholder="이미지, 주제 검색">
+
                 <span class="dropdown">
                     <select name="searchField">
                         <option value="0">모든</option>
@@ -73,6 +86,19 @@
                         <option value="userId">작성자</option>
                     </select>
                     <span class="dropdown-icon"><img src="../Img/chevron-down-solid.svg" alt=""></span>
+
+             <!--        <button class="dropdown-btn">
+                        <div class="dropdown-p">카테고리</div>
+                        <span class="dropdown-icon">ico</span>
+                    </button>
+                    <div class="dropdown-cont">
+                        <a href="Gallery.jsp?bcategory=CUTE">CUTE</a>
+                        <a href="Gallery.jsp?bcategory=SEXY">SEXY</a>
+                        <a href="Gallery.jsp?bcategory=HANSUME">HAND</a>
+                        <a href="#">DEL</a>
+                    </div> -->
+                     
+
                 </span>
             </form>
         </div>
@@ -140,7 +166,7 @@
                                 </tr>
                                 <tr>
                                     <th>카테고리</th>
-                                    <td><a href="Gallery.jsp?bcategory=<%=bo.getBcategory() %>"><%=bo.getBcategory() %></a></td>
+                                    <td><a href="Gallery.jsp?bcategory=<%=bo.getBcategory() %>"><%=bo.getBcategory().substring(4) %></a></td>
                                 </tr>
                                 <tr>
                                     <th>조회수</th>
@@ -154,7 +180,9 @@
                         </table>
 
                         <!-- 글 수정 삭제-->
+
                         <%if(userId != null&&userId.equals(bo.getuserId())){ //로그인 되어 있을때%>
+
       			   <div class="aside-btn">
                         <a href="update.jsp?bId=<%=bId %>">수정</a>
                         <a href="deleteAction.jsp?bId=<%=bId %>">삭제</a>
@@ -162,14 +190,20 @@
         <% }else{}%>
         
                     
-
                 </div>
             </aside>
+           
             <!-- 댓글창 -->
-            <% CommentDAO cDAO = new CommentDAO();
-			ArrayList<CommentVO> list = cDAO.getList(bId); %>
+            <% 
+            int number=1;
+            if(request.getParameter("number")!=null){
+            	number = Integer.parseInt(request.getParameter("number"));
+            }
+            CommentDAO cDAO = new CommentDAO();
+            int ccount=cDAO.commentcount(bId);
+			ArrayList<CommentVO> list = cDAO.getList(number,bId); %>
             <div class="comment-info">
-                <div class="comment-count">댓글 <span class="count"><%=list.size() %></span></div>
+                <div class="comment-count">댓글 <span class="count"><%=ccount %></span></div>
                	<form method="post" action="deatAction.jsp?bId=<%=bId %>">
                 <div class="comment-text">
                 	
@@ -178,9 +212,11 @@
                  
                 </div>
                    </form>
+              
                      <%
                
 				for (int i = 0; i < list.size(); i++) {
+				
                 %>
                 <div class="comment">
               
@@ -188,20 +224,36 @@
                     <p class="comment-cont"><%=list.get(i).getCmContent() %></p>
                     <p class="date"><%= list.get(i).getcDate().substring(0,11)+list.get(i).getcDate().substring(11,13)
 							+"시"+list.get(i).getcDate().substring(14,16)+ "분"	%></p><!-- 댓글작성일 -->
-                    <% if(userId.equals(list.get(i).getUserId())){%>
+                    <%if(userId==null){
+                    	
+                    }
+                    else if(userId.equals(list.get(i).getUserId())){%>
                     <div class="comment-btn">
-                        <a href="commentUpdate.jsp?bId=<%=bId %>&cId=<%=list.get(i).getcId() %>"><button>수정</button></a>
-                       <a onclick="retrun confirm('정말 삭제하시겠습니까?')" href="cmDeleteAction.jsp?bId=<%=bId%>&cId=<%= list.get(i).getcId()%>"><button>삭제</button></a>
+                        <a href="#" onclick="cmUpdateOpen(<%=bId%>,<%=list.get(i).getcId()%>)"><button>수정</button></a>
+                        <%-- commentUpdate.jsp?bId=<%=bId %>&cId=<%=list.get(i).getcId() %> --%>
+                       <a onclick="return confirm('정말 삭제하시겠습니까?');" href="cmDeleteAction.jsp?bId=<%=bId%>&cId=<%= list.get(i).getcId()%>"><button>삭제</button></a>
                     </div>
-                    
-                   
+                    <%} %>
                 </div>
-                 <%}
+                 <%
                     } %>
-    
+            <div class="num">
+    	<%
+    		for(int i=1; i<=cDAO.commentcount(bId);i++){
+    		 if(i%10==1){
+    	%>
+    	<%-- &number=<%=i/10+1%> --%>
+        <a href="Posting.jsp?bId=<%=bId%>&number=<%=i/10+1%>"><%=i/10+1 %></a>
+        <%
+    			}
+    			} %>
+   			 </div>
+      
             </div>
+
     
         </div>
+        
 
 
 </body>

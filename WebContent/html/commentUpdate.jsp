@@ -7,31 +7,38 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+ <link rel="stylesheet" href="../Css/posting-style.css"> 
 </head>
 <body>
 <%
 	int cId=0;
-	int bId=1;
+	int bId=0;
+	String userId = null;
 	if(request.getParameter("cId")!=null){
 		cId=Integer.parseInt(request.getParameter("cId"));
 	}
-	CommentVO cvo = new CommentDAO().getComment(cId);	
-%>
+	if(request.getParameter("bId")!=null){
+		bId=Integer.parseInt(request.getParameter("bId"));
+	}
+	if(session.getAttribute("userId") != null){
+		userId = (String)session.getAttribute("userId");
+	}
+	CommentVO cvo = new CommentDAO().getComment(cId);
+	
+%> 
+
+<h2><%= userId %></h2><!-- 유저아이디 -->
+<div class="comment-info">
 	<form method="post" action="cmUpdateAction.jsp?bId=<%=bId %>&cId=<%= cId%>">
-		<table>
-			<tbody>
-				<tr>
-					<td align="left">
-					<%-- <%= userID %> --%>
-					kk123
-					</td>
-				</tr>
-					<td><input type="text" placeholder="댓글 쓰기" name="cmContent" maxlength="300" value="<%=cvo.getCmContent() %>">
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<input type="submit" value="댓글수정">
+		<div class="comment-text">
+                	
+                    <input class="comment-input" type="text" name="cmContent" value="<%=cvo.getCmContent()%>">
+                    
+                    <button class="submit">등록</button>
+                 
+                </div>
+		
 	</form>
+	</div>
 </body>
 </html>

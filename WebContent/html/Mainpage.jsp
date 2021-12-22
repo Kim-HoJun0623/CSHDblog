@@ -25,7 +25,7 @@
 		userId = (String)session.getAttribute("userId"); 
 				//로그인 세션 확인 되어있으면 값이 들어가고 아니면 null
 	}
-	String bcategory = "CUTE";
+	String bcategory = "ALL";
 	if(request.getParameter("bcategory")!=null){
 		bcategory=request.getParameter("bcategory");
 	}
@@ -82,9 +82,11 @@
 
 	<section class="cont">
           <div class="car-box">
-              <a href="Gallery.jsp?bcategory=CUTE"><span>CUTE</span></a>
-              <a href="Gallery.jsp?bcategory=SEXY"><span>SEXY</span></a>
-              <a href="Gallery.jsp?bcategory=HANDSOME"><span>HANDSOME</span></a>
+
+              <a href="Mainpage.jsp?bcategory=CUTE"><span>CUTE</span></a>
+              <a href="Mainpage.jsp?bcategory=SEXY"><span>SEXY</span></a>
+              <a href="Mainpage.jsp?bcategory=HANSUME"><span>HANDSOME</span></a>
+
           </div>
     
       </section>
