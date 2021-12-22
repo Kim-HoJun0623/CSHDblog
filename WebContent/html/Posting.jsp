@@ -182,12 +182,14 @@
                         </table>
 
                         <!-- 글 수정 삭제-->
-                        <%if(userId != null&&userId.equals(bo.getuserId())){ //로그인 안 되어 있을때%>
+
+                        <%if(userId != null&&userId.equals(bo.getuserId())){ //로그인 되어 있을때%>
+
       			   <div class="aside-btn">
                         <a href="update.jsp?bId=<%=bId %>">수정</a>
                         <a href="deleteAction.jsp?bId=<%=bId %>">삭제</a>
                     </div>
-        <% }%>
+        <% }else{}%>
         
                     
                 </div>
