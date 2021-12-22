@@ -86,22 +86,18 @@
 				for(int i=0; i<list.size(); i++){
 		%>
        
-            <li class="box">
-                <a href="../html/Posting.jsp?bId=<%=list.get(i).getbId()%>">
-                <dt class="img-box"><img src="../upload/<%=list.get(i).getbimage()%>" alt="">
-                </dt>
-                <dt class="text-box">
-                <p><%= list.get(i).getbContent() %></p>
-                </dt>
-            </a>
-            </li>
+            <div class="box">
+					           <a href="../html/Posting.jsp?bId=<%=list.get(i).getbId() %>" > <!-- 클릭시 -->
+                  <img class="rounded" src="../upload/<%=list.get(i).getbimage()%>" /> <!-- 작은사진 -->
+                </a>
+			</div>
              <%
 				}
 		}
 		%>
        	</div>
     </section>
-    <div class="num">
+    <%--<div class="num">
     	<%
     		for(int i=1; i<=boardDAO.PageList(userId);i++){
     		 if(i%4==1){
@@ -111,7 +107,7 @@
     			}
     			} %>
     </div>
-    
+     --%>
    
 </body>
 </html>

@@ -97,8 +97,7 @@
 				ArrayList<BoardVO> list = boardDAO.GalleryList(bcategory);
 				for(int i=0; i<list.size(); i++){
 		%>
-		<a href="../html/Posting.jsp?bId=<%=list.get(i).getbId() %>" 
-                  > <!-- 클릭시 -->
+		<a href="../html/Posting.jsp?bId=<%=list.get(i).getbId() %>" > <!-- 클릭시 -->
                   <img class="rounded" src="../upload/<%=list.get(i).getbimage()%>" /> <!-- 작은사진 -->
                 </a>
             
