@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <% request.setCharacterEncoding("utf-8");
+     response.setContentType("text/html;charset=utf-8"); %> 
+  <%@ page import="java.io.PrintWriter" %>
+  <%@ page import="board.BoardVO" %>
+  <%@ page import="board.BoardDAO" %>
+  <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,19 +18,36 @@
     <script src="../js/jquery.fancybox.min.js"></script> <script src="../js/jquery.js"></script>
 </head>
 <body>
+
     <header>
-        <a href="#" class="logo">
+    	  <%
+//메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
+		String userId = null;
+		if(session.getAttribute("userId") != null){
+			userId = (String)session.getAttribute("userId");
+		}
+		String bcategory = "CUTE";
+		if(request.getParameter("bcategory")!=null){
+			bcategory=request.getParameter("bcategory");
+		}
+	%>
+        <a href="Mainpage.jsp" class="logo">
             <img src="../Img/logo.jpg" alt="logo">
         </a>
         <div class="search">
             <input type="text">
             <button>검색</button>
         </div>
+         <% if(userId==null){%>
         <div class="sign">
-            <a href="#">sign</a>
-            <a href="#">login</a>
+        
+            <a href="Sign.jsp">sign</a>
+            <a href="Login.jsp">login</a>
+           
         </div>
+         <%}else{ %>
         <button class="head-btn">글쓰기</button>
+        <%} %>
     </header>
         <div class="cont-head">
             <h5>GALLERY</h5>
@@ -40,111 +63,35 @@
             <span class="dropdown">
                 <button class="dropdown-btn">카테고리</button>
                 <div class="dropdown-cont">
-                    <a href="#">CUTE</a>
-                    <a href="#">SEXY</a>
-                    <a href="#">HAND</a>
-                    <a href="#">DEL</a>
+                    <a href="Gallery.jsp?bcategory=CUTE">CUTE</a>
+                    <a href="Gallery.jsp?bcategory=SEXY">SEXY</a>
+                    <a href="Gallery.jsp?bcategory=HANSUME">HAND</a>
                 </div>
             </span>
             </div>
         </div>
-        <section class="cont">
-            <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6 box">
-                <a
+        <!-- 갤러리 분류별 정렬 -->
+    <section class="cont">
+        <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6 box">
+         	<%
+				BoardDAO boardDAO = new BoardDAO();
+				ArrayList<BoardVO> list = boardDAO.GalleryList(bcategory);
+				for(int i=0; i<list.size(); i++){
+		%>
+		<a
                   data-caption="Vestibulum lobortis ultricies ipsum, a maximus ligula dignissim in. Sed consectetur tellus egestas, consequat dolor at, tempus augue. "
                   data-fancybox="gallery"
-                  href="../Img/bird-2.PNG" 
+                  href="../upload/<%=list.get(i).getbimage()%>" 
                   > <!-- 클릭시 -->
-                  <img class="rounded" src="../Img/bird-2.PNG" /> <!-- 작은사진 -->
+                  <img class="rounded" src="../upload/<%=list.get(i).getbimage()%>" /> <!-- 작은사진 -->
                 </a>
-                <a
-                  data-caption="Short caption"
-                  data-fancybox="gallery"
-                  href="../Img/bird-3.PNG"
-                >
-                  <img class="rounded" src="../Img/bird-3.PNG" />
-                </a>
-                <a
-                  data-caption=""
-                  data-fancybox="gallery"
-                  href="../Img/bird-4.PNG"
-                >
-                  <img class="rounded" src="../Img/bird-4.PNG" />
-                </a>
-                <a
-                  data-caption=""
-                  data-fancybox="gallery"
-                  href="../Img/bird-5.PNG"
-                >
-                  <img src="../Img/bird-5.PNG" />
-                </a>
-                <a
-                  data-caption=""
-                  data-fancybox="gallery"
-                  href="../Img/mouse-2.PNG"
-                >
-                  <img class="rounded" src="../Img/mouse-2.PNG" />
-                </a>
-                <a
-                  data-caption=""
-                  data-fancybox="gallery"
-                  href="../Img/mouse-3.PNG"
-                >
-                  <img class="rounded" src="../Img/mouse-3.PNG" />
-                </a>
-                <a
-                  data-caption=""
-                  data-fancybox="gallery"
-                  href="../Img/mouse-4.PNG"
-                >
-                  <img class="rounded" src="../Img/mouse-4.PNG" />
-                </a>
-                <a
-                  data-caption=""
-                  data-fancybox="gallery"
-                  href="../Img/mouse-5.PNG"
-                >
-                  <img class="rounded" src="../Img/mouse-5.PNG" />
-                </a>
-                <a
-                  data-caption=""
-                  data-fancybox="gallery"
-                  href="../Img/mouse-6.PNG"
-                >
-                  <img class="rounded" src="../Img/mouse-6.PNG" />
-                </a>
-                <a
-                  data-caption=""
-                  data-fancybox="gallery"
-                  href="../Img/om-1.PNG"
-                >
-                  <img class="rounded" src="../Img/om-1.PNG" />
-                </a>
-                <a
-                  data-caption=""
-                  data-fancybox="gallery"
-                  href="../Img/om-2.PNG"
-                >
-                  <img class="rounded" src="../Img/om-2.PNG" />
-                </a>
-                <a
-                  data-caption=""
-                  data-fancybox="gallery"
-                  href="../Img/om-3.PNG"
-                >
-                  <img class="rounded" src="../Img/om-3.PNG" />
-                </a>
-                <a
-                data-caption=""
-                data-fancybox="gallery"
-                href="../Img/om-5.PNG"
-              >
-                <img class="rounded" src="../Img/om-5.PNG" />
-              </a>
-              
-              </div>
-        </section>
-        <script>
+            
+                  <%
+			}
+		%>
+       </div>
+    </section>
+    <script>
             Fancybox.bind('[data-fancybox="gallery"]', {
                 Thumbs: false,
                 Toolbar: false,

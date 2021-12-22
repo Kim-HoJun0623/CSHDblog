@@ -19,6 +19,16 @@
 </head>
 <body>
 <%
+
+
+
+int bId = 0;
+System.out.println(request.getParameter("bId")); 
+if(request.getParameter("bId") != null){
+	bId = Integer.parseInt(request.getParameter("bId"));
+}
+
+
 			// 현재 세션 상태를 체크한다.
 			MultipartRequest multi = new MultipartRequest(
 					request,
@@ -33,10 +43,24 @@
 			}
 			
 			 File file = multi.getFile("image");//이미지 저장
-			 
-			 String filename = multi.getFilesystemName("image");//자료들 String변수들에 저장
+
+			 String filename;
+			 BoardVO filebo = new BoardDAO().getBoardVO(bId);
+			 if(file==null){
+				filename = filebo.getbimage();
+			 }else{
+				 filename = multi.getFilesystemName("image");//자료들 String변수들에 저장 
+			 }
+			
 			String bTitle = multi.getParameter("bTitle");
 			String bContent = multi.getParameter("bContent");
+			
+			String three[] = multi.getParameterValues("three");
+
+			for(String threest:three){
+				//System.out.println(threest+""); 카테고리 값 
+			}
+			
 			
 			// 로그인을 한 사람만 글을 쓸 수 있도록 코드를 수정한다.
 			if(userId == null){
@@ -47,13 +71,9 @@
 				script.println("</script>");
 			} 
 				
-			int bId = 0;
-			System.out.println(request.getParameter("bId")); 
-			if(request.getParameter("bId") != null){
-				bId = Integer.parseInt(request.getParameter("bId"));
-			}
+		
 			if(bId == 0){
-				System.out.println(bId);
+				//System.out.println(bId);
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('유효하지 않은 글입니다')");

@@ -29,7 +29,7 @@
 	}
 	
 	//만약 넘어온 데이터 없을경우
-	if(bId==0){
+	if(false){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('유효하지 않은 글입니다.')");
@@ -38,7 +38,8 @@
 	}
 	
 	// 유요한 글이라면 구체적인 정보를 bo라는 인스턴스에 담기
-	BoardVO bo = new BoardDAO().getBoardVO(bId);
+	BoardVO bo = new BoardDAO().getBoardVO(1);
+	//BoardVO bcount = new BaordDAO().getCount(bId);
 	%>
 	<!--게시판 글보기 양식 영역시작-->
 <div class="container">
@@ -74,8 +75,11 @@
 								<tr>
 									<td>이미지</td>
 									<td colspan="2" style="height: 200px; text-align:left">
+									<%if(bo.getbimage()==null){ //이미지가 없음때%> 
+									
+									<%}else { //이미지가 있을때 %>
 								      	<img src="../upload/<%=bo.getbimage() %>">
-								      	
+								     <%} %> 	
 									</td>
 								</tr>
 							
@@ -84,6 +88,10 @@
 									<td colspan="2" style="height: 200px; text-align:left">
 										<%=bo.getbContent().replaceAll("","&nbsp;").replaceAll("<","&lt").replaceAll(">", "&gt").replaceAll("\n","<br>") %>
 									</td>
+								</tr>
+								<tr>
+									<td>조회수</td>
+									<td colspan="2"><%=bo.getBcount()+1%></td>
 								</tr>
 							</tbody>
 					</table>
