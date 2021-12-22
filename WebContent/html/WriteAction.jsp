@@ -104,7 +104,7 @@
 						PrintWriter script = response.getWriter();
 						script.println("<script>");
 						script.println("alert('글쓰기 성공')");
-						script.println("location.href='Story.jsp'");
+						script.println("location.href='userPage.jsp'");
 						script.println("</script>");
 					}
 				}

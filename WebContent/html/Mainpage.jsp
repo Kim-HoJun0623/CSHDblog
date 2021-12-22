@@ -82,9 +82,9 @@
 
 	<section class="cont">
           <div class="car-box">
-              <a href="#"><span>CUTE</span></a>
-              <a href="#"><span>SEXY</span></a>
-              <a href="#"><span>HANDSOME</span></a>
+              <a href="Gallery.jsp?bcategory=CUTE"><span>CUTE</span></a>
+              <a href="Gallery.jsp?bcategory=SEXY"><span>SEXY</span></a>
+              <a href="Gallery.jsp?bcategory=HANDSOME"><span>HANDSOME</span></a>
           </div>
     
       </section>
