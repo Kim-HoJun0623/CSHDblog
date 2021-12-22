@@ -70,8 +70,6 @@
     %>
 	<tbody>
 					<%
-					System.out.println("f" + request.getParameter("searchField"));
-					System.out.println("T" + request.getParameter("searchText"));
 						BoardDAO dao = new BoardDAO();
 						ArrayList<BoardVO> list = dao.getSearach(request.getParameter("searchField"),
 								request.getParameter("searchText"));
@@ -85,15 +83,11 @@
 						for(int i=0; i<list.size(); i++){
 							%>
 					       
-					            <li class="box">
-					                <a href="../html/Posting.jsp?bId=<%=list.get(i).getbId()%>">
-					                <dt class="img-box"><img src="../upload/<%=list.get(i).getbimage()%>" alt="">
-					                </dt>
-					                <dt class="text-box">
-					                <p><%= list.get(i).getbContent() %></p>
-					                </dt>
-					            </a>
-					            </li>
+					            <div class="box">
+					           <a href="../html/Posting.jsp?bId=<%=list.get(i).getbId() %>" > <!-- 클릭시 -->
+                  <img class="rounded" src="../upload/<%=list.get(i).getbimage()%>" /> <!-- 작은사진 -->
+                </a>
+					            </div>
 					             <%
 									}
 					%>
