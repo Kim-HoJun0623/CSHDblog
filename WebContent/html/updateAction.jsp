@@ -26,7 +26,9 @@ int bId = 0;
 System.out.println(request.getParameter("bId")); 
 if(request.getParameter("bId") != null){
 	bId = Integer.parseInt(request.getParameter("bId"));
-}
+}%>
+	<input type="hidden" id="bId" value="<%=bId%>">
+<% 
 
 
 			// 현재 세션 상태를 체크한다.
@@ -78,7 +80,7 @@ if(request.getParameter("bId") != null){
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('유효하지 않은 글입니다')");
-				script.println("location.href='Story.jsp'");
+				script.println("location.href='Mainpage.jsp'");
 				script.println("</script>");
 			}
 			//해당 'bbsID'에 대한 게시글을 가져온 다음 세션을 통하여 작성자 본인이 맞는지 체크한다
@@ -87,7 +89,7 @@ if(request.getParameter("bId") != null){
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
 				script.println("alert('권한이 없습니다')");
-				script.println("location.href='Stroy.jsp'");
+				script.println("location.href='Mainpage.jsp'");
 				script.println("</script>");
 			} else{ 
 				// 입력이 안 됐거나 빈 값이 있는지 체크한다
@@ -111,11 +113,17 @@ if(request.getParameter("bId") != null){
 						script.println("</script>");
 					// 글 수정이 정상적으로 실행되면 알림창을 띄우고 게시판 메인으로 이동한다
 					}else {
-						PrintWriter script = response.getWriter();
-						script.println("<script>");
-						script.println("alert('글 수정하기 성공')");
-						script.println("location.href='Story.jsp'");
-						script.println("</script>");
+
+						%>
+						<script src="http://code.jquery.com/jquery-latest.js"></script> 
+						<script type="text/javascript">
+						const bId=$('#bId').val();
+						console.log(bId);
+						alert('글 수정 성공!');
+						location.href='Posting.jsp?bId='+bId
+						</script>
+						<% 
+
 					}
 				}
 			

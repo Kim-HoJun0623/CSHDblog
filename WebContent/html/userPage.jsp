@@ -1,34 +1,31 @@
+<%@page import="board.BoardVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-       <% request.setCharacterEncoding("utf-8");
-     response.setContentType("text/html;charset=utf-8"); %> 
-  <%@ page import="java.io.PrintWriter" %>
-  <%@ page import="board.BoardVO" %>
-  <%@ page import="board.BoardDAO" %>
-  <%@ page import="java.util.ArrayList" %>
+<%
+		// 메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
+		String userId = null;
+		if(session.getAttribute("userId") != null){
+			userId = (String)session.getAttribute("userId");
+		}
+		
+		
+	%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title><%= request.getParameter("searchText") %>검색 결과</title>
-    <link rel="stylesheet" href="../Css/SearchBoard.css">
-
+    <title>UserPage</title>
+    <link rel="stylesheet" href="../Css/userpage.css">
 </head>
 <body>
-        <%
-		//메인 페이지로 이동했을 때 세션에 값이 담겨있는지 체크
-		String userId = null;
-		if(session.getAttribute("userId") != null){
-			 userId = (String)session.getAttribute("userId"); 
-			/* userId="김호준"; */
-		}
-	%>
-    <header class="header">
+    <header>
         <a href="../html/Mainpage.jsp" class="logo">
             <img src="../Img/logo.jpg" alt="logo">
         </a>
         <div class="search">
-            <form action="SearchBoard.jsp">
+        <form action="SearchBoard.jsp">
                 <div class="search-icon"></div>
                 <input class="real-search" type="text" name="searchText" placeholder="이미지, 주제 검색">
                 <span class="dropdown">
@@ -40,14 +37,14 @@
                     <span class="dropdown-icon"><img src="../Img/chevron-down-solid.svg" alt=""></span>
                 </span>
             </form>
-        </div>
-		<%if(userId==null){ %>
-        <span class="sign"> 
+    </div>
+        <%if(userId==null){ //로그인 안 되어 있을때%>
+        <span class="sign">
             <a href="../html/Sign.jsp">sign</a>
             <a href="../html/Login.jsp">login</a>
         </span>
         <%}else{ %>
-        <span class="sign"> 
+        <span class="sign">
         <a href="../html/userPage.jsp"><%=userId %>님</a>
         <a href="../html/logoutAction.jsp">Logout</a>
         </span>
@@ -55,9 +52,18 @@
         <%} %>
         
     </header>
-    <div class="tit">
-        <h2><%= request.getParameter("searchText") %>  검색 결과</h2>
-    </div>
+    <section class="profile">
+        <div class="main-img">
+            <img src="../Img/space-big.png" alt="main-img">
+            <div class="profile-cont">
+                <h2><%=userId  %></h2>
+                <div class="usericon">
+                    icon
+                </div>
+            </div>    
+        </div>
+    </section>
+    
     <%
 		
 	int pageNumber = 1;//기본은1페이지 전달
@@ -68,31 +74,46 @@
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 	}
     %>
-	<tbody>
-					<%
-						BoardDAO dao = new BoardDAO();
-						ArrayList<BoardVO> list = dao.getSearach(request.getParameter("searchField"),
-								request.getParameter("searchText"));
-						if (list.size() == 0) {
-							PrintWriter script = response.getWriter();
-							script.println("<script>");
-							script.println("alert('검색결과가 없습니다.')");
-							script.println("history.back()");
-							script.println("</script>");
-						}
-						for(int i=0; i<list.size(); i++){
-							%>
-					       
-					            <div class="box">
+	
+	<!-- 마이페이지-내가올린 게시글만 보기 -->
+    <section class="img-box">
+        <div class="img-cont">
+         	<%
+         	
+				BoardDAO boardDAO = new BoardDAO();
+				ArrayList<BoardVO> list = boardDAO.getList(pageNumber,userId);
+				if(userId==null){}else{
+				for(int i=0; i<list.size(); i++){
+		%>
+       
+
+            <div class="box">
 					           <a href="../html/Posting.jsp?bId=<%=list.get(i).getbId() %>" > <!-- 클릭시 -->
                   <img class="rounded" src="../upload/<%=list.get(i).getbimage()%>" /> <!-- 작은사진 -->
                 </a>
-					            </div>
-					             <%
-									}
-					%>
-				</tbody>
-		
+			</div>
 
+             <%
+				}
+		}
+		%>
+       	</div>
+    </section>
+
+    <%--<div class="num">
+
+    	<%
+    		for(int i=1; i<=boardDAO.PageList(userId);i++){
+    		 if(i%4==1){
+    	%>
+        <a href="Story.jsp?pageNumber=<%=i/4+1%>"><%=i/4+1 %></a>
+        <%
+    			}
+    			} %>
+
+    </div>
+     --%>
+
+   
 </body>
 </html>

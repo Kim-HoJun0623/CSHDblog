@@ -14,17 +14,20 @@
 String userId = null;
 int bId = 0;
 int cId = Integer.parseInt(request.getParameter("cId"));
+System.out.println(cId);
 String cmContent = request.getParameter("cmContent");
 if(session.getAttribute("userId") != null){
 	userId = (String)session.getAttribute("userId");
+	System.out.println(userId);
 }
 if(request.getParameter("bId")!=null){
 	bId=Integer.parseInt(request.getParameter("bId"));
+	System.out.println(bId);
 } %>
 <input type="hidden" id="bId" value='<%=bId%>'/>
 <%
 // 로그인을 한 사람만 글을 쓸 수 있도록 코드를 수정한다.
-if(userId != null){
+if(userId == null){
 	PrintWriter script = response.getWriter();
 	script.println("<script>");
 	script.println("alert('로그인을 하세요')");
@@ -34,7 +37,7 @@ if(userId != null){
 	if(bId==0 || cmContent==null){
 		
 	}else{
-		userId="ddd";
+
 		CommentDAO comDAO = new CommentDAO();
 		
 		int result=comDAO.update(bId, cId, cmContent);
@@ -51,7 +54,8 @@ if(userId != null){
 			const bId=$('#bId').val();
 			console.log(bId);
 			alert('댓글 성공!');
-			location.href='Posting.jsp?bId='+bId
+			window.close();
+			// location.href='Posting.jsp?bId='+bId 
 			</script>
 			<% 
 		}

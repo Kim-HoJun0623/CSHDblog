@@ -25,7 +25,7 @@
 		userId = (String)session.getAttribute("userId"); 
 				//로그인 세션 확인 되어있으면 값이 들어가고 아니면 null
 	}
-	String bcategory = "CUTE";
+	String bcategory = "ALL";
 	if(request.getParameter("bcategory")!=null){
 		bcategory=request.getParameter("bcategory");
 	}
@@ -49,7 +49,7 @@
         </span>
         <%}else { %>
 	<span class="sign">
-	<a href="../html/#"><%=userId %>님</a>
+	<a href="../html/userPage.jsp"><%=userId %>님</a>
     <a href="../html/logoutAction.jsp">Logout</a>
     </span>
     <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
@@ -80,6 +80,17 @@
       </div>
   </section>
 
+	<section class="cont">
+          <div class="car-box">
+
+              <a href="Mainpage.jsp?bcategory=CUTE"><span>CUTE</span></a>
+              <a href="Mainpage.jsp?bcategory=SEXY"><span>SEXY</span></a>
+              <a href="Mainpage.jsp?bcategory=HANSUME"><span>HANDSOME</span></a>
+
+          </div>
+    
+      </section>
+
   <section class="cont img-cont">
       <div class="box">
 
@@ -88,8 +99,7 @@
 				ArrayList<BoardVO> list = boardDAO.GalleryList(bcategory);
 				for(int i=0; i<list.size(); i++){
 		%>
-		<a href="../html/Posting.jsp?bId=<%=list.get(i).getbId() %>" 
-                  > <!-- 클릭시 -->
+		<a href="../html/Posting.jsp?bId=<%=list.get(i).getbId() %>" > <!-- 클릭시 -->
                   <img class="rounded" src="../upload/<%=list.get(i).getbimage()%>" /> <!-- 작은사진 -->
                 </a>
             
