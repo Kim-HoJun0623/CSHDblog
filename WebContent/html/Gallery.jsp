@@ -26,12 +26,12 @@
 		if(session.getAttribute("userId") != null){
 			userId = (String)session.getAttribute("userId");
 		}
-		String bcategory = "CUTE";
+		String bcategory = "ALL";
 		if(request.getParameter("bcategory")!=null){
 			bcategory=request.getParameter("bcategory");
 		}
 	%>
-        <a href="Mainpage.jsp" class="logo">
+        <a href="Main.jsp" class="logo">
             <img src="../Img/logo.jpg" alt="logo">
         </a>
         <div class="search">

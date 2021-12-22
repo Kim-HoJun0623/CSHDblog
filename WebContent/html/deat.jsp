@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="board.CommentDAO" %>
 <%@ page import="board.CommentVO" %>
@@ -56,7 +56,7 @@
 			<tbody>
 				<tr>
 					<td align="left">
-					<%-- <%= userID %> --%>
+					<%= userID %>
 					kk123
 					</td>
 				</tr>
@@ -69,4 +69,4 @@
 	</form>
 	
 </body>
-</html>
+</html> --%>

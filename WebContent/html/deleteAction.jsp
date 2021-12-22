@@ -59,11 +59,12 @@
 				script.println("</script>");
 			// 글 삭제가 정상적으로 실행되면 알림창을 띄우고 게시판 메인으로 이동한다
 			}else {
-				PrintWriter script = response.getWriter();
-				script.println("<script>");
-				script.println("alert('글 삭제하기 성공')");
-				script.println("location.href='Story.jsp'");
-				script.println("</script>");
+			
+			PrintWriter script = response.getWriter();
+						script.println("<script>");
+						script.println("alert('게시글을 삭제하셨습니다.')");
+						script.println("location.href='Mainpage.jsp'");
+						script.println("</script>");
 			}
 		/* } */
 	
