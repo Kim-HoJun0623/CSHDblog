@@ -58,33 +58,33 @@
     </head>
     <body>
         <header>
-            <a href="../html_new/Mainpage.jsp" class="logo">
+            <a href="../html/Mainpage.jsp" class="logo">
                 <img src="../Img/logo.jpg" alt="logo">
             </a>
-            <div class="search">
-            <form action="get">
-                <div class="search-icon">icon</div>
-                <input class="real-search" type="text" placeholder="이미지, 주제 검색">
+             <div class="search">
+            <form action="SearchBoard.jsp">
+                <div class="search-icon"></div>
+                <input class="real-search" type="text" name="searchText" placeholder="이미지, 주제 검색">
                 <span class="dropdown">
-                    <button class="dropdown-btn">
-                        <div class="dropdown-p">카테고리</div>
-                        <span class="dropdown-icon">ico</span>
-                    </button>
-                    <div class="dropdown-cont">
-                        <a href="Gallery.jsp?bcategory=CUTE">CUTE</a>
-                        <a href="Gallery.jsp?bcategory=SEXY">SEXY</a>
-                        <a href="Gallery.jsp?bcategory=HANSUME">HAND</a>
-                        <!-- <a href="#">DEL</a> -->
-                    </div>
+                    <select name="searchField">
+                        <option value="0">모든</option>
+                        <option value="bTitle">제목</option>
+                        <option value="userId">작성자</option>
+                    </select>
+                    <span class="dropdown-icon"><img src="../Img/chevron-down-solid.svg" alt=""></span>
                 </span>
             </form>
         </div>
-        <%if(userId==null){ %>
+        <%if(userId==null){ //로그인 안 되어 있을때%>
         <span class="sign">
             <a href="../html/Sign.jsp">sign</a>
             <a href="../html/Login.jsp">login</a>
         </span>
         <%}else{ %>
+        <span class="sign">
+        <a href="../html/#"><%=userId %>님</a>
+        <a href="../html/logoutAction.jsp">Logout</a>
+        </span>
         <a href="../html/Write.jsp"><button class="head-btn">글쓰기</button></a>
         <%} %>
     </header>
