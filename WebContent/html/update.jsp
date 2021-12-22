@@ -88,9 +88,9 @@
                     <div class="div-box">
                         <div>분류</div>
                         <select name="category" id="category">
-                            <option value="CUTE">CUTE</option>
-                            <option value="SEXY">SEXY</option>
-                            <option value="HANSUME">HANSUME</option>
+                             <option value="ALL_CUTE">CUTE</option>
+                            <option value="ALL_SEXY">SEXY</option>
+                            <option value="ALL_HANSUME">HANSUME</option>
                         </select>
                     </div>
 					</table>

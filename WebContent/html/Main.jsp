@@ -22,7 +22,7 @@
 		userId = (String)session.getAttribute("userId"); 
 				//로그인 세션 확인 되어있으면 값이 들어가고 아니면 null
 	}
-	String bcategory = "CUTE";
+	String bcategory = "ALL";
 	if(request.getParameter("bcategory")!=null){
 		bcategory=request.getParameter("bcategory");
 	}
@@ -30,7 +30,7 @@
 
   <div id="wrap">
     <header class="header">
-      <a href="../html/Mainpage.jsp" class="logo">
+      <a href="#" class="logo">
         <img src="../Img/logo.jpg" alt="logo">
     </a>
     <span class="sign">

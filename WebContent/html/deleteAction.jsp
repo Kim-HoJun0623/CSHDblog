@@ -30,6 +30,9 @@
 		if(request.getParameter("bId") != null){
 			bId = Integer.parseInt(request.getParameter("bId"));
 		}
+		%>
+		<input type="hidden" id="bId" value='<%=bId%>'/>
+		<% 
 		if(bId == 0){
 			System.out.println(bId);
 			PrintWriter script = response.getWriter();
@@ -59,11 +62,15 @@
 				script.println("</script>");
 			// 글 삭제가 정상적으로 실행되면 알림창을 띄우고 게시판 메인으로 이동한다
 			}else {
-				PrintWriter script = response.getWriter();
-				script.println("<script>");
-				script.println("alert('글 삭제하기 성공')");
-				script.println("location.href='Story.jsp'");
-				script.println("</script>");
+				%>
+				<script src="http://code.jquery.com/jquery-latest.js"></script> 
+				<script type="text/javascript">
+				const bId=$('#bId').val();
+				console.log(bId);
+				alert('글을 삭제하셨습니다');
+				location.href='Posting.jsp?bId='+bId
+				</script>
+				<%
 			}
 		/* } */
 	

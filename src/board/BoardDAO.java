@@ -58,7 +58,7 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 
-//				System.out.println("占쏙옙호占싸울옙");
+				System.out.println(rs.getInt(1));
 
 				return rs.getInt(1)+1;
 			}	
@@ -122,12 +122,12 @@ public class BoardDAO {
 		
 	}
 	public ArrayList<BoardVO> GalleryList(String bcategory){//pageNumber 를 분류 번호로 바꿔야한다.
-		String sql = "select bId,bimage from board where bId < ? and bAvailable=1 and bcategory=? order by bId desc ";
+		String sql = "select bId,bimage from board where bId < ? and bAvailable=1 and bcategory like ? order by bId desc ";
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, getNext());
-			pstmt.setString(2, bcategory);
+			pstmt.setString(2, '%'+bcategory+'%');
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO boardVO = new BoardVO();

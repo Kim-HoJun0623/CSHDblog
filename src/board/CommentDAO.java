@@ -12,7 +12,7 @@ public class CommentDAO {
 	
 	public CommentDAO() {
 		try {
-//			System.out.println("µ¥ÀÌÅÍº£ÀÌ½ºÁ¢±Ù");
+//			System.out.println("ë°ì´í„°ë² ì´ìŠ¤ì ‘ê·¼");
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String dbURL="jdbc:mysql://localhost:3306/blog";
 			String dbID ="root";
@@ -30,59 +30,89 @@ public class CommentDAO {
 			PreparedStatement pstmt= conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
-				System.out.println("ÀÛ¼ºÀÏÀÚ");
+				System.out.println("ì‘ì„±ì¼ì");
 				return rs.getString(1);
 			}
 			
 		}catch (Exception e){
 			e.printStackTrace();
 		}
-		return "";//µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return "";//ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜
 	}
 	
-	public int getNext() {
-		//ÇöÀç °Ô½Ã±ÛÀ» ³»¸²Â÷¼øÀ¸·Î Á¶È¸ÇÏ¿© °¡Àå ¸¶Áö¸· ±ÛÀÇ ¹øÈ£¸¦ ±¸ÇÑ´Ù.
-		String sql="select cId from comment order by cId desc";
-		try {
-			PreparedStatement pstmt=conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				System.out.println("¹øÈ£ºÎ¿©"+rs.getInt(1)+1);
-				return rs.getInt(1)+1;
-			}	
-			return 1;
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return -1;//µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
-	}
+	
 	
 	public int write(String cmContent,String userId,int bId) {
-		String sql="insert into comment values(?,?,?,?,?)";
+		String sql="insert into comment values(?,?,?,?,?,?)";
 		try {
-//			System.out.println("±Û¾²±â");
+//			System.out.println("ê¸€ì“°ê¸°");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, cmContent);
 			pstmt.setInt(2, getNext());
 			pstmt.setString(3,userId);
 			pstmt.setString(4, getDate());
 			pstmt.setInt(5, bId);
-		
+			pstmt.setInt(6, getNext(bId));
 			return pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¥˜
 	}
-	
-	
-	public ArrayList<CommentVO> getList(int bId){
-		String sql = "select * from comment where bId = ?  order by bId desc limit 100";
-		System.out.println("¸®½ºÆ®Ãâ·Â");
+	public int getNext(int bId) {
+		//å ì™ì˜™å ì™ì˜™ å ìŒ‰ì‹œê¹ì˜™å ï¿½ å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì‹«ëªŒì˜™è‡¼å ï¿½ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™í˜¸å ì™ì˜™ å ì™ì˜™å ì‹¼ëŒì˜™.
+
+		String sql="select number from comment where bId=? order by number desc";
+		try {
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, bId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+
+				//System.out.println(rs.getInt(1));
+				
+				return rs.getInt(1)+1;
+			}	
+			return 1;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		return -1;
+	}
+	public int getNext() {
+		//å ì™ì˜™å ì™ì˜™ å ìŒ‰ì‹œê¹ì˜™å ï¿½ å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì‹«ëªŒì˜™è‡¼å ï¿½ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™ å ì™ì˜™í˜¸å ì™ì˜™ å ì™ì˜™å ì‹¼ëŒì˜™.
+
+		String sql="select cId from comment  order by cId desc";
+		try {
+			PreparedStatement pstmt=conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+
+				//System.out.println(rs.getInt(1));
+				
+				return rs.getInt(1)+1;
+			}	
+			return 1;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		return -1;
+	}
+	public ArrayList<CommentVO> getList(int number,int bId){
+		String sql = "select * from comment where number < ? and bId = ?  order by bId desc limit 10";
+		//System.out.println("ë¦¬ìŠ¤íŠ¸ì¶œë ¥");
 		ArrayList<CommentVO> list = new ArrayList<CommentVO>();
 		try {		
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,bId);
+			pstmt.setInt(1, getNext(bId)-(number-1)*10);
+			/*
+			 * System.out.println(getNext(bId));
+			 * System.out.println(getNext(bId)-(number-1)*10);
+			 */
+			pstmt.setInt(2,bId);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				
@@ -101,14 +131,30 @@ public class CommentDAO {
 		return list;
 		
 	}
+	public int commentcount(int bId) {
+		String sql="select count(*) from comment where bId = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bId);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {//ê²°ê³¼ê°€ ìˆë‹¤ë©´
+				int count=rs.getInt(1);
+				return count;
+			}	
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
 	
 	public int update(int bId,int cId,String cmContent) {
-		String sql="update comment set cmContent = ? where bId = ? and cId = ?";
+		String sql="update comment set cmContent = ?, cDate = ? where bId = ? and cId = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, cmContent);
-			pstmt.setInt(2, bId);
-			pstmt.setInt(3, cId);
+			pstmt.setString(2, getDate());
+			pstmt.setInt(3, bId);
+			pstmt.setInt(4, cId);
 			return pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -127,19 +173,21 @@ public class CommentDAO {
 		return -1;
 	}
 	
-	public CommentVO getComment(int cId) {//ÇÏ³ªÀÇ ´ñ±Û ³»¿ëÀ» ºÒ·¯¿À´Â ÇÔ¼ö
+	public CommentVO getComment(int cId) {//í•˜ë‚˜ì˜ ëŒ“ê¸€ ë‚´ìš©ì„ ë¶ˆëŸ¬ì˜¤ëŠ” í•¨ìˆ˜
 		String SQL="SELECT * from comment where cId = ?";
 		try {
 			PreparedStatement pstmt=conn.prepareStatement(SQL);
 			pstmt.setInt(1, cId);
 			rs=pstmt.executeQuery();//select
-			if(rs.next()) {//°á°ú°¡ ÀÖ´Ù¸é
+			if(rs.next()) {//ê²°ê³¼ê°€ ìˆë‹¤ë©´
 				CommentVO commentVO = new CommentVO();
 				commentVO.setCmContent(rs.getString(1));
+				//System.out.println(rs.getString(1));
 				commentVO.setcId(rs.getInt(2));
 				commentVO.setUserId(rs.getString(3));
 				commentVO.setcDate(rs.getString(4));
 				commentVO.setBid(rs.getInt(5));
+				commentVO.setNumber(rs.getInt(6));
 				return commentVO;
 			}			
 		} catch(Exception e) {
