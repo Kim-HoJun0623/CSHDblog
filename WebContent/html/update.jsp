@@ -87,10 +87,10 @@
                    	 	</div>
                     <div class="div-box">
                         <div>분류</div>
-                        <select name="three">
-                            <option value="cute">CUTE</option>
-                            <option value="sexy">SEXY</option>
-                            <option value="hansume">HANSUME</option>
+                        <select name="category" id="category">
+                            <option value="CUTE">CUTE</option>
+                            <option value="SEXY">SEXY</option>
+                            <option value="HANSUME">HANSUME</option>
                         </select>
                     </div>
 					</table>

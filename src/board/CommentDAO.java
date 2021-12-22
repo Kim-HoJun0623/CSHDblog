@@ -12,11 +12,11 @@ public class CommentDAO {
 	
 	public CommentDAO() {
 		try {
-//			System.out.println("µ¥ÀÌÅÍº£ÀÌ½ºÁ¢±Ù");
+//			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String dbURL="jdbc:mysql://localhost:3306/blog";
 			String dbID ="root";
-			String dbPassword="1234";
+			String dbPassword="root";
 			Class.forName(driver);
 			conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
 		}catch(Exception e) {
@@ -30,37 +30,37 @@ public class CommentDAO {
 			PreparedStatement pstmt= conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
-				System.out.println("ÀÛ¼ºÀÏÀÚ");
+				System.out.println("ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½");
 				return rs.getString(1);
 			}
 			
 		}catch (Exception e){
 			e.printStackTrace();
 		}
-		return "";//µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return "";//ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int getNext() {
-		//ÇöÀç °Ô½Ã±ÛÀ» ³»¸²Â÷¼øÀ¸·Î Á¶È¸ÇÏ¿© °¡Àå ¸¶Áö¸· ±ÛÀÇ ¹øÈ£¸¦ ±¸ÇÑ´Ù.
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 		String sql="select cId from comment order by cId desc";
 		try {
 			PreparedStatement pstmt=conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				System.out.println("¹øÈ£ºÎ¿©"+rs.getInt(1)+1);
+				System.out.println("ï¿½ï¿½È£ï¿½Î¿ï¿½"+rs.getInt(1)+1);
 				return rs.getInt(1)+1;
 			}	
 			return 1;
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1;//µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1;//ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	public int write(String cmContent,String userId,int bId) {
 		String sql="insert into comment values(?,?,?,?,?)";
 		try {
-//			System.out.println("±Û¾²±â");
+//			System.out.println("ï¿½Û¾ï¿½ï¿½ï¿½");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, cmContent);
 			pstmt.setInt(2, getNext());
@@ -72,13 +72,15 @@ public class CommentDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1; //µ¥ÀÌÅÍº£ÀÌ½º ¿À·ù
+		return -1; //ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	
 	public ArrayList<CommentVO> getList(int bId){
-		String sql = "select * from comment where bId = ?  order by bId desc limit 10";
-		System.out.println("¸®½ºÆ®Ãâ·Â");
+
+		String sql = "select * from comment where bId = ?  order by bId desc limit 100";
+		System.out.println("ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½");
+
 		ArrayList<CommentVO> list = new ArrayList<CommentVO>();
 		try {		
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -127,13 +129,13 @@ public class CommentDAO {
 		return -1;
 	}
 	
-	public CommentVO getComment(int cId) {//ÇÏ³ªÀÇ ´ñ±Û ³»¿ëÀ» ºÒ·¯¿À´Â ÇÔ¼ö
+	public CommentVO getComment(int cId) {//ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 		String SQL="SELECT * from comment where cId = ?";
 		try {
 			PreparedStatement pstmt=conn.prepareStatement(SQL);
 			pstmt.setInt(1, cId);
 			rs=pstmt.executeQuery();//select
-			if(rs.next()) {//°á°ú°¡ ÀÖ´Ù¸é
+			if(rs.next()) {//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½
 				CommentVO commentVO = new CommentVO();
 				commentVO.setCmContent(rs.getString(1));
 				commentVO.setcId(rs.getInt(2));

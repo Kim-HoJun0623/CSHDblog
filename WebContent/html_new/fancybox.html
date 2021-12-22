@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>fancybox</title>
+    <link rel="stylesheet" href="../html_new/fancybox.css">
+    <script src="../js/jquery.js"></script>
+    <link rel="stylesheet" href="../Css/jquery.fancybox.min.css">
+    <script src="../js/jquery.fancybox.min.js"></script> 
+</head>
+<body>
+    <h1 class="mt-12 mb-8 px-6 text-center text-lg md:text-2xl font-semibold">
+        Fancybox with classic design
+      </h1>
+      
+      <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6 box">
+        <a
+          data-caption="Vestibulum lobortis ultricies ipsum, a maximus ligula dignissim in. Sed consectetur tellus egestas, consequat dolor at, tempus augue. "
+          data-fancybox="gallery"
+          href="../Img/bird-2.PNG" 
+          > <!-- 클릭시 -->
+          <img class="rounded image" src="https://lipsum.app/id/1/200x150" /> <!-- 작은사진 -->
+        </a>
+        <a
+          data-caption="Short caption"
+          data-fancybox="gallery"
+          href="https://lipsum.app/id/2/800x450"
+        >
+          <img class="rounded" src="https://lipsum.app/id/2/200x150" />
+        </a>
+        <a
+          data-caption=""
+          data-fancybox="gallery"
+          href="https://lipsum.app/id/3/800x450"
+        >
+          <img class="rounded" src="https://lipsum.app/id/3/200x150" />
+        </a>
+        <a
+          data-caption=""
+          data-fancybox="gallery"
+          href="https://lipsum.app/id/4/800x450"
+        >
+          <img src="https://lipsum.app/id/4/200x150" />
+        </a>
+        <a
+          data-caption=""
+          data-fancybox="gallery"
+          href="https://lipsum.app/id/5/800x450"
+        >
+          <img class="rounded" src="https://lipsum.app/id/5/200x150" />
+        </a>
+        <a
+          data-caption=""
+          data-fancybox="gallery"
+          href="https://lipsum.app/id/6/800x450"
+        >
+          <img class="rounded" src="https://lipsum.app/id/6/200x150" />
+        </a>
+        <a
+          data-caption=""
+          data-fancybox="gallery"
+          href="https://lipsum.app/id/7/800x450"
+        >
+          <img class="rounded" src="https://lipsum.app/id/7/200x150" />
+        </a>
+      </div>
+      <script>
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            Thumbs: false,
+            Toolbar: false,
+  
+        Image: {
+          zoom: false,
+          click: false,
+          wheel: "slide",
+        },
+      });
+      </script>
+</body>
+</html>

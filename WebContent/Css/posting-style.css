@@ -6,39 +6,74 @@ h1,h2,h3,h4,h5,h6{font-family:'NotoSansKR', sans-serif}
 
 
 /* header */
-header{height: 60px;max-width: 2000px;min-width: 1200px;display: flex;align-items: center;position: relative;overflow: hidden;
-    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, .1);}
+header{height: 60px;max-width: 2000px;width: 100%;min-width: 1200px;display: flex;align-items: center;position: fixed;overflow: hidden;
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, .1);top: 0;background-color: white;}
 .logo{margin-left: 30px;float: left;}
-.menu{margin: 0 30px}
-.menu a{margin-left: 50px;font-size: 17px;padding: 18px 0;}
-.menu a:hover{border-bottom: black solid 2px;}
 .sign{margin-right: 30px;position: absolute;right: 55px;}
 .sign a{margin: 0 15px;opacity: .7;font-size: 15px;}
-.search input{width: 450px;height: 40px;border-radius: 15px;border: none;background-color: rgb(219, 219, 219);
-    font-size: 20px;font-weight: bold;margin-left: 50px;}
-.search button{width: 47px;height: 40px;border: none;border-radius: 15px;background-color: skyblue;
-    color: white;font-size: 17px;font-weight: bold;}
+
 .head-btn{background-color:lightskyblue; border: none;border-radius: 15px;width: 60px;height: 40px;color: white;position: absolute;right: 20px;top: 10px;}
 
+.search{display: flex;flex-direction: column;align-content: center;justify-content: center;align-items: center;}
+.search h2{margin-bottom: 16px;font-size: 32px;}
+.search p{font-size: 16px;font-weight: 400;margin-bottom: 32px;}
+.search form{width: 650px;height: 40px;background-color: rgb(241, 241, 241);border: none;border-radius: 15px;margin-left: 30px;
+    display: flex;flex-direction: row;align-content: center;justify-content: space-between;align-items: center;}
+.search-icon{background: url(../Img/search-solid.svg);background-repeat: no-repeat;color: transparent;margin: 0 15px;font-size: 14px;}
+.real-search{flex: auto;font-size: 16px;outline: none;background: transparent;border: none;}
 
-section, aside{float: left;}
-/* section */
-section{width: 65%;margin:40px;}
-.title{display: inline-block;margin-bottom: 30px;}
-.title h2{font-size: 30px; font-weight: bold;}
-.sup{display: flex;flex-direction: row;justify-content: space-between;margin-bottom: 15px;}
-.img{margin-bottom: 5px;}
-.img img{width: 100%;height: auto;border: black solid 2px;}
-.word{width: 100%;margin-bottom: 15px;}
-.word p{font-size: 18px;font-family: 'NotoSansKR';font-weight: 400;}
-.fix{display: flex;justify-content: flex-end;}
-.fix button{width: 100px;height: 30px;border:none;background-color: #c3e8f7;border-radius: 10px;margin-left: 25px;}
+/* dropdown */
+.dropdown{position: relative;display: inline-block;}
+.dropdown-btn{background-color:transparent;border: none;margin: 0 15px;
+    display: flex;align-items: center;align-content: center;padding: 8px;}
+.dropdown-p{font: 12px;color: black;}
+.dropdown-icon{background: url(../Img/chevron-down-solid.svg);background-repeat: no-repeat;color: transparent;margin-left: 10px;}
+.dropdown-cont{display: none;position: absolute;background-color: darkslategray;
+    min-width: 101px;padding: 5px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,.2);margin: 0 15px;border-radius: 0 0 15px 15px;}
+.dropdown-cont a{color: white;padding: 8px;text-decoration: none;display: block;}
+.dropdown-cont a:hover{background-color: gray;}
+.dropdown:hover .dropdown-cont{display: block;}
+.dropdown:hover .dropdown-btn{background-color: gray;border-radius: 15px 15px 0 0;}
 
+/* cont */
+.cont{width: 100%;margin-top: 90px;display: flex;flex-direction: row;justify-content: center;flex-wrap: wrap;}
+.cont section{flex: 2 1 0;}
+.img-box{width: 900px;height: 620px;float: right;display: flex;justify-content: center;}
+.img-box img{height: 100%;box-shadow: 0 1px 10px rgb(0 0 30 / 30%);}
 
-/* aside */
-aside{width: 25%;margin: 40px;}
-.b-img{background-color: teal;width: 100%;height: 500px;margin-bottom: 20px;}
-.abtn{width: 100%;height: 70px;margin-bottom: 30px;background-color: #e6f1c6;border-radius: 15px;border: black solid 2px;font-size: 20px;
-display: flex;flex-direction: row;justify-content: center;align-content: center;align-items: center;font-weight: bold;}
-.ico{width: 10%;height: auto;;margin-right: 10px;padding: 10px;}
-.s-img{background-color: teal;width: 100%;height: 400px;margin-bottom: 20px;}
+.cont aside{flex: 1 1 0;margin: 0 20px;}
+.aside-box{width: 300px;}
+.user{display: flex;flex-direction: row;justify-content: flex-start;align-items: center;padding: 15px 20px;}
+.user-icon{width: 48px;height: 48px;background: url(../Img/user-circle-solid.svg);background-repeat: no-repeat;color: transparent;}
+.user-cont{margin-left: 30px;}
+.name{margin-bottom: 10px;}
+
+.cont-box{background-color: #f6f5fa;padding: 15px 20px;line-height: 1.5;margin:10px 0 20px; overflow: hidden;}
+
+.cont-box p{overflow: hidden;margin-top: 10px;}
+.down{background-color: #02be6e;width: 100%;border: none;border-radius: 30px;height: 42px;color: white;
+    display: flex;flex-direction: row;align-items: center;align-content: center;justify-content: center;
+    font-size: 14px;margin: 10px 0 20px;}
+.down-icon{width: 17px;height: 17px;background: url(../Img/download.svg);color: transparent;margin-right: 10px;}
+.free-box{background-color: #f6f5fa;padding: 15px 20px;line-height: 1.5;margin:10px 0 20px;}
+.a-table{padding: 15px 20px;background-color: #f6f5fa;width: 100%;}
+.a-table th{float: left;}
+.a-table td{float: right;}
+.a-table th,.a-table td{font-size: 14px;font-weight: 400;}
+.a-table a{color: skyblue;text-decoration: none;}
+
+/* comment */
+.comment-info{width: 70%;margin-top: 30px;}
+.comment-count,.count{font-size: 20px;margin-left: 10px;}
+.comment-text{margin-top: 20px;display: flex;flex-direction: row;align-content: center;align-items: center;justify-content: space-between;}
+.comment-input{width: 90%;height: 45px;border-radius: 5px;border-color: rgb(126, 126, 126);font-size: 14px;}
+.submit{width: 90px;height: 45px;border: none;border-radius: 10px;background-color: skyblue;color: white;font-size: 16px;margin-left: 15px;}
+.comment{width: 95%;margin: 10px auto;border-bottom: black 1px solid;padding: 15px 20px;}
+.comment h2,.comment p{margin: 10px 0 15px 0;}
+.comment h2{font-size: 22px;}
+.comment .comment-cont{font-size: 18px;margin-left: 5px;}
+.date{font-size: 14px;color: rgb(172, 172, 172);}
+.comment-btn{display: flex;justify-content: flex-end;}
+.comment-btn button{border: none;margin: 0 20px;border-radius: 5px;width: 60px;height: 30px;}
+.comment-btn button:first-child{background-color: rgb(255, 187, 142);color: white;}
+.comment-btn button:last-child{background-color: rgb(0, 0, 0);color: white;}
