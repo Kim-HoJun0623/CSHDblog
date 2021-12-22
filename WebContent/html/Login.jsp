@@ -147,13 +147,14 @@
 				</div>
 				
 			</form>
+			<%--
 			<form name="googleLogin">
 				<a href="javascript:onSignIn()"/>
 				<div class="g-signin2" data-onsuccess="onSignIn">
 				<input type="hidden" name="google_login" id="google_login">
 				</div>
 			</form>
-			
+			 --%>
 			<form name="kakaoLogin">
 				<ul>
 					<li><a href="javascript:kakaoLogin()">
