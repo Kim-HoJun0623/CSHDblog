@@ -80,6 +80,7 @@
                 <input class="real-search" type="text" name="searchText" placeholder="이미지, 주제 검색">
 
                 <span class="dropdown">
+
                     <select name="searchField">
                         <option value="0">모든</option>
                         <option value="bTitle">제목</option>
@@ -100,6 +101,7 @@
                      
 
                 </span>
+
             </form>
         </div>
         <%if(userId==null){ //로그인 안 되어 있을때%>
