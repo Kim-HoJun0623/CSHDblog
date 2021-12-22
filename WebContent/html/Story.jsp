@@ -57,6 +57,7 @@
 		
 	if(request.getParameter("pageNumber")!=null){
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+		System.out.println(pageNumber);
 	}
     %>
 	
@@ -75,9 +76,7 @@
                 <a href="../html/Posting.jsp?bId=<%=list.get(i).getbId()%>">
                 <dt class="img-box"><img src="../upload/<%=list.get(i).getbimage()%>" alt="">
                 </dt>
-                <dt class="text-box">
-                <p><%= list.get(i).getbContent() %></p>
-                </dt>
+ 
             </a>
             </li>
              <%

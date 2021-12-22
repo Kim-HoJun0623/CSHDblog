@@ -26,17 +26,27 @@
 		if(session.getAttribute("userId") != null){
 			userId = (String)session.getAttribute("userId");
 		}
-		String bcategory = "CUTE";
+		String bcategory = "ALL";
 		if(request.getParameter("bcategory")!=null){
 			bcategory=request.getParameter("bcategory");
 		}
 	%>
-        <a href="Mainpage.jsp" class="logo">
+        <a href="Main.jsp" class="logo">
             <img src="../Img/logo.jpg" alt="logo">
         </a>
         <div class="search">
-            <input type="text">
-            <button>검색</button>
+            <form action="SearchBoard.jsp">
+                <div class="search-icon"></div>
+                <input class="real-search" type="text" name="searchText" placeholder="이미지, 주제 검색">
+                <span class="dropdownO">
+                    <select name="searchField">
+                        <option value="0">모든</option>
+                        <option value="bTitle">제목</option>
+                        <option value="userId">작성자</option>
+                    </select>
+                    <span class="dropdown-iconO"><img src="../Img/chevron-down-solid.svg" alt=""></span>
+                </span>
+            </form>
         </div>
          <% if(userId==null){%>
         <div class="sign">
@@ -49,16 +59,16 @@
         <%} %>
     </header>
         <div class="cont-head">
-            <h5>GALLERY</h5>
+            <h5><%=bcategory %></h5>
             <div>
-            <span class="dropdown">
+            <%--><span class="dropdown">
                 <button class="dropdown-btn">추천</button>
                 <div class="dropdown-cont">
                     <a href="#">인기</a>
                     <a href="#">최신</a>
                     <a href="#">추천</a>
                 </div>
-            </span>
+            </span> --%>
             <span class="dropdown">
                 <button class="dropdown-btn">카테고리</button>
                 <div class="dropdown-cont">

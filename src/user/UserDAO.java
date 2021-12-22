@@ -7,18 +7,18 @@ import java.sql.ResultSet;
 
 public class UserDAO {
 	
-	private Connection conn; //�옄諛붿� �뜲�씠�꽣踰좎씠�뒪瑜� �뿰寃�
-	private PreparedStatement pstmt; //荑쇰━臾� ��湲� 諛� �꽕�젙
-	private ResultSet rs; //寃곌낵媛� 諛쏆븘�삤湲�
+	private Connection conn; //占쎌쁽獄쏅뗄占� 占쎈쑓占쎌뵠占쎄숲甕곗쥙�뵠占쎈뮞�몴占� 占쎈염野껓옙
+	private PreparedStatement pstmt; //�뜎�눖�봺�눧占� 占쏙옙疫뀐옙 獄쏉옙 占쎄퐬占쎌젟
+	private ResultSet rs; //野껉퀗�궢揶쏉옙 獄쏆룇釉섓옙�궎疫뀐옙
 	
-	//湲곕낯 �깮�꽦�옄
-	//UserDAO媛� �떎�뻾�릺硫� �옄�룞�쑝濡� �깮�꽦�릺�뒗 遺�遺�
-	//硫붿냼�뱶留덈떎 諛섎났�릺�뒗 肄붾뱶瑜� �씠怨녹뿉 �꽔�쑝硫� 肄붾뱶媛� 媛꾩냼�솕�맂�떎
+	//疫꿸퀡�궚 占쎄문占쎄쉐占쎌쁽
+	//UserDAO揶쏉옙 占쎈뼄占쎈뻬占쎈┷筌롳옙 占쎌쁽占쎈짗占쎌몵嚥∽옙 占쎄문占쎄쉐占쎈┷占쎈뮉 �겫占썽겫占�
+	//筌롫뗄�꺖占쎈굡筌띾뜄�뼄 獄쏆꼶�궗占쎈┷占쎈뮉 �굜遺얜굡�몴占� 占쎌뵠�⑤끃肉� 占쎄퐫占쎌몵筌롳옙 �굜遺얜굡揶쏉옙 揶쏄쑴�꺖占쎌넅占쎈쭆占쎈뼄
 	
 	public UserDAO() {
 		try {
 			String dbID = "root";
-			String dbPassword = "root";
+			String dbPassword = "1234";
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String dbURL = "jdbc:mysql://localhost:3306/blog";
 			Class.forName(driver);
@@ -32,20 +32,20 @@ public class UserDAO {
 		public int login(String userId, String userPassword) {
 			String sql = "select userPassword from user where userId = ?";
 			try {
-				pstmt = conn.prepareStatement(sql); //sql 荑쇰━臾몄쓣 ��湲�
-				pstmt.setString(1, userId); //泥ル쾲吏� '?'�뿉 留ㅺ컻蹂��닔濡� 諛쏆븘�삩 'userId'瑜� ���엯
-				rs = pstmt.executeQuery(); //荑쇰━瑜� �떎�뻾�븳 寃곌낵瑜� rs�뿉 ���옣
+				pstmt = conn.prepareStatement(sql); //sql �뜎�눖�봺�눧紐꾩뱽 占쏙옙疫뀐옙
+				pstmt.setString(1, userId); //筌ｃ꺂苡뀐쭪占� '?'占쎈퓠 筌띲끆而삭퉪占쏙옙�땾嚥∽옙 獄쏆룇釉섓옙�궔 'userId'�몴占� 占쏙옙占쎌뿯
+				rs = pstmt.executeQuery(); //�뜎�눖�봺�몴占� 占쎈뼄占쎈뻬占쎈립 野껉퀗�궢�몴占� rs占쎈퓠 占쏙옙占쎌삢
 				if(rs.next()) {
 					if(rs.getString(1).equals(userPassword)) {
-						return 1; //濡쒓렇�씤 �꽦怨�
+						return 1; //嚥≪뮄�젃占쎌뵥 占쎄쉐�⑨옙
 					}else
-						return 0; //鍮꾨�踰덊샇 ��由�
+						return 0; //�뜮袁⑨옙甕곕뜇�깈 占쏙옙�뵳占�
 				}
-				return -1; //�븘�씠�뵒 �뾾�쓬
+				return -1; //占쎈툡占쎌뵠占쎈탵 占쎈씨占쎌벉
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-			return -2; //�뵒鍮� �뿰寃� 臾몄젣
+			return -2; //占쎈탵�뜮占� 占쎈염野껓옙 �눧紐꾩젫
 		}
 		public int join(UserVO userVO) {
 			  String sql = "insert into user(userId, userPassword, userName, userGender, userEmail) values(?, ?, ?, ?, ?)";

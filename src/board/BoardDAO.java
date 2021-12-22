@@ -13,14 +13,14 @@ public class BoardDAO {
 	private ResultSet rs;
 	
 
-	//占썩본 占쏙옙占쏙옙占쏙옙
+
 	public BoardDAO() {
 		try {
-//			System.out.println("占쏙옙占쏙옙占싶븝옙占싱쏙옙占쏙옙占쏙옙");
+
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String dbURL="jdbc:mysql://localhost:3306/blog";
 			String dbID ="root";
-			String dbPassword="root";
+			String dbPassword="1234";
 
 			Class.forName(driver);
 			conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
@@ -30,8 +30,6 @@ public class BoardDAO {
 	}
 	
 
-	//占쌜쇽옙占쏙옙占쏙옙
-
 	public String getDate() {
 		String sql="select now()";
 		try {
@@ -39,18 +37,18 @@ public class BoardDAO {
 
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
-//				System.out.println("占쌜쇽옙占쏙옙占쏙옙");
+
 				return rs.getString(1);
 			}
 			
 		}catch (Exception e){
 			e.printStackTrace();
 		}
-		return "";//占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙占�
+		return "";
 	}
 	
 	public int getNext() {
-		//占쏙옙占쏙옙 占쌉시깍옙占� 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占싫몌옙臼占� 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙호占쏙옙 占쏙옙占싼댐옙.
+		
 
 		String sql="select bId from board order by bId desc";
 		try {
@@ -58,7 +56,7 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 
-//				System.out.println("占쏙옙호占싸울옙");
+				System.out.println(rs.getInt(1));
 
 				return rs.getInt(1)+1;
 			}	
@@ -67,22 +65,22 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 
-		return -1;//占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙占�
+		return -1;//�뜝�룞�삕�뜝�룞�삕�뜝�떢釉앹삕�뜝�떛�룞�삕 �뜝�룞�삕�뜝占�
 	}
 	
 	public int write(String bTitle,String userId, String bContent,String filename,String category) {
 		String sql="insert into board(bId,bTitle,userId,bDate,bContent,bAvailable,bcount,bimage,bcategory) values(?,?,?,?,?,?,?,?,?)";
 		try {
-//			System.out.println("占쌜억옙占쏙옙");
+//			System.out.println("�뜝�뙗�뼲�삕�뜝�룞�삕");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, getNext());
 			pstmt.setString(2, bTitle);
 			pstmt.setString(3, userId);
 			pstmt.setString(4,getDate());
 			pstmt.setString(5, bContent);
-			pstmt.setInt(6, 1);//占쏙옙占쏙옙 占싫ｏ옙占싫�
+			pstmt.setInt(6, 1);
 			pstmt.setInt(7, 0);
-			pstmt.setString(8, filename);//占쏙옙占쏙옙占싱몌옙
+			pstmt.setString(8, filename);
 			pstmt.setString(9, category);
 
 			return pstmt.executeUpdate();
@@ -90,17 +88,17 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 
-		return -1; //占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙占�
+		return -1; 
 	}
 	
-	//占쌉시깍옙 占쏙옙占쏙옙트
+	
 
 	public ArrayList<BoardVO> getList(int pageNumber,String userId){
-		String sql = "select * from board where bId < ? and userId=? order by bId desc limit 4";
+		String sql = "select * from board where bId < ? and userId=? order by bId desc";
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, getNext()-(pageNumber-1)*4);
+			pstmt.setInt(1, getNext());
 			pstmt.setString(2, userId);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -121,13 +119,13 @@ public class BoardDAO {
 		return list;
 		
 	}
-	public ArrayList<BoardVO> GalleryList(String bcategory){//pageNumber 를 분류 번호로 바꿔야한다.
-		String sql = "select bId,bimage from board where bId < ? and bAvailable=1 and bcategory=? order by bId desc ";
+	public ArrayList<BoardVO> GalleryList(String bcategory){//pageNumber 瑜� 遺꾨쪟 踰덊샇濡� 諛붽퓭�빞�븳�떎.
+		String sql = "select bId,bimage from board where bId < ? and bAvailable=1 and bcategory like ? order by bId desc ";
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, getNext());
-			pstmt.setString(2, bcategory);
+			pstmt.setString(2, '%'+bcategory+'%');
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO boardVO = new BoardVO();
@@ -142,7 +140,7 @@ public class BoardDAO {
 		return list;
 		
 	}
-	//占쏙옙占쏙옙占쏙옙 처占쏙옙
+	//�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 泥섇뜝�룞�삕
 
 	/*
 	 * public boolean nextPage(int pageNumber) { String sql =
@@ -215,7 +213,7 @@ public class BoardDAO {
 		return null;
 	}
 
-	//占쌉시깍옙 占쏙옙占� 
+	//�뜝�뙃�떆源띿삕 �뜝�룞�삕�뜝占� 
 	public int update(int bId, String bTitle, String bContent, String filename,String bcategory) {
 		String sql = "update board set bTitle = ?, bContent = ?, bimage = ?, bcategory=? where bId = ?";
 		try {
@@ -234,9 +232,9 @@ public class BoardDAO {
 	}
 	
 
-	//占쌉시깍옙 占쏙옙占�
+	//�뜝�뙃�떆源띿삕 �뜝�룞�삕�뜝占�
 	public int delete(int bId) {
-		//占쏙옙占� 占쏙옙占쏙옙占싶몌옙 占쏙옙占쏙옙求째占쏙옙占� 占싣니띰옙 占쌉시깍옙 占싫울옙占쏙옙美占� 0占쏙옙占� 占쏙옙占�
+		//�뜝�룞�삕�뜝占� �뜝�룞�삕�뜝�룞�삕�뜝�떢紐뚯삕 �뜝�룞�삕�뜝�룞�삕黎귥㎏�뜝�룞�삕�뜝占� �뜝�떍�땲�씛�삕 �뜝�뙃�떆源띿삕 �뜝�떕�슱�삕�뜝�룞�삕獰롥뜝占� 0�뜝�룞�삕�뜝占� �뜝�룞�삕�뜝占�
 		String sql = "delete from board where bId = ?";
 
 		try {
@@ -266,7 +264,7 @@ public class BoardDAO {
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
 		String sql = "select * from board where " + searchField.trim();
 		try {
-			if(searchText != null && !searchText.equals("") ){//이거 빼면 안 나온다ㅜ 왜지?
+			if(searchText != null && !searchText.equals("") ){//�씠嫄� 鍮쇰㈃ �븞 �굹�삩�떎�뀥 �솢吏�?
                 sql +=" LIKE '%"+searchText.trim()+"%' order by bId desc limit 10";
                 
             }
@@ -274,7 +272,7 @@ public class BoardDAO {
 				sql = "select * from board where bTitle like '%" + searchText.trim() + "%' or userId like"
 						+ " '%" + searchText.trim() + "%' order by bId desc limit 10";
 			}
-			System.out.println(sql);
+			//System.out.println(sql);
             PreparedStatement pstmt=conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();//select
 			while(rs.next()) {

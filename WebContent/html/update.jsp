@@ -41,7 +41,7 @@
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('유효하지 않은 글입니다.')");
-		script.println("location.href='board.jsp'");
+		script.println("location.href='Mainpage.jsp'");
 		script.println("</script>");
 	}
 	
@@ -51,7 +51,7 @@
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('권한이 없습니다')");
-		script.println("location.href='board.jsp'");
+		script.println("location.href='Mainpage.jsp'");
 		script.println("</script>");
 	} 
 	%>
@@ -88,9 +88,9 @@
                     <div class="div-box">
                         <div>분류</div>
                         <select name="category" id="category">
-                            <option value="CUTE">CUTE</option>
-                            <option value="SEXY">SEXY</option>
-                            <option value="HANSUME">HANSUME</option>
+                             <option value="ALL_CUTE">CUTE</option>
+                            <option value="ALL_SEXY">SEXY</option>
+                            <option value="ALL_HANSUME">HANSUME</option>
                         </select>
                     </div>
 					</table>

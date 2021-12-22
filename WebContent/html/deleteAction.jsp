@@ -35,7 +35,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다')");
-			script.println("location.href='board.jsp'");
+			script.println("location.href='Mainpage.jsp'");
 			script.println("</script>");
 		}
 		//해당 'bID'에 대한 게시글을 가져온 다음 세션을 통하여 작성자 본인이 맞는지 체크한다
@@ -59,11 +59,14 @@
 				script.println("</script>");
 			// 글 삭제가 정상적으로 실행되면 알림창을 띄우고 게시판 메인으로 이동한다
 			}else {
-				PrintWriter script = response.getWriter();
-				script.println("<script>");
-				script.println("alert('글 삭제하기 성공')");
-				script.println("location.href='Story.jsp'");
-				script.println("</script>");
+
+			
+			PrintWriter script = response.getWriter();
+						script.println("<script>");
+						script.println("alert('게시글을 삭제하셨습니다.')");
+						script.println("location.href='Mainpage.jsp'");
+						script.println("</script>");
+
 			}
 		/* } */
 	
