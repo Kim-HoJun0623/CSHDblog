@@ -57,10 +57,11 @@ h3{
 }
 
 .sign{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    width: 460px;
+    width: 500px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .box{
@@ -75,9 +76,7 @@ h3{
 }
 
 .int {
-    display: block;
-    position: relative;
-    width: 100%;
+    width: 500px;
     height: 29px;
     border: none;
     background: #fff;
@@ -132,13 +131,14 @@ input {
 /*button*/
 
 #btnsign{
-    width: 30%;
-    padding: 21px 0 17px;
-    border: 0;
+    width: 110px;
+    padding: 12px;
+    border: none;
     cursor: pointer;
-    background-color: rgb(108, 108, 247);
-    margin-bottom: 40px;
+    background-color: lightskyblue;
     float: right;
+    border-radius: 12px;
+    font-size: 16px;
 
 }
 

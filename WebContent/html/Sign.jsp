@@ -45,9 +45,9 @@ function fn_sendJoin(){
         </div>
 </header>
 
-<div class="content">
+<section class="content">
     <h2>Sign</h2>
-    <section class="sign">
+    <div class="sign">
         <form accept-charset="utf-8" name="frmJoin">
             <!-- name -->
             <div>
@@ -116,9 +116,8 @@ function fn_sendJoin(){
             
         </form>
 
-    </section>
-</div>
-</div>
+    </div>
+</section>
     <!-- wrapper -->
     <script src="../js/sign.js"></script>
 </body>
