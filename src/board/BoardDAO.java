@@ -56,7 +56,7 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 
-				System.out.println(rs.getInt(1));
+//				System.out.println(rs.getInt(1));
 
 				return rs.getInt(1)+1;
 			}	

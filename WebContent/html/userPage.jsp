@@ -54,7 +54,7 @@
     </header>
     <section class="profile">
         <div class="main-img">
-            <img src="../Img/space-big.png" alt="main-img">
+            <img src="../Img/big-user.png" alt="main-img">
             <div class="profile-contbox">
             <div class="profile-cont">
                 <h2><%=userId  %></h2>

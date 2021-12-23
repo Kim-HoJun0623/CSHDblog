@@ -29,7 +29,7 @@ if(userId == null){
 	PrintWriter script = response.getWriter();
 	script.println("<script>");
 	script.println("alert('로그인을 하세요')");
-	script.println("location.href='#'");
+	script.println("location.href='Login.jsp'");
 	script.println("</script>");
 }else{ 
 	if(bId==0 || cmContent==null){
