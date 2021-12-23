@@ -47,7 +47,7 @@ public class CommentDAO {
 //			System.out.println("湲��벐湲�");
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, cmContent);
-			pstmt.setInt(2, getNext(bId));
+			pstmt.setInt(2, getNext());
 			pstmt.setString(3,userId);
 			pstmt.setString(4, getDate());
 			pstmt.setInt(5, bId);
@@ -100,7 +100,7 @@ public class CommentDAO {
 		return -1;
 	}
 	public ArrayList<CommentVO> getList(int number,int bId){
-		String sql = "select * from comment where number < ? and bId = ?  order by bId desc limit 10";
+		String sql = "select * from comment where number < ? and bId = ?  order by number desc  limit 10";
 		//System.out.println("由ъ뒪�듃異쒕젰");
 		ArrayList<CommentVO> list = new ArrayList<CommentVO>();
 		try {		

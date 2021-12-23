@@ -56,6 +56,7 @@
         <title>Posting</title>
         <link rel="stylesheet" href="../Css/posting-style.css"> 
    	<script type="text/javascript">
+   		
    		var popup;
    		function cmUpdateOpen(bId,cId) {
    			window.name ="perentForm";
@@ -65,6 +66,7 @@
 			});
    			
    		}
+   		/* setTimeout("location.reload()"); */
    	</script>
     </head>
     <body>
