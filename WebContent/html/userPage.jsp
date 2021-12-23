@@ -55,12 +55,14 @@
     <section class="profile">
         <div class="main-img">
             <img src="../Img/space-big.png" alt="main-img">
+            <div class="profile-contbox">
             <div class="profile-cont">
                 <h2><%=userId  %></h2>
                 <div class="usericon">
                     icon
                 </div>
-            </div>    
+            </div> 
+        </div>   
         </div>
     </section>
     
