@@ -60,7 +60,8 @@
 
 <section class="cont">
       <div class="main-img">
-          <img src="../Img/dogbig.PNG" alt="main-img">
+          <img src="../Img/big-main.png" alt="main-img">
+          <div class="search-box">
           <div class="search">
               <h2>검색어를 입력하세요</h2>
               <p>자신의 이미지를 공유하고 원하는 이미지를 다운 받아보세요</p>
@@ -77,6 +78,7 @@
                 </span>
             </form>
           </div>
+        </div>
       </div>
   </section>
 

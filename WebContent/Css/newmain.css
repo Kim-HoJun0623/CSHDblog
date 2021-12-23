@@ -18,9 +18,10 @@ header{height: 60px;max-width: 2000px;min-width: 1200px;display: flex;align-item
 
 /* main */
 .cont{width: 100%;min-width: 1200px;margin-top: 60px;}
-.main-img{position: relative;}
+.main-img{position: relative;height: 400px;overflow: hidden;}
 .main-img img{width: 100%;height: auto;}
-.search{position:absolute;left: 26%;top:30%;
+.search-box{position: absolute;top: 7em;width: 100%;}
+.search{width: 800px;margin: auto;
     display: flex;flex-direction: column;align-content: center;justify-content: center;align-items: center;}
 .search h2{margin-bottom: 16px;font-size: 32px;}
 .search p{font-size: 16px;font-weight: 400;margin-bottom: 32px;}

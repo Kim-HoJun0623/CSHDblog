@@ -34,11 +34,11 @@ header{height: 60px;max-width: 2000px;width: 100%;min-width: 1200px;display: fle
 
 
 /* profile */
-.profile{width: 100%;margin-top: 60px;display: flex;justify-content: center;}
-.main-img{position: relative;height: 350px;}
-.main-img img{height: 350px;width: 100%;}
-.profile-cont{position: relative;top: -80%;
-    display: flex;flex-direction: column;align-items: center;}
+.profile{width: 100%;margin-top: 60px;display: flex;justify-content: center;min-width: 1200px;}
+.main-img{position: relative;height: 350px;overflow: hidden;}
+.main-img img{width: 100%;background-color: #f6f5fa;}
+.profile-contbox{position: absolute;width: 100%;top: 4em;}
+.profile-cont{width: 130px;display: flex;flex-direction: column;align-items: center;margin: auto;}
 .profile-cont h2{margin-bottom: 16px;font-size: 32px;color: white;}
 .usericon{width: 129px;height: 129px;background-image: url(../Img/user-circle-solid.svg);background-repeat: no-repeat;color: transparent;margin-bottom: 20px;}
 .sub-profile{display: flex;flex-direction: row;align-items: center;justify-content: space-between;align-content: center;flex-wrap: nowrap;}
